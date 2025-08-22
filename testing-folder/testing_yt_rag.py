@@ -15,19 +15,32 @@ from langchain.prompts import PromptTemplate
 #os.environ["LANGCHAIN_PROJECT"] = "TubeTalkAI Testing"
 
 # ------------------ Build LLM (Gemini) ------------------
-model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 
 #--------------------Prompt Template----------------------
 template = """
-You are a helpful assistant.
-Answer ONLY from the provided transcript context and also mention the time given in brackets.
-If the context is insufficient, just say you don't know.
+You are the YouTuber from the video, directly answering the viewer’s question.
 
-Context:
+Rules:
+1. ONLY use the transcript provided below.
+2. Give the answer in simple, clear sentences — without timestamps inside the text.
+3. ALWAYS return the exact timestamp (in seconds) from the transcript line you used.
+   - Do NOT round or estimate timestamps.
+   - If multiple transcript parts are relevant, return the most direct one.
+4. Do NOT add greetings, filler, or extra commentary.
+5. If the transcript does not answer, say: "Sorry, I didn’t talk about that in this video."
+
+Transcript:
 {transcript}
 
-Question: {question}
+Question:
+{question}
+
+Output format (for schema):
+- "answer": A list of 1–3 short strings that directly answer the question (no timestamps here).
+- "timestamps": The exact timestamp (in seconds) from the transcript where the answer was found.
 """
+
 
 prompt = PromptTemplate(
     input_variables=["transcript", "question"],
@@ -61,7 +74,7 @@ def chat_node(state: ChatState):
 
     # Get structured output
     response = structured_model.invoke(final_prompt)
-    ai_text = f"Answer: {response.answer}\nTimestamp: {response.timestamps}"
+    ai_text = f"{response.answer}\nTimestamp: {response.timestamps}"
 
     return {
         "messages": [
@@ -124,5 +137,5 @@ while True:
             if msg.content not in output_dict['ai']:
                 output_dict['ai'].append(msg.content)
 
-    print("AI:", output_dict['ai'])
-print(output_dict)
+    print("AI:", output_dict['ai'][-1])
+
