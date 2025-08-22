@@ -12,7 +12,7 @@ from typing import TypedDict, Annotated
 import re
 import os
 from langchain.prompts import PromptTemplate
-#os.environ["LANGCHAIN_PROJECT"] = "TubeTalkAI Testing"
+os.environ["LANGCHAIN_PROJECT"] = "TubeTalkAI Testing"
 
 # ------------------ Build LLM (Gemini) ------------------
 model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
@@ -68,7 +68,7 @@ def chat_node(state: ChatState):
 
     # Fill the prompt
     final_prompt = prompt.format(
-        transcript=youtube_captions,   # <-- your transcript goes here
+        transcript=context,   # <-- your transcript goes here
         question=user_message
     )
 
@@ -96,9 +96,9 @@ workflow =graph.compile(checkpointer = checkpointer)
 
 
 # ------------------ Load YouTube Transcript ------------------
-youtube_input = "https://www.youtube.com/watch?v=s3KnSb9b4Pk"
+youtube_input = "https://www.youtube.com/watch?v=kCyAZ6wYg8w"
 youtube_captions = load_transcript(youtube_input)
-print("Transcript Loaded:", youtube_captions[:200], "...")
+print("Transcript Loaded")
 
 # Split & Embed transcript
 chunks = text_splitter(youtube_captions)
