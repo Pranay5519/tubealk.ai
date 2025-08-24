@@ -1,10 +1,11 @@
 import streamlit as st
-from yt_shortVideo_model import *
+from yt_shortVideo_model import chatbot , retrieve_all_threads , llm
 from langchain_core.messages import HumanMessage
 import uuid
-from utility_functions import *
+from utility_functions import load_conversation, add_thread, reset_chat, save_thread_id_as_names, sidebar_thread_selection
+#title
 st.title("LangGraph Chatbot with Gemini")
-#st.subheader(st.session_state['thread_id'])
+
 # session states
 if 'message_history' not in st.session_state:
     st.session_state['message_history'] = []
@@ -14,14 +15,11 @@ if "thread_id" not in st.session_state:
 
 if "chat_threads" not in st.session_state:
     st.session_state.chat_threads = retrieve_all_threads()
-if "youtube_captions" not in st.session_state :
-    st.session_state.youtube_caption = []
 
 #Sidebar UI
 st.sidebar.title("History")
 if st.sidebar.button("new Chat"):
     reset_chat()
-    
 st.sidebar.header("My Conversations")
 sidebar_thread_selection()
 
@@ -30,38 +28,18 @@ for message in st.session_state["message_history"]: # for loading chat history
     with st.chat_message(message["role"]):
         st.text(message["content"])
         
-
-
-
-url = st.text_input("Enter YouTube Video URL: ")
-if st.button("Load Transcripts.."):
-    # Show a loading status box
-    with st.status("Loading Transcripts...", expanded=True) as status:
-        #st.video(url)
-        youtube_captions = load_transcript(url)
-        st.session_state.youtube_captions = youtube_captions
-        
-
 user_input = st.chat_input("Enter your question:")
+
 if user_input:
     if st.session_state['message_history'] == []:
         save_thread_id_as_names(user_input)
-        #check if thread_id history is empty or not
-        
+
     st.session_state['message_history'].append({"role": "user", "content": user_input})
     with st.chat_message("user"):
         st.text(user_input)
-    #st.session_state['thread_id'] - Stores Recent Thread_ID 
+    #print(st.session_state['thread_id'])
     CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}} # here thread_id  coming from function sidebar_thread_selection
-    youtube_captions = st.session_state['youtube_captions']
     with st.chat_message('assistant'):
-        if is_thread_empty(conn, thread_id = st.session_state['thread_id']):   # <-- we check thread-specific data
-            formatted_prompt = prompt_template.format(
-                transcript=youtube_captions,
-                question=user_input
-            )
-            user_input = formatted_prompt
-
         ai_message = st.write_stream(
             message_chunk for message_chunk , metatdata in chatbot.stream(
                 {'messages' : [HumanMessage(content=user_input)]},

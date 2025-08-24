@@ -58,8 +58,7 @@ youtube_captions = load_transcript(youtube_input)
 print("transcripts Loaded")
 print("--"*100)
 print("--"*100)
-with open(r"C:\Users\prana\Desktop\PROJECTS\tubetalk.ai\testing-folder\youtube_short_rag_prompt.txt", "r") as file:
-    text = file.read()
+
 while True:
     user_input = input("User :")
 
