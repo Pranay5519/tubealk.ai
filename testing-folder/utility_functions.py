@@ -1,5 +1,5 @@
-from testing_models import chatbot , retrieve_all_threads , model
-
+from test import *
+import uuid
 from langchain_core.messages import HumanMessage
 import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -9,6 +9,8 @@ from youtube_transcript_api import YouTubeTranscriptApi
 import re
 import sqlite3
 from langchain.prompts import PromptTemplate
+
+
 def load_conversation(thread_id):
     return chatbot.get_state(config={'configurable': {'thread_id': thread_id}}).values['messages']
 
@@ -21,6 +23,7 @@ def reset_chat():
 
 
 def save_thread_id_as_names(user_input):
+    
     recent_ChatThreads = st.session_state['chat_threads']
     prompt = f""" You are a system that generates short, clear conversation titles.
 
@@ -139,3 +142,5 @@ Output format (for schema):
 - "timestamps": The exact timestamp (in seconds) from the transcript where the answer was found.
 """
 )
+
+

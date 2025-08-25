@@ -1,3 +1,5 @@
+
+
 import streamlit as st
 from yt_shortVideo_model import *
 from langchain_core.messages import HumanMessage
@@ -15,7 +17,7 @@ if "thread_id" not in st.session_state:
 if "chat_threads" not in st.session_state:
     st.session_state.chat_threads = retrieve_all_threads()
 if "youtube_captions" not in st.session_state :
-    st.session_state.youtube_caption = []
+    st.session_state.youtube_captions = []
 
 #Sidebar UI
 st.sidebar.title("History")
@@ -29,16 +31,16 @@ sidebar_thread_selection()
 for message in st.session_state["message_history"]: # for loading chat history
     with st.chat_message(message["role"]):
         st.text(message["content"])
-        
-
 
 
 url = st.text_input("Enter YouTube Video URL: ")
 if st.button("Load Transcripts.."):
+    
     # Show a loading status box
     with st.status("Loading Transcripts...", expanded=True) as status:
         #st.video(url)
-        youtube_captions = load_transcript(url)
+        save_to_txt_file(load_conversation(url))
+        #youtube_captions = load_transcript(url)
         st.session_state.youtube_captions = youtube_captions
         
 
@@ -54,20 +56,17 @@ if user_input:
     #st.session_state['thread_id'] - Stores Recent Thread_ID 
     CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}} # here thread_id  coming from function sidebar_thread_selection
     youtube_captions = st.session_state['youtube_captions']
-    with st.chat_message('assistant'):
-        if is_thread_empty(conn, thread_id = st.session_state['thread_id']):   # <-- we check thread-specific data
-            formatted_prompt = prompt_template.format(
-                transcript=youtube_captions,
-                question=user_input
-            )
-            user_input = formatted_prompt
+    print("=== STREAMLIT DEBUG ===")
+    print("youtube_captions type:", type(youtube_captions))
+    print("youtube_captions length:", len(youtube_captions) if youtube_captions else 0)
+    print("youtube_captions preview:", youtube_captions[:200] if youtube_captions else "EMPTY")
 
-        ai_message = st.write_stream(
-            message_chunk for message_chunk , metatdata in chatbot.stream(
-                {'messages' : [HumanMessage(content=user_input)]},
-                config=CONFIG,
-                stream_mode='messages'
-            )   
-        )
+    with st.chat_message("assistant"):
+        ai_message = chatbot.invoke(
+        {"messages": [HumanMessage(content="what is this Video about?")]},
+        config=CONFIG
+    )['messages'][-1].content
+            
+
     st.session_state['message_history'].append({"role": "assistant", "content": ai_message})
     
