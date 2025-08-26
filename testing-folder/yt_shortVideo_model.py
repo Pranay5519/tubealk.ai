@@ -1,8 +1,7 @@
 from dotenv import load_dotenv
 load_dotenv()
-import os
 import sqlite3
-import re
+import uuid
 from typing import TypedDict, Annotated
 from pydantic import BaseModel, Field
 
@@ -11,29 +10,11 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage
-from youtube_transcript_api import YouTubeTranscriptApi
-
-os.environ["LANGCHAIN_PROJECT"] = "TubeTalkAI Testing"
-# ------------------ Transcript Loader ------------------
-def load_transcript(url: str) -> str | None:
-    pattern = r'(?:v=|\/)([0-9A-Za-z_-]{11})'
-    match = re.search(pattern, url)
-    if match:
-        video_id = match.group(1)
-        try:
-            captions = YouTubeTranscriptApi().fetch(video_id).snippets
-            data = [f"{item.text} ({item.start})" for item in captions]
-            return " ".join(data)
-        except Exception as e:
-            print(f"Error fetching transcript: {e}")
-            return None
-    return None
 
 
-from test_app import url
-# ------------------ Build LLM (Gemini) ------------------
+# ------------------ Build LLM ------------------
 model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
-youtube_captions = load_transcript(url=url)
+
 # ------------------ System Message ------------------
 system_message = SystemMessage(content="""
 You are the YouTuber from the video, directly answering the viewer’s question.
@@ -46,6 +27,7 @@ Rules:
    - If multiple transcript parts are relevant, return the most direct one.
 4. Do NOT add greetings, filler, or extra commentary.
 5. If the transcript does not answer, say: "Sorry, I didn’t talk about that in this video."
+6.Greet only if user does it
 """)
 
 # ------------------ Structured Schema ------------------
@@ -60,8 +42,7 @@ class ChatState(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
 
 # ------------------ Chat Node ------------------
-def chat_node(state: ChatState):
-    # Build message list for model (system not stored in state)
+def chat_node(state: ChatState, youtube_captions):
     messages = [
         system_message,
         HumanMessage(content=f"Transcript:\n{youtube_captions}\n\nQuestion:\n{state['messages'][-1].content}")
@@ -70,7 +51,6 @@ def chat_node(state: ChatState):
     response = structured_model.invoke(messages)
     ai_text = f"{' '.join(response.answer)}\nTimestamp: {response.timestamps}"
 
-    # Store only user + AI messages in memory
     return {
         "messages": [
             state["messages"][-1],
@@ -78,24 +58,34 @@ def chat_node(state: ChatState):
         ]
     }
 
-# ------------------ SQLite Checkpointer ------------------
-conn = sqlite3.connect(database="delete.db", check_same_thread=False)
-checkpointer = SqliteSaver(conn=conn)
 
+# ------------------ SQLite Checkpointer ------------------
+conn = sqlite3.connect(database="yt_ShortVideo.db", check_same_thread=False)
+checkpointer = SqliteSaver(conn=conn)
 
 # ------------------ Build Graph ------------------
 graph = StateGraph(ChatState)
-graph.add_node("chat_node", chat_node)
-graph.add_edge(START, "chat_node")
-graph.add_edge("chat_node", END)
 
-chatbot = graph.compile(checkpointer=checkpointer)
+# instead of directly calling, wrap with youtube captions parameter
+def build_chatbot(youtube_captions):
+    # Create a new graph instance for each chatbot
+    graph = StateGraph(ChatState)
+
+    def _chat_node(state: ChatState):
+        return chat_node(state, youtube_captions)
+
+    graph.add_node("chat_node", _chat_node)
+    graph.add_edge(START, "chat_node")
+    graph.add_edge("chat_node", END)
+    chatbot = graph.compile(checkpointer=checkpointer)
+    return chatbot
 
 
+
+# ------------------ Retrieve All Threads ------------------
 def retrieve_all_threads():
     all_threads = set()
     for checkpoint in checkpointer.list(None):
         all_threads.add(checkpoint.config['configurable']['thread_id'])
     return list(all_threads)
 
-# utility functions for YouTube Chatbot

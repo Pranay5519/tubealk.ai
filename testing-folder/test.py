@@ -76,7 +76,7 @@ def chat_node(state: ChatState):
     }
 
 # ------------------ SQLite Checkpointer ------------------
-conn = sqlite3.connect(database="yt_ShortVideo.db", check_same_thread=False)
+conn = sqlite3.connect(database="delete.db", check_same_thread=False)
 checkpointer = SqliteSaver(conn=conn)
 
 
