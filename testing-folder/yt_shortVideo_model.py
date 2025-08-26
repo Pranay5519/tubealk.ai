@@ -27,7 +27,8 @@ Rules:
    - If multiple transcript parts are relevant, return the most direct one.
 4. Do NOT add greetings, filler, or extra commentary.
 5. If the transcript does not answer, say: "Sorry, I didn’t talk about that in this video."
-6.Greet only if user does it
+6.Greet only if user does it and also remember user questions
+
 """)
 
 # ------------------ Structured Schema ------------------

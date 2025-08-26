@@ -1,7 +1,6 @@
 from yt_shortVideo_model import * 
 import uuid
 
-
 from langchain_core.messages import HumanMessage
 import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -12,6 +11,38 @@ import re
 import sqlite3
 from langchain.prompts import PromptTemplate
 
+# ------------------ Save Transcripts ------------------
+
+def save_transcript(thread_id: str, captions: str):
+    conn = sqlite3.connect(database="yt_ShortVideo.db", check_same_thread=False)
+    #checkpointer = SqliteSaver(conn=conn)
+    cursor = conn.cursor()
+    # Ensure table exists
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS transcripts (
+        thread_id TEXT PRIMARY KEY,
+        captions TEXT
+    )
+    """)
+
+    # Insert or update transcript
+    cursor.execute("""
+    INSERT OR REPLACE INTO transcripts (thread_id, captions)
+    VALUES (?, ?)
+    """, (thread_id, captions))
+
+    conn.commit()
+
+def load_captions_from_db(thread_id: str) -> str | None:
+    conn = sqlite3.connect(database="yt_ShortVideo.db", check_same_thread=False)
+    #checkpointer = SqliteSaver(conn=conn)
+    cursor = conn.cursor()
+    cursor.execute("SELECT captions FROM transcripts WHERE thread_id = ?", (thread_id,))
+    row = cursor.fetchone()
+    return row[0] if row else None
+
+
+# ---------------------------------------------
 def load_conversation(chatbot , thread_id  ):
     return chatbot.get_state(config={'configurable': {'thread_id': thread_id}}).values['messages']
 
@@ -40,6 +71,7 @@ def sidebar_thread_selection(chatbot):
         if st.sidebar.button(str(thread_id)):
             st.session_state['thread_id'] = thread_id
             messages = load_conversation(chatbot,thread_id)
+            st.session_state['youtube_captions'] = load_captions_from_db(thread_id=st.session_state['thread_id'])
             temp_history = []
             for msg in messages:
                 if isinstance(msg, HumanMessage):
@@ -98,5 +130,4 @@ def is_thread_empty(conn, thread_id: str) -> bool:
         return True  # Table not created yet
     return count == 0
 
-# ------------------ Prompt Template ------------------
 
