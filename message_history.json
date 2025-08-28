@@ -1,0 +1,15 @@
+[
+  {
+    "role": "user",
+    "content": "what is this Video About?"
+  },
+  {
+    "role": "assistant",
+    "content": "This video is about the importance of self-reliance, taking raw action, and having a clear plan to achieve success. It emphasizes that nobody cares about your life as much as you do, and you must work hard, invest in yourself, and strive for an exceptional life rather than being content. The speaker also discusses the nature of money as stored time and energy, the pursuit of power over mere wealth, and the abundance of money in the world, urging viewers to find motivation in their struggles and work both smart and hard.",
+    "timestamp": "1.32"
+  },
+  {
+    "role": "user",
+    "content": "how to take raw action"
+  }
+]

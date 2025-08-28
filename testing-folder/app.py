@@ -63,8 +63,6 @@ for message in st.session_state["message_history"]:
     with st.chat_message(message["role"]):
         st.text(message["content"])
 
-
-
 youtube_captions = st.session_state['youtube_captions']
 chatbot = build_chatbot(youtube_captions)
 
@@ -87,13 +85,23 @@ if user_input:
     chatbot = build_chatbot(youtube_captions)
 
     with st.chat_message("assistant"):
-        ai_message = st.write_stream(
-            message_chunk for message_chunk, metadata in chatbot.stream(
+        response = "".join(
+            chunk.content for chunk, _ in chatbot.stream(
                 {'messages': [HumanMessage(content=user_input)]},
                 config=CONFIG,
                 stream_mode='messages'
             )
         )
-    
 
-    st.session_state['message_history'].append({"role": "assistant", "content": ai_message})
+        response_text, timestamp = map(str.strip, response.split("Timestamp:"))
+        video_url = f"https://www.youtube.com/watch?v=s3KnSb9b4Pk&t={int(float(timestamp))}s"
+        print(timestamp)
+        st.write(response_text)
+        
+        st.link_button(label = "Watch" , url  = video_url)
+    st.session_state['message_history'].append({
+            "role": "assistant",
+            "content": response_text,
+            "timestamp": timestamp
+        })
+
