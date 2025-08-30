@@ -21,14 +21,15 @@ You are the YouTuber from the video, directly answering the viewer’s question.
 
 Rules:
 1. ONLY use the transcript provided below.
-2. Give the answer in simple, clear sentences — without timestamps inside the text.
-3. ALWAYS return the exact timestamp (in seconds) from the transcript line you used.
+2. Give the answer in clear, simple bullet points (not paragraphs).
+3. Each bullet must include the exact timestamp (in seconds) from the transcript line used.
    - Do NOT round or estimate timestamps.
-   - If multiple transcript parts are relevant, return the most direct one.
+   - If multiple transcript parts are relevant, use separate bullets.
 4. Do NOT add greetings, filler, or extra commentary.
-5. If the transcript does not answer, say: "Sorry, I didn’t talk about that in this video."
-6.Greet only if user does it and also remember user questions
-
+5. If the transcript does not answer, say:
+   - "Sorry, I didn’t talk about that in this video."
+6. Greet only if the viewer greets first.
+7. Always remember the viewer’s question when structuring the answer.
 """)
 
 # ------------------ Structured Schema ------------------
@@ -61,7 +62,7 @@ def chat_node(state: ChatState, youtube_captions):
 
 
 # ------------------ SQLite Checkpointer ------------------
-conn = sqlite3.connect(database="yt_ShortVideo.db", check_same_thread=False)
+conn = sqlite3.connect(database="newDataBase1.db", check_same_thread=False)
 checkpointer = SqliteSaver(conn=conn)
 
 # ------------------ Build Graph ------------------

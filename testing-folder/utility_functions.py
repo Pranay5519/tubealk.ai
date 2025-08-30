@@ -13,15 +13,25 @@ from langchain.prompts import PromptTemplate
 
 # ------------------ Save Transcripts ------------------
 
-def save_transcript(thread_id: str, captions: str):
-    conn = sqlite3.connect(database="yt_ShortVideo.db", check_same_thread=False)
-    #checkpointer = SqliteSaver(conn=conn)
+
+def save_transcript(thread_id: str, captions: str, youtube_url: str):
+    conn = sqlite3.connect(database="newDataBase1.db", check_same_thread=False)
     cursor = conn.cursor()
-    # Ensure table exists
+
+    # Ensure transcripts table exists
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS transcripts (
         thread_id TEXT PRIMARY KEY,
         captions TEXT
+    )
+    """)
+
+    # Ensure URL table exists (linked to thread_id)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS url (
+        thread_id TEXT PRIMARY KEY,
+        youtube_url TEXT,
+        FOREIGN KEY(thread_id) REFERENCES transcripts(thread_id)
     )
     """)
 
@@ -31,16 +41,30 @@ def save_transcript(thread_id: str, captions: str):
     VALUES (?, ?)
     """, (thread_id, captions))
 
+    # Insert or update URL
+    cursor.execute("""
+    INSERT OR REPLACE INTO url (thread_id, youtube_url)
+    VALUES (?, ?)
+    """, (thread_id, youtube_url))
+
     conn.commit()
+    #conn.close()
 
 def load_captions_from_db(thread_id: str) -> str | None:
-    conn = sqlite3.connect(database="yt_ShortVideo.db", check_same_thread=False)
+    conn = sqlite3.connect(database="newDataBase1.db", check_same_thread=False)
     #checkpointer = SqliteSaver(conn=conn)
     cursor = conn.cursor()
     cursor.execute("SELECT captions FROM transcripts WHERE thread_id = ?", (thread_id,))
     row = cursor.fetchone()
     return row[0] if row else None
 
+def load_url_from_db(thread_id: str) -> str | None:
+    conn = sqlite3.connect(database="newDataBase1.db", check_same_thread=False)
+    cursor = conn.cursor()
+    cursor.execute("SELECT youtube_url FROM url WHERE thread_id = ?", (thread_id,))
+    row = cursor.fetchone()
+    conn.close()
+    return row[0] if row else None
 
 # ---------------------------------------------
 def load_conversation(chatbot , thread_id  ):
@@ -72,6 +96,7 @@ def sidebar_thread_selection(chatbot):
             st.session_state['thread_id'] = thread_id
             messages = load_conversation(chatbot,thread_id)
             st.session_state['youtube_captions'] = load_captions_from_db(thread_id=st.session_state['thread_id'])
+            st.session_state['youtube_url'] = load_url_from_db(thread_id=st.session_state['thread_id'])
             temp_history = []
             for msg in messages:
                 if isinstance(msg, HumanMessage):

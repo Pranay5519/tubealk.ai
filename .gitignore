@@ -7,3 +7,6 @@ __pycache__/
 notebooks/testing.db
 notebooks/testing.db-shm
 notebooks/testing.db-wal
+
+
+newDataBase1.db

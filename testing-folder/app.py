@@ -39,20 +39,24 @@ if "chat_threads" not in st.session_state:
 
 if "youtube_captions" not in st.session_state:
     st.session_state.youtube_captions = []
+   
+if "youtube_url" not in st.session_state:
+    st.session_state.youtube_url = [] 
+    
 
 # Sidebar UI
 st.sidebar.title("New Chat")
-url = st.sidebar.text_input("Enter YouTube Video URL: ")
+input_url = st.sidebar.text_input("Enter YouTube Video URL: ")
 thread_id =  st.sidebar.text_input("Give a Conversation Name : ")
 
 if st.sidebar.button("new Chat", key="new_chat_btn"):
     reset_chat()  # clear old chat first
-    if url and thread_id:  # only load transcript if URL is provided
+    if input_url and thread_id:  # only load transcript if URL is provided
        
-        youtube_captions = load_transcript(url)
+        youtube_captions = load_transcript(input_url)
         st.session_state.youtube_captions = youtube_captions
         st.success("Transcripts Loaded Successfully..!")
-    elif not url:
+    elif not input_url:
         st.warning("Please enter a YouTube URL before starting a new chat.")
         
     elif not thread_id :
@@ -74,14 +78,18 @@ user_input = st.chat_input("Enter your question:")
 if user_input:   
     if st.session_state['message_history'] == []:
         store_thread_id(thread_id=thread_id)
-        save_transcript(thread_id=thread_id , captions=youtube_captions)
+        save_transcript(thread_id=thread_id , captions=youtube_captions,youtube_url=input_url)
     st.session_state['message_history'].append({"role": "user", "content": user_input})
     with st.chat_message("user"):
         st.text(user_input)
 
     CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}}
     youtube_captions = st.session_state['youtube_captions']
-
+    if st.session_state['youtube_url'] == []:
+        extract_url = input_url
+    else:
+        extract_url = st.session_state['youtube_url']
+        
     chatbot = build_chatbot(youtube_captions)
 
     with st.chat_message("assistant"):
@@ -94,10 +102,12 @@ if user_input:
         )
 
         response_text, timestamp = map(str.strip, response.split("Timestamp:"))
-        video_url = f"https://www.youtube.com/watch?v=s3KnSb9b4Pk&t={int(float(timestamp))}s"
+        video_url = f"{extract_url}&t={int(float(timestamp))}s"
+        
         print(timestamp)
         st.write(response_text)
-        
+        print(video_url , extract_url)
+        print(youtube_captions[:100])
         st.link_button(label = "Watch" , url  = video_url)
     st.session_state['message_history'].append({
             "role": "assistant",
