@@ -22,6 +22,8 @@ if "youtube_captions" not in st.session_state:
 if "youtube_url" not in st.session_state:
     st.session_state.youtube_url = [] 
    
+if "embed_url" not in st.session_state:
+    st.session_state.embed_url = [] 
 st.sidebar.title("LangGraph Chatbot with Gemini")
 # -----------------------------MARKDOWN---------------------
 # Add a sticky container for video
@@ -30,19 +32,24 @@ st.markdown(
     <style>
     .fixed-video {
         position: fixed;
-        top: 80px;
-        left: 50%;
+        top: 50px;
+        left: 750px;
         transform: translateX(-50%);
-        width: 600px;
-        z-index: 1000;
+        width: "100%";
+        z-index: 10;
+        background-color: white;
     }
     .block-container {
-        padding-top: 300px; /* push chat below video */
+        padding-top: 400px; /* push chat below video */
     }
+    .spacer {
+            margin-top: 400px; /* same as video height to push content down */
+        }
     </style>
     """,
     unsafe_allow_html=True
 )
+st.markdown('<div class="spacer"></div>', unsafe_allow_html=True)
 
 
 st.sidebar.header("New Chat")
@@ -52,7 +59,7 @@ thread_id =  st.sidebar.text_input("Give a Conversation Name : ")
 if st.session_state['thread_id']:
     st.subheader(st.session_state['thread_id'])
 elif thread_id and input_url:  # fallback to new URL
-    st.subheader(st.session_state['thread_id'])
+    st.subheader(thread_id)
 
 # Show saved YouTube video (if exists)
 if st.session_state['thread_id']:
@@ -63,19 +70,20 @@ else:
     video_url = None
     st.warning('No URL provided')
 if video_url:
-            embed_url = get_embed_url(video_url)
-            #print(embed_url)
-            st.markdown(f"""
-                <div class="fixed-video">
-                    <iframe width="600" height="340"
-                    src="{embed_url}"
-                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-                    encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
-                </div>
-                """,
-                unsafe_allow_html=True
-            ) 
+    embed_url = get_embed_url(video_url)
+    #print(embed_url)
+    st.markdown(f"""
+        <div class="fixed-video">
+            <iframe width="900" height="340"
+            src="{embed_url}"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+            encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+        """,
+        unsafe_allow_html=True
+    ) 
+
 
 # Sidebar UI
 
@@ -130,30 +138,40 @@ if user_input:
                 stream_mode='messages'
             )
         )
-
+        
         response_text, timestamp = map(str.strip, response.split("Timestamp:"))
         timestamp_url = f"{extract_url}&t={int(float(timestamp))}s"
-       
-        if timestamp_url:
-            embed_url = get_embed_url(video_url)
-            embed_url = f"{embed_url}?start={int(float(timestamp))}&autoplay=1"
-            print(embed_url)
-            st.markdown(f"""
-                <div class="fixed-video">
-                    <iframe width="600" height="340"
-                    src="{embed_url}"
-                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-                    encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+        print("Extract url" , extract_url)
+        print("video URL : "  ,video_url)
+        
+        embed_url = get_embed_url(extract_url)
+        
+
+        
+        timestamp_url_play = f"{embed_url}?start={int(float(timestamp))}&autoplay=1"
+        print("EMbede URL : "  ,embed_url)
+        print("TIMESTAMP URL : "  ,timestamp_url)
+        print("TIMESTAMP URL : "  ,timestamp_url_play)
+        
+        print("--" * 50)
+        st.session_state['embed_url'] = timestamp_url_play
         st.write(response_text)
-        #st.link_button(label = "Watch" , url  = video_url)
     st.session_state['message_history'].append({
             "role": "assistant",
             "content": response_text,
             "timestamp": timestamp
         })
+if st.session_state['embed_url']!=[]:    
+    if st.button("▶️ Watch"):
+        st.markdown(f"""
+                    <div class="fixed-video">
+                        <iframe width="900" height="340"
+                        src="{st.session_state['embed_url']}"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                        encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
 
