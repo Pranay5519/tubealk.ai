@@ -11,6 +11,30 @@ import re
 import sqlite3
 from langchain.prompts import PromptTemplate
 
+#embedyoutube url
+import re
+
+def get_embed_url(url: str) -> str:
+    """
+    Convert any YouTube URL to proper embed URL.
+    """
+    # Match watch?v=VIDEO_ID
+    match = re.search(r"v=([^&]+)", url)
+    if match:
+        return f"https://www.youtube.com/embed/{match.group(1)}"
+    
+    # Match youtu.be/VIDEO_ID
+    match = re.search(r"youtu\.be/([^?&]+)", url)
+    if match:
+        return f"https://www.youtube.com/embed/{match.group(1)}"
+    
+    # If already embed link
+    if "embed" in url:
+        return url
+    
+    return url  # fallback
+
+
 # ------------------ Save Transcripts ------------------
 
 

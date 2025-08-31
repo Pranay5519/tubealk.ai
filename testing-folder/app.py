@@ -4,35 +4,14 @@ from langchain_core.messages import HumanMessage
 from utility_functions import *
 from yt_shortVideo_model import retrieve_all_threads, build_chatbot , checkpointer
 
+# Show video on top of chat if URL is provided
 #---MARKDOWN----
-
-st.markdown(
-    """
-    <style>
-        /* Sidebar width */
-        [data-testid="stSidebar"] {
-            min-width: 500px;   /* 👈 set your min width */
-            max-width: 500px;   /* 👈 set your max width */
-        }
-
-        /* Sidebar content scroll if height is too big */
-        [data-testid="stSidebar"] .css-1d391kg {
-            overflow-y: auto;
-            max-height: 90vh;  /* sidebar height relative to screen */
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-# ------------------ Streamlit UI ------------------
-st.title("LangGraph Chatbot with Gemini")
-
 # Session States
 if 'message_history' not in st.session_state:
     st.session_state['message_history'] = []
 
 if "thread_id" not in st.session_state:
-    st.session_state.thread_id = str(uuid.uuid4())
+    st.session_state.thread_id = []
 
 if "chat_threads" not in st.session_state:
     st.session_state.chat_threads = retrieve_all_threads()
@@ -42,12 +21,63 @@ if "youtube_captions" not in st.session_state:
    
 if "youtube_url" not in st.session_state:
     st.session_state.youtube_url = [] 
-    
+   
+st.sidebar.title("LangGraph Chatbot with Gemini")
+# -----------------------------MARKDOWN---------------------
+# Add a sticky container for video
+st.markdown(
+    """
+    <style>
+    .fixed-video {
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        z-index: 1000;
+    }
+    .block-container {
+        padding-top: 300px; /* push chat below video */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Sidebar UI
-st.sidebar.title("New Chat")
+
+st.sidebar.header("New Chat")
 input_url = st.sidebar.text_input("Enter YouTube Video URL: ")
 thread_id =  st.sidebar.text_input("Give a Conversation Name : ")
+# Show thread id on Top (if exists)
+if st.session_state['thread_id']:
+    st.subheader(st.session_state['thread_id'])
+elif thread_id and input_url:  # fallback to new URL
+    st.subheader(st.session_state['thread_id'])
+
+# Show saved YouTube video (if exists)
+if st.session_state['thread_id']:
+    video_url = st.session_state['youtube_url']
+elif thread_id and input_url:  # fallback to new URL
+    video_url = input_url
+else:
+    video_url = None
+    st.warning('No URL provided')
+if video_url:
+            embed_url = get_embed_url(video_url)
+            #print(embed_url)
+            st.markdown(f"""
+                <div class="fixed-video">
+                    <iframe width="600" height="340"
+                    src="{embed_url}"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                    encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+                """,
+                unsafe_allow_html=True
+            ) 
+
+# Sidebar UI
 
 if st.sidebar.button("new Chat", key="new_chat_btn"):
     reset_chat()  # clear old chat first
@@ -102,13 +132,25 @@ if user_input:
         )
 
         response_text, timestamp = map(str.strip, response.split("Timestamp:"))
-        video_url = f"{extract_url}&t={int(float(timestamp))}s"
-        
-        print(timestamp)
+        timestamp_url = f"{extract_url}&t={int(float(timestamp))}s"
+       
+        if timestamp_url:
+            embed_url = get_embed_url(video_url)
+            embed_url = f"{embed_url}?start={int(float(timestamp))}&autoplay=1"
+            print(embed_url)
+            st.markdown(f"""
+                <div class="fixed-video">
+                    <iframe width="600" height="340"
+                    src="{embed_url}"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                    encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
         st.write(response_text)
-        print(video_url , extract_url)
-        print(youtube_captions[:100])
-        st.link_button(label = "Watch" , url  = video_url)
+        #st.link_button(label = "Watch" , url  = video_url)
     st.session_state['message_history'].append({
             "role": "assistant",
             "content": response_text,
