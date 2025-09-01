@@ -34,7 +34,7 @@ Rules:
 
 # ------------------ Structured Schema ------------------
 class AnsandTime(BaseModel):
-    answer: list[str] = Field(description="Answers to user's question (no timestamps here)")
+    answer: list[str] = Field(description="Teaching assistant response broken into clear, informative segments. Each item should provide thorough explanation with context, examples, and clarification as needed for student comprehension.(No timestamps here)")
     timestamps: float = Field(description="The time (in seconds) from where the answer was taken")
 
 structured_model = model.with_structured_output(AnsandTime)

@@ -118,6 +118,8 @@ def sidebar_thread_selection(chatbot):
     for thread_id in st.session_state['chat_threads']:
         if st.sidebar.button(str(thread_id)):
             st.session_state['thread_id'] = thread_id
+            st.session_state['embed_url'] = []
+            st.subheader(thread_id)
             messages = load_conversation(chatbot,thread_id)
             st.session_state['youtube_captions'] = load_captions_from_db(thread_id=st.session_state['thread_id'])
             st.session_state['youtube_url'] = load_url_from_db(thread_id=st.session_state['thread_id'])
