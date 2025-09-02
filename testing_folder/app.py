@@ -141,6 +141,7 @@ if st.sidebar.button("new Chat", key="new_chat_btn"):
 # =============================================================================
 print("-" * 80)
 st.sidebar.header("My Conversations")
+
 youtube_captions = st.session_state['youtube_captions']
 chatbot = build_chatbot(youtube_captions)
 sidebar_thread_selection(chatbot)

@@ -225,3 +225,8 @@ if st.session_state['embed_url'] != []:
                     unsafe_allow_html=True
                 )
     print("=" * 80)
+    
+    
+    
+    
+    

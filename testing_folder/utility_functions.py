@@ -112,7 +112,28 @@ def store_thread_id(thread_id):
         st.session_state['thread_id'] = thread_id
         add_thread(st.session_state['thread_id'])
     
-    
+# ------------------ Delete All Threads ------------------
+def delete_all_threads():
+    try:
+        conn = sqlite3.connect(r"C:\Users\prana\Desktop\PROJECTS\tubetalk.ai\newDataBase1.db")
+        cursor = conn.cursor()
+
+        # Find all checkpoint-related tables
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = cursor.fetchall()
+
+        # Delete all rows in each table
+        for table_name in tables:
+            cursor.execute(f"DELETE FROM {table_name[0]};")
+
+        conn.commit()
+        conn.close()
+        print("✅ All threads deleted successfully.")
+
+    except Exception as e:
+        print("❌ Error while deleting threads:", e)
+
+delete_all_threads()  
     
 def sidebar_thread_selection(chatbot):
     for thread_id in st.session_state['chat_threads']:
