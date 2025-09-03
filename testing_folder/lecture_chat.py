@@ -35,12 +35,13 @@ st.markdown(
     <style>
     .fixed-video {
         position: fixed;
-        top: 50px;
+        top: 60px;
         left: 750px;
         transform: translateX(-50%);
-        width: "100%";
-        z-index: 10;
+        width: "59%";
+        z-index: 60;
         background-color: white;
+        margin-bottom: 1.5rem;
     }
     .block-container {
         padding-top: 50px; /* push chat below video */
@@ -54,14 +55,20 @@ st.markdown(
 )
 
 st.markdown('<div class="spacer"></div>', unsafe_allow_html=True)
+st.markdown("""
+<div class="main-header">
+    <h1>💬 LectureChat</h1>
+    <h3>Ask Questions, Get AI Answers with Timestamps</h3>
+</div>
+""", unsafe_allow_html=True)
 
 # =============================================================================
 # SIDEBAR CONFIGURATION
 # =============================================================================
 
-st.sidebar.title("LangGraph Chatbot with Gemini")
+st.sidebar.title("🤖LangGraph Chatbot with Gemini")
+st.sidebar.success("🚀 Start your interactive lecture chat")
 
-st.sidebar.header("New Chat")
 input_url = st.sidebar.text_input("Enter YouTube Video URL: ")
 thread_id = st.sidebar.text_input("Give a Conversation Name : ")
 
@@ -86,14 +93,14 @@ elif thread_id and input_url:
 else:
     print("No video URL found")
     video_url = None
-    st.warning('No URL provided')
+    
 
 if database_url:
     print("Displaying YouTube video from DataBase")
     embed_url = get_embed_url(database_url)
     st.markdown(f"""
         <div class="fixed-video">
-            <iframe width="900" height="340"
+            <iframe width="800" height="340"
             src="{embed_url}"
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
             encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -108,7 +115,7 @@ if database_url:
 # SIDEBAR FUNCTIONALITY - NEW CHAT BUTTON
 # =============================================================================
 
-if st.sidebar.button("new Chat", key="new_chat_btn"):
+if st.sidebar.button("➕ Start New Chat", key="new_chat_btn"):
     if input_url and thread_id:  # only load transcript if URL is provided
         reset_chat()  # clear old chat first
         database_url = None
@@ -140,7 +147,10 @@ if st.sidebar.button("new Chat", key="new_chat_btn"):
 # SIDEBAR - CONVERSATION HISTORY
 # =============================================================================
 print("-" * 80)
-st.sidebar.header("My Conversations")
+if st.sidebar.button("🚮 Delete Conversations"):
+    delete_all_threads()
+st.sidebar.markdown("---")
+st.sidebar.header("📂 My Conversations")
 
 youtube_captions = st.session_state['youtube_captions']
 chatbot = build_chatbot(youtube_captions)

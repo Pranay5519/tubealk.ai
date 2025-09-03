@@ -133,7 +133,7 @@ def delete_all_threads():
     except Exception as e:
         print("❌ Error while deleting threads:", e)
 
-delete_all_threads()  
+
     
 def sidebar_thread_selection(chatbot):
     for thread_id in st.session_state['chat_threads']:
