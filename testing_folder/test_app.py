@@ -2,7 +2,7 @@ import streamlit as st
 import uuid
 from langchain_core.messages import HumanMessage
 from utility_functions import *
-from yt_shortVideo_model import retrieve_all_threads, build_chatbot, checkpointer
+from yt_rag_model import retrieve_all_threads, build_chatbot, checkpointer
 
 # =============================================================================
 # SESSION STATE INITIALIZATION
@@ -35,12 +35,13 @@ st.markdown(
     <style>
     .fixed-video {
         position: fixed;
-        top: 50px;
+        top: 60px;
         left: 750px;
         transform: translateX(-50%);
-        width: "100%";
-        z-index: 10;
+        width: "59%";
+        z-index: 60;
         background-color: white;
+        margin-bottom: 1.5rem;
     }
     .block-container {
         padding-top: 50px; /* push chat below video */
@@ -54,14 +55,20 @@ st.markdown(
 )
 
 st.markdown('<div class="spacer"></div>', unsafe_allow_html=True)
+st.markdown("""
+<div class="main-header">
+    <h1>💬 LectureChat</h1>
+    <h3>Ask Questions, Get AI Answers with Timestamps</h3>
+</div>
+""", unsafe_allow_html=True)
 
 # =============================================================================
 # SIDEBAR CONFIGURATION
 # =============================================================================
 
-st.sidebar.title("LangGraph Chatbot with Gemini")
+st.sidebar.title("🤖LangGraph Chatbot with Gemini")
+st.sidebar.success("🚀 Start your interactive lecture chat")
 
-st.sidebar.header("New Chat")
 input_url = st.sidebar.text_input("Enter YouTube Video URL: ")
 thread_id = st.sidebar.text_input("Give a Conversation Name : ")
 
@@ -86,14 +93,14 @@ elif thread_id and input_url:
 else:
     print("No video URL found")
     video_url = None
-    st.warning('No URL provided')
+    
 
 if database_url:
     print("Displaying YouTube video from DataBase")
     embed_url = get_embed_url(database_url)
     st.markdown(f"""
         <div class="fixed-video">
-            <iframe width="900" height="340"
+            <iframe width="800" height="340"
             src="{embed_url}"
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
             encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -107,15 +114,16 @@ if database_url:
 # =============================================================================
 # SIDEBAR FUNCTIONALITY - NEW CHAT BUTTON
 # =============================================================================
-
-if st.sidebar.button("new Chat", key="new_chat_btn"):
+retriever = None
+if st.sidebar.button("➕ Start New Chat", key="new_chat_btn"):
     if input_url and thread_id:  # only load transcript if URL is provided
         reset_chat()  # clear old chat first
         database_url = None
         
         youtube_captions = load_transcript(input_url)
+        
         st.session_state.youtube_captions = youtube_captions
-        st.success("Transcripts Loaded Successfully..!")
+        st.success("Chatbot Ready")
 
         st.subheader(thread_id)
         print("Displaying YouTube video from Input")
@@ -140,9 +148,17 @@ if st.sidebar.button("new Chat", key="new_chat_btn"):
 # SIDEBAR - CONVERSATION HISTORY
 # =============================================================================
 print("-" * 80)
-st.sidebar.header("My Conversations")
+if st.sidebar.button("🚮 Delete Conversations"):
+    delete_all_threads()
+st.sidebar.markdown("---")
+st.sidebar.header("📂 My Conversations")
+
 youtube_captions = st.session_state['youtube_captions']
-chatbot = build_chatbot(youtube_captions)
+if youtube_captions:
+    chunks = text_splitter(youtube_captions)
+    vector_store = generate_embeddings(chunks)
+    retriever = retriever_docs(vector_store)
+chatbot = build_chatbot(retriever=retriever)
 sidebar_thread_selection(chatbot)
 
 # =============================================================================
@@ -173,11 +189,11 @@ if user_input:
     else:
         extract_url = st.session_state['youtube_url']
         
-    chatbot = build_chatbot(youtube_captions)
+    chatbot = build_chatbot(retriever=retriever)
 
     with st.chat_message("assistant"):
         response = "".join(
-            chunk.content for chunk, _ in chatbot.stream(
+            chunk.content for chunk,_ in chatbot.stream(
                 {'messages': [HumanMessage(content=user_input)]},
                 config=CONFIG,
                 stream_mode='messages'
@@ -185,6 +201,7 @@ if user_input:
         )
         
         response_text, timestamp = map(str.strip, response.split("Timestamp:"))
+        st.write(response_text)
         timestamp_url = f"{extract_url}&t={int(float(timestamp))}s"
         #print("Extract url", extract_url)
         #print("video URL:", video_url)
@@ -198,12 +215,11 @@ if user_input:
         #print("--" * 50)
         
         st.session_state['embed_url'] = timestamp_url_play
-        st.write(response_text)
+        
     
     st.session_state['message_history'].append({
             "role": "assistant",
-            "content": response_text,
-            "timestamp": timestamp
+            "content": response_text
         })
 
 # =============================================================================
@@ -225,8 +241,3 @@ if st.session_state['embed_url'] != []:
                     unsafe_allow_html=True
                 )
     print("=" * 80)
-    
-    
-    
-    
-    

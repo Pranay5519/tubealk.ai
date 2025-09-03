@@ -37,7 +37,6 @@ def get_embed_url(url: str) -> str:
 
 # ------------------ Save Transcripts ------------------
 
-
 def save_transcript(thread_id: str, captions: str, youtube_url: str):
     conn = sqlite3.connect(database="newDataBase1.db", check_same_thread=False)
     cursor = conn.cursor()
@@ -136,7 +135,7 @@ def delete_all_threads():
 
     
 def sidebar_thread_selection(chatbot):
-    for thread_id in st.session_state['chat_threads']:
+    for thread_id in st.session_state['chat_threads'][::-1]:
         if st.sidebar.button(str(thread_id)):
             st.session_state['thread_id'] = thread_id
             st.session_state['embed_url'] = []
@@ -202,4 +201,28 @@ def is_thread_empty(conn, thread_id: str) -> bool:
         return True  # Table not created yet
     return count == 0
 
+import os
+def save_embeddings_faiss(thread_id: str, transcript: str):
+    # 1. Split transcript
+    chunks = text_splitter(transcript)
 
+    # 2. Build embeddings + FAISS store
+    vector_store = generate_embeddings(chunks)
+
+    # 3. Save FAISS index
+    save_dir = f"faiss_indexes/{thread_id}"
+    os.makedirs("faiss_indexes", exist_ok=True)
+    vector_store.save_local(save_dir)
+
+    print(f"✅ Embeddings for {thread_id} saved at {save_dir}")
+    
+def load_embeddings_faiss(thread_id: str):
+    embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+    save_dir = f"faiss_indexes/{thread_id}"
+
+    if not os.path.exists(save_dir):
+        raise ValueError(f"No FAISS index found for thread_id: {thread_id}")
+
+    vector_store = FAISS.load_local(save_dir, embeddings, allow_dangerous_deserialization=True)
+    retriever = retriever_docs(vector_store)
+    return retriever
