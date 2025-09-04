@@ -35,7 +35,7 @@ def load_transcript(url: str) -> str | None:
             print(f"Error fetching transcript: {e}")
             return None
 # ------------------ Build LLM (Gemini) ------------------
-model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 
 # ------------------ System Message ------------------
 system_message = SystemMessage(content="""

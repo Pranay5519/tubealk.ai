@@ -175,8 +175,9 @@ user_input = st.chat_input("Enter your question:")
 if user_input:   
     if st.session_state['message_history'] == []:
         store_thread_id(thread_id=thread_id)
-        save_transcript(thread_id=thread_id, captions=youtube_captions, youtube_url=input_url)
-    
+        with st.spinner("saving into FAISS"):
+            save_embeddings_faiss(thread_id=thread_id ,vector_store=vector_store)   
+        st.sidebar.status("Done") 
     st.session_state['message_history'].append({"role": "user", "content": user_input})
     with st.chat_message("user"):
         st.text(user_input)
