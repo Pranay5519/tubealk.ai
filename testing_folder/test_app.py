@@ -25,7 +25,8 @@ if "youtube_url" not in st.session_state:
    
 if "embed_url" not in st.session_state:
     st.session_state.embed_url = [] 
-
+if "retriever" not in st.session_state:
+    st.session_state.retriever = None 
 # =============================================================================
 # STYLING AND CSS
 # =============================================================================
@@ -96,7 +97,7 @@ else:
     
 
 if database_url:
-    print("Displaying YouTube video from DataBase")
+    
     embed_url = get_embed_url(database_url)
     st.markdown(f"""
         <div class="fixed-video">
@@ -109,7 +110,7 @@ if database_url:
         """,
         unsafe_allow_html=True
     ) 
-
+    print("Displaying YouTube video from DataBase")
 
 # =============================================================================
 # SIDEBAR FUNCTIONALITY - NEW CHAT BUTTON
@@ -160,6 +161,11 @@ if youtube_captions:
     retriever = retriever_docs(vector_store)
 chatbot = build_chatbot(retriever=retriever)
 sidebar_thread_selection(chatbot)
+# Use retriever from session state if available
+if "retriever" in st.session_state and st.session_state['retriever']:
+    chatbot = st.session_state['chatbot']
+else:
+    chatbot = build_chatbot(retriever=retriever)
 
 # =============================================================================
 # CHAT DISPLAY AND INTERACTION
@@ -177,6 +183,7 @@ if user_input:
         store_thread_id(thread_id=thread_id)
         with st.spinner("saving into FAISS"):
             save_embeddings_faiss(thread_id=thread_id ,vector_store=vector_store)   
+            save_youtube_url(thread_id=thread_id , youtube_url=input_url )
         st.sidebar.status("Done") 
     st.session_state['message_history'].append({"role": "user", "content": user_input})
     with st.chat_message("user"):
@@ -185,12 +192,12 @@ if user_input:
     CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}}
     youtube_captions = st.session_state['youtube_captions']
     
-    if st.session_state['youtube_url'] == []:
+    if st.session_state['youtube_url'] == []: # extract url is from user input url
         extract_url = input_url
     else:
         extract_url = st.session_state['youtube_url']
         
-    chatbot = build_chatbot(retriever=retriever)
+    
 
     with st.chat_message("assistant"):
         response = "".join(
@@ -204,8 +211,8 @@ if user_input:
         response_text, timestamp = map(str.strip, response.split("Timestamp:"))
         st.write(response_text)
         timestamp_url = f"{extract_url}&t={int(float(timestamp))}s"
-        #print("Extract url", extract_url)
-        #print("video URL:", video_url)
+        print("Extract url", extract_url)
+        print("video URL:", video_url)
         
         embed_url = get_embed_url(extract_url)
         timestamp_url_play = f"{embed_url}?start={int(float(timestamp))}&autoplay=1"

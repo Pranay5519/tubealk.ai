@@ -170,8 +170,8 @@ user_input = st.chat_input("Enter your question:")
 if user_input:   
     if st.session_state['message_history'] == []:
         store_thread_id(thread_id=thread_id)
-        save_transcript(thread_id=thread_id, captions=youtube_captions, youtube_url=input_url)
-    
+        save_captions(thread_id=thread_id, captions=youtube_captions)
+        save_youtube_url(thread_id=thread_id , youtube_url=input_url )
     st.session_state['message_history'].append({"role": "user", "content": user_input})
     with st.chat_message("user"):
         st.text(user_input)

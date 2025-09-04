@@ -21,8 +21,12 @@ def text_splitter(transcript):
     return splitter.create_documents([transcript])
 
 # ------------------ Vector Store & Retriever  ------------------
+
 def generate_embeddings(chunks):
-    embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+    embeddings = HuggingFaceEmbeddings(
+        model_name='sentence-transformers/all-MiniLM-L6-v2',
+        model_kwargs={"device": "cpu"}  # ✅ force CPU
+    )
     return FAISS.from_documents(chunks, embeddings)
 
 def retriever_docs(vector_store):
@@ -40,21 +44,21 @@ def save_embeddings_faiss(thread_id: str, vector_store):
     print(f"✅ Embeddings for {thread_id} saved at {save_dir}")
 
 def load_embeddings_faiss(thread_id: str):
-    # 1. Path for saved FAISS index
     load_dir = f"faiss_indexes/{thread_id}"
-    
-    # 2. Initialize embedding model (must match the one used in saving)
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-    
-    # 3. Load FAISS index and return retriever
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_kwargs={"device": "cpu"}  # ✅ force CPU
+    )
+
     if os.path.exists(load_dir):
-        vector_store = FAISS.load_local(load_dir, embeddings, allow_dangerous_deserialization=True)
+        vector_store = FAISS.load_local(
+            load_dir, embeddings, allow_dangerous_deserialization=True
+        )
         retriever = retriever_docs(vector_store=vector_store)
         print(f"✅ Retriever for {thread_id} loaded from {load_dir}")
         return retriever
     else:
         raise FileNotFoundError(f"❌ No FAISS index found for thread_id={thread_id} at {load_dir}")
-
 def get_embed_url(url: str) -> str:
     """
     Convert any YouTube URL to proper embed URL.
@@ -77,9 +81,10 @@ def get_embed_url(url: str) -> str:
 
 
 # ------------------ Save Transcripts ------------------
+import sqlite3
 
-def save_transcript(thread_id: str, captions: str, youtube_url: str):
-    conn = sqlite3.connect(database="newDataBase1.db", check_same_thread=False)
+def save_captions(thread_id: str, captions: str):
+    conn = sqlite3.connect(database="ragDatabase.db", check_same_thread=False)
     cursor = conn.cursor()
 
     # Ensure transcripts table exists
@@ -90,7 +95,19 @@ def save_transcript(thread_id: str, captions: str, youtube_url: str):
     )
     """)
 
-    # Ensure URL table exists (linked to thread_id)
+    # Insert or update transcript
+    cursor.execute("""
+    INSERT OR REPLACE INTO transcripts (thread_id, captions)
+    VALUES (?, ?)
+    """, (thread_id, captions))
+
+    conn.commit()
+    conn.close()
+def save_youtube_url(thread_id: str, youtube_url: str):
+    conn = sqlite3.connect(database="ragDatabase.db", check_same_thread=False)
+    cursor = conn.cursor()
+
+    # Ensure url table exists
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS url (
         thread_id TEXT PRIMARY KEY,
@@ -99,12 +116,6 @@ def save_transcript(thread_id: str, captions: str, youtube_url: str):
     )
     """)
 
-    # Insert or update transcript
-    cursor.execute("""
-    INSERT OR REPLACE INTO transcripts (thread_id, captions)
-    VALUES (?, ?)
-    """, (thread_id, captions))
-
     # Insert or update URL
     cursor.execute("""
     INSERT OR REPLACE INTO url (thread_id, youtube_url)
@@ -112,7 +123,8 @@ def save_transcript(thread_id: str, captions: str, youtube_url: str):
     """, (thread_id, youtube_url))
 
     conn.commit()
-    #conn.close()
+    conn.close()
+
 
 def load_captions_from_db(thread_id: str) -> str | None:
     conn = sqlite3.connect(database="newDataBase1.db", check_same_thread=False)
@@ -123,7 +135,7 @@ def load_captions_from_db(thread_id: str) -> str | None:
     return row[0] if row else None
 
 def load_url_from_db(thread_id: str) -> str | None:
-    conn = sqlite3.connect(database="newDataBase1.db", check_same_thread=False)
+    conn = sqlite3.connect(database="ragDatabase.db", check_same_thread=False)
     cursor = conn.cursor()
     cursor.execute("SELECT youtube_url FROM url WHERE thread_id = ?", (thread_id,))
     row = cursor.fetchone()
@@ -183,6 +195,7 @@ def sidebar_thread_selection(chatbot):
             messages = load_conversation(chatbot,thread_id)
             st.session_state['youtube_captions'] = load_captions_from_db(thread_id=st.session_state['thread_id'])
             st.session_state['youtube_url'] = load_url_from_db(thread_id=st.session_state['thread_id'])
+            print("sidebar_thead_selectoin youtube url",st.session_state['youtube_url'])
             temp_history = []
             for msg in messages:
                 if isinstance(msg, HumanMessage):
@@ -191,7 +204,12 @@ def sidebar_thread_selection(chatbot):
                     role = 'assistant'
                 temp_history.append({"role": role, "content": msg.content})
             st.session_state['message_history'] = temp_history
-            
+            try:
+                st.session_state['retriever'] = load_embeddings_faiss(thread_id)
+                st.session_state['chatbot'] = build_chatbot(st.session_state['retriever'])
+                st.success(f"Retriever loaded for {thread_id}")
+            except FileNotFoundError as e:
+                st.error(str(e))            
             
 # _-----------------------------------------------------FUNCTIONS FOR RAG----------------------------------------------
 
