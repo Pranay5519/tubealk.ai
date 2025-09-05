@@ -5,6 +5,12 @@ from testing_folder.rag.utils_youtube import get_embed_url , load_transcript
 from testing_folder.rag.utils_database import  save_youtube_url_to_db , delete_all_threads_from_db
 from testing_folder.rag.utils_st_sessions import reset_chat , sidebar_thread_selection , add_threadId_to_chatThreads
 from testing_folder.rag.utils_rag import text_splitter , generate_embeddings , retriever_docs , save_embeddings_faiss ,clear_faiss_indexes
+st.set_page_config(
+    page_title="LectureChat",
+    page_icon="💬",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
 # =============================================================================
 # SESSION STATE INITIALIZATION
@@ -34,41 +40,80 @@ if "retriever" not in st.session_state:
 # =============================================================================
 st.markdown("""
 <div class="main-header">
-    <h1>💬 LectureChat</h1>
-    <h3>Ask Questions, Get AI Answers with Timestamps</h3>
+    <div class="header-content">
+        <h1>💬 LectureChat</h1>
+        <p>Ask Questions, Get AI Answers with Timestamps</p>
+    </div>
 </div>
 """, unsafe_allow_html=True)
-st.markdown(
-    """
-    <style>
+
+st.markdown("""
+<style>
+    /* Header Styling */
     .main-header {
-        position: relative;
-        top: 40vh;  /* vertical center-ish */
+        background-color: #f0f2f6;
+        border: 1px solid #e1e5e9;
+        border-radius: 10px;
+        padding: 20px;
         text-align: center;
-        transition: all 0.8s ease-in-out; /* smooth move */
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    
+    .header-content h1 {
+        color: #1f2937;
+        margin-bottom: 5px;
+    }
+    
+    .header-content p {
+        color: #6b7280;
+        margin: 0;
+    }
+
+    /* Fixed Video Position - Same as Original */
     .fixed-video {
         position: fixed;
-        top: 80px;
-        left: 850px;
-        transform: translateX(-50%);
-        width: "59%";
-        z-index: 60;
+        top: 140px;
+        left: 2vw;
+        z-index: 100;
         background-color: white;
-        margin-bottom: 1.5rem;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .block-container {
-        padding-top: 50px; /* push chat below video */
-    }
-    .spacer {
-            margin-top: 400px; /* same as video height to push content down */
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
-st.markdown('<div class="spacer"></div>', unsafe_allow_html=True)
+    /* Chat Area - Same Layout as Original */
+    .block-container {
+        padding-top: 120px !important;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: 2vw;
+    }
+    
+    .stChatInput {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: 5vw;
+    }
+    h3 {
+    position: fixed;      /* lock it in place */
+    top: 80px;           /* below header */
+    left: 16vw;            /* move a bit right */
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    background: none;     /* remove box */
+    padding: 0;           /* no padding */
+    box-shadow: none;     /* no shadow */
+    color: #222;          /* dark text for visibility */
+    z-index: 950;
+
+    /* Spacer */
+    .spacer {
+        margin-top: 180px;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 
 # =============================================================================
@@ -90,35 +135,7 @@ video_url = None
 
 # Show thread id on Top (if exists)
 print(">>> Checking Thread and Video display section")
-
-# Show saved YouTube video (if exists)
-
-if st.session_state['thread_id']:
-    print("Loading video from session DataBase URL")
-    database_url = st.session_state['youtube_url']
-elif thread_id and input_url:
-    print("Loading  video URL INPUT ")
-    video_url = input_url
-else:
-    print("No video URL found")
-    video_url = None
-    
-
-if database_url:
-    
-    embed_url = get_embed_url(database_url)
-    st.markdown(f"""
-        <div class="fixed-video">
-            <iframe width="800" height="340"
-            src="{embed_url}"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-            encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-        </div>
-        """,
-        unsafe_allow_html=True
-    ) 
-    print("Displaying YouTube video from DataBase")
+print("Thread_Id :" , st.session_state['thread_id'])
 
 # =============================================================================
 # SIDEBAR FUNCTIONALITY - NEW CHAT BUTTON
@@ -133,12 +150,14 @@ if st.sidebar.button("➕ Start New Chat", key="new_chat_btn"):
         st.session_state.youtube_captions = youtube_captions
         st.session_state['youtube_url'] = input_url
         st.session_state['embed_url'] = []
+        st.session_state['thread_id'] = []
+        st.session_state.retriever = None 
         st.subheader(thread_id)
         print("Displaying YouTube video from Input")
         embed_url = get_embed_url(input_url)
         st.markdown(f"""
             <div class="fixed-video">
-                <iframe width="900" height="340"
+                <iframe width="800" height="400"
                 src="{embed_url}"
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
                 encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -177,8 +196,6 @@ if youtube_captions:
 
     status_box.success("🎉 Chatbot ready!")
 
-
-
 st.sidebar.markdown("---")
 st.sidebar.header("📂 My Conversations")
         
@@ -190,6 +207,37 @@ if "retriever" in st.session_state and st.session_state['retriever']:
 else:
     chatbot = build_chatbot(retriever=retriever)
 
+
+# Show saved YouTube video (if exists)
+
+if st.session_state['thread_id']:
+    database_url = st.session_state['youtube_url']
+    print("Loading video from session DataBase URL-->" , database_url)
+elif thread_id and input_url:
+    print("Loading  video URL INPUT ")
+    video_url = input_url
+else:
+    print("No video URL found")
+    video_url = None
+
+
+if database_url:
+    
+    embed_url = get_embed_url(database_url)
+    st.markdown(f"""
+        <div class="fixed-video">
+            <iframe width="800" height="400"
+            src="{embed_url}"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+            encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+        """,
+        unsafe_allow_html=True
+    ) 
+    print("Displaying YouTube video from DataBase")
+
+
 # =============================================================================
 # CHAT DISPLAY AND INTERACTION
 # =============================================================================
@@ -200,7 +248,7 @@ for idx, message in enumerate(st.session_state["message_history"]):
         if message["role"] == 'assistant':
             response_text, timestamp = map(str.strip, message['content'].split("Timestamp:"))
             st.text(response_text)
-            print("youtube_url_history_load-->" , st.session_state['youtube_url'])
+            #print("youtube_url_history_load-->" , st.session_state['youtube_url'])
             url = get_embed_url(st.session_state['youtube_url'])
             
             timestamp_url_play = f"{url}?start={int(float(timestamp))}&autoplay=1"
@@ -211,7 +259,7 @@ for idx, message in enumerate(st.session_state["message_history"]):
                 st.markdown(
                     f"""
                     <div class="fixed-video">
-                        <iframe width="900" height="340"
+                        <iframe width="800" height="400"
                         src="{timestamp_url_play}"
                         frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
                         encrypted-media; gyroscope; picture-in-picture" allowfullscreen>

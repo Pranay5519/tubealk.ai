@@ -47,13 +47,14 @@ def sidebar_thread_selection(chatbot):
     with st.spinner("Loading chats..." , show_time  = True):
         for thread_id in st.session_state['chat_threads'][::-1]:
             if st.sidebar.button(str(thread_id)):
+                print("Sidebar Thread_Id CHECK - " , thread_id)
                 st.session_state['thread_id'] = thread_id
                 st.session_state['embed_url'] = []
                 # Load conversation + captions + URL
                 messages = load_conversation(chatbot, thread_id)
                 st.session_state['youtube_captions'] = load_captions_from_db(thread_id)
                 st.session_state['youtube_url'] = load_url_from_db(thread_id)
-                print("Sidebar Selection -> YouTube URL:", st.session_state['youtube_url'])
+                print(f"Sidebar Selection -{thread_id} -> YouTube URL: {st.session_state['youtube_url']}")
 
                 # Rebuild message history
                 temp_history = []
