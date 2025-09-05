@@ -1,4 +1,4 @@
-from yt_rag_model import * 
+from testing_folder.rag.yt_rag_model import * 
 import uuid
 
 from langchain_core.messages import HumanMessage
@@ -167,7 +167,7 @@ def store_thread_id(thread_id):
 # ------------------ Delete All Threads ------------------
 def delete_all_threads():
     try:
-        conn = sqlite3.connect(r"C:\Users\prana\Desktop\PROJECTS\tubetalk.ai\newDataBase1.db")
+        conn = sqlite3.connect(r"C:\Users\prana\Desktop\PROJECTS\tubetalk.ai\ragDataBase.db")
         cursor = conn.cursor()
 
         # Find all checkpoint-related tables

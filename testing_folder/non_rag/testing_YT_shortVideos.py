@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 from typing import TypedDict, Annotated
 import re
 import os
-from utility_functions import *
+from testing_folder.non_rag.utility_functions import *
 os.environ["LANGCHAIN_PROJECT"] = "TubeTalkAI Testing"
 
 # ------------------ Build LLM (Gemini) ------------------
