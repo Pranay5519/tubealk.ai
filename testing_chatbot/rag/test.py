@@ -1,6 +1,6 @@
 from langchain_core.messages import HumanMessage
-from testing_folder.rag.yt_rag_model import *
-from testing_folder.non_rag.utility_functions import *
+from testing_chatbot.rag.yt_rag_model import *
+from testing_chatbot.non_rag.utility_functions import *
 # ------------------ Config ------------------
 thread_id = "thread2"
 BASE_CONFIG = {"configurable": {"thread_id": thread_id}}

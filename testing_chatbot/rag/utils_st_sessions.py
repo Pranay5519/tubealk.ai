@@ -3,9 +3,9 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
 import streamlit as st
 from langchain_core.messages import  HumanMessage
-from testing_folder.rag.yt_rag_model import build_chatbot 
-from testing_folder.rag.utils_rag import load_embeddings_faiss 
-from testing_folder.rag.utils_database import load_captions_from_db , load_url_from_db
+from testing_chatbot.rag.yt_rag_model import build_chatbot 
+from testing_chatbot.rag.utils_rag import load_embeddings_faiss 
+from testing_chatbot.rag.utils_database import load_captions_from_db , load_url_from_db
 def load_conversation(chatbot, thread_id):
     """
     Load conversation messages for a given thread from chatbot state.

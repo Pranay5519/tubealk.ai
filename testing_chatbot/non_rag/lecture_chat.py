@@ -1,8 +1,8 @@
 import streamlit as st
 import uuid
 from langchain_core.messages import HumanMessage
-from testing_folder.non_rag.utility_functions import *
-from testing_folder.non_rag.yt_shortVideo_model import retrieve_all_threads, build_chatbot, checkpointer
+from testing_chatbot.non_rag.utility_functions import *
+from testing_chatbot.non_rag.yt_shortVideo_model import retrieve_all_threads, build_chatbot, checkpointer
 
 # =============================================================================
 # SESSION STATE INITIALIZATION

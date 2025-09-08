@@ -1,4 +1,4 @@
-from testing_folder.rag.yt_rag_model import * 
+from testing_chatbot.rag.yt_rag_model import * 
 import uuid
 
 from langchain_core.messages import HumanMessage

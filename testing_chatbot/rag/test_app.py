@@ -1,10 +1,10 @@
 import streamlit as st
 from langchain_core.messages import HumanMessage , AIMessage
 from yt_rag_model import build_chatbot , retrieve_all_threads  
-from testing_folder.rag.utils_youtube import get_embed_url , load_transcript
-from testing_folder.rag.utils_database import  save_youtube_url_to_db , delete_all_threads_from_db
-from testing_folder.rag.utils_st_sessions import reset_chat , sidebar_thread_selection , add_threadId_to_chatThreads
-from testing_folder.rag.utils_rag import text_splitter , generate_embeddings , retriever_docs , save_embeddings_faiss ,clear_faiss_indexes
+from testing_chatbot.rag.utils_youtube import get_embed_url , load_transcript
+from testing_chatbot.rag.utils_database import  save_youtube_url_to_db , delete_all_threads_from_db
+from testing_chatbot.rag.utils_st_sessions import reset_chat , sidebar_thread_selection , add_threadId_to_chatThreads
+from testing_chatbot.rag.utils_rag import text_splitter , generate_embeddings , retriever_docs , save_embeddings_faiss ,clear_faiss_indexes
 st.set_page_config(
     page_title="LectureChat",
     page_icon="💬",
