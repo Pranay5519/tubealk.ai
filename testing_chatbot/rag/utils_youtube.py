@@ -1,9 +1,8 @@
 from youtube_transcript_api import YouTubeTranscriptApi
 from yt_rag_model import * 
-import uuid
 import re
-import os
-import sqlite3
+
+
 
 # ================== YOUTUBE UTILS ==================
 def get_embed_url(url: str) -> str:

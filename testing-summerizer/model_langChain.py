@@ -167,21 +167,12 @@ class YouTubeVideoSummarizer:
             summary_dict["total_segments"] = len(segments)
             summary_dict["video_duration"] = max([s.start_time for s in segments]) if segments else 0
             
-            return summary_dict
+            return response , parsed_output , summary_dict
             
         except Exception as e:
             return {"error": f"Failed to generate summary: {str(e)}"}
     
     def format_summary_output(self, summary: Dict[str, Any]) -> str:
-        """
-        Format the summary for readable output
-        
-        Args:
-            summary: Summary dictionary from summarize_video
-            
-        Returns:
-            Formatted string output
-        """
         if "error" in summary:
             return f"Error: {summary['error']}"
         
