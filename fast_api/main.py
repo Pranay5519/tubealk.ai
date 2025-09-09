@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from fast_api.model_calling import generate_summary
+from fast_api.model_calling import ModelCalling
 
 # Request body schema
 class InputSchema(BaseModel):
@@ -8,11 +8,11 @@ class InputSchema(BaseModel):
 
 # Create app
 app = FastAPI()
-
+modelcalling = ModelCalling()
 # POST endpoint
 @app.post("/summarize")
 def summarizer(data: InputSchema):
-    response , parsed_output , summary = generate_summary(url=data.input_url)
+    response , parsed_output , summary = modelcalling.generate_summary(url=data.input_url)
     return {
         "summary": summary,
         "parsed_output": parsed_output,
