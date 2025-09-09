@@ -1,5 +1,5 @@
 from youtube_transcript_api import YouTubeTranscriptApi
-from yt_rag_model import * 
+from testing_chatbot.rag.yt_rag_model import * 
 import re
 
 

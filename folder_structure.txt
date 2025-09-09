@@ -43,14 +43,20 @@ tubetalk.ai/
                         bcc7548c9014002f210b858bb8a0c901985f4b
                     1e/
                         ab09f0d8fb1b18d6c243385bb38c74b9d9203d
+                    35/
+                        e4551c59446611559d781f62acb3fb30f89534
                     38/
                         fc1cdaa273ae70a45915c761e48b443691d464
+                    40/
+                        51f109dd2ecd7156fdc86a7e831da378bfea13
                     54/
                         37767fe3516c9d9b09612665ed2de6407ea768
                     5d/
                         c356b405adfc5db85bf58de129771413af02a7
                     66/
                         fd6a484bfe7e40a182d72d20f80b7003b39c74
+                    68/
+                        5d27485c6a3cdafa2bb24eb62c8936a6f0618e
                     6c/
                         62cc6d4180e42fd68d265780318ddce2a1128d
                     70/
@@ -63,6 +69,8 @@ tubetalk.ai/
                         d17f59f179e45fea0ca9bc82fe2e43fc14b862
                     95/
                         2b95fc0238f9f43f96dd9de755431c0c9d2002
+                    9f/
+                        30ac87c82a8229680984c94c6db2e6f2b84bce
                     aa/
                         f317bfae570d04ca5e6adae8ccfb9a87710d49
                     ae/
@@ -72,6 +80,8 @@ tubetalk.ai/
                         7999987af8c2af3bb042e17bba64ea9436821e
                     d5/
                         a7431463003745690a3e8c00909e86cce656ab
+                    d7/
+                        a9b10f2b3bc5fb2cff1e0d399db6d76a8d9988
                     da/
                         306592bf219fff5c0fd23169d87a965abc2c58
                     fd/
@@ -118,10 +128,13 @@ tubetalk.ai/
         objects/
             00/
                 48d98f8d0938ab6fe170d61ab40185e468e555
+            03/
+                0adde999a6cf45504aea04f387b6dbfdc8bcf2
             04/
                 62cf04a340a8fc47821d5101c5f12903049aac
                 663fb57bb11b074f28558f065f61d0c7f752ab
                 699f18e5a15e03f5b022ad37f2813981752a25
+                d6f4333a015288287e23b837ed4957e635e925
             06/
                 25c12437d55a2375eed86ec618b72adc1cb796
                 2724c13d1353f55615412d40495bf0526733e6
@@ -129,10 +142,13 @@ tubetalk.ai/
             07/
                 42aa27e6aa628e57764fbff7106bb665dc6cbe
             08/
+                511176819541162e2afd8fd56ecc3a4ed4ffdf
                 89e4ee0d41df1b597545d1618a707b5c74f439
             09/
                 aa3b751f149a3e460613e5e62c8119e23b831f
             0a/
+                06b00940a2e489182e153184a104fe6003c831
+                90a7b70daa665f5a334d4d800e47d0f9475dab
                 a10a8b6ae75b25766d7d8e9d512433a6547b5f
             0e/
                 2617d9db18bcafa15abdddaf642ab9962dbcf7
@@ -140,6 +156,7 @@ tubetalk.ai/
                 8c5006440a612c3514cd6edc0f6364ef188890
                 acb19de33070764981d3abdad3cb2162a9b06d
             0f/
+                03e440fa4ef0634bfdcf533b6188ad68bc6af0
                 542845803bca2922f45680e6ce6f8fdd9a5f63
                 b98fd42103b68cc778e46cf22bf66e6ff6bfc5
             10/
@@ -157,6 +174,7 @@ tubetalk.ai/
             14/
                 21eb4ca5f4186ea3b1076a267b36e45892ceb6
                 75a169967e0fe6912d7614a81580b2e82ad0cd
+                c4a934b9bff31547eb539201963ed3e3bbf8cf
             15/
                 7f0ad58801db9169151582c15a14dd58d60304
                 b12b680179665f194efc21bcc27ce6a22226ca
@@ -180,6 +198,7 @@ tubetalk.ai/
             21/
                 e32e6c502df27dde26cd03f04c27289f0f59a8
             22/
+                08d4475d5d786d48de756cda878c7756202333
                 cd8a49859c1c4d3e1b1049b4108421068933cb
             23/
                 0fd75a3e9e5116dc6542e4ba64d76c4845fe14
@@ -200,9 +219,11 @@ tubetalk.ai/
                 e7ec774cb2df7c882c33bfbd18025e0f3964ad
             2a/
                 193b5c1f07cebeb447db16923c07ad9504b10e
+                c69c9576ce2e48d68058fe78296efbdae97031
             2b/
                 e67c9a64d98a7ececcb2a2033f7d7ac589869c
             2e/
+                3f648f9a91a869df1ae671bcc8d2dc97ad43ca
                 5c97c21b1b3ebabdb25ef319b01d8c048b902f
                 6903dbb88677802459a1a5889ccc073e660f9e
                 b4133592015baf34eea2fe28e1f99def607525
@@ -210,6 +231,8 @@ tubetalk.ai/
             31/
                 1febc82c43b3463b175f853a944b74c37ba770
                 2d3bd62c4a9cbf81042183b36f4ee9fe963e67
+            35/
+                e4551c59446611559d781f62acb3fb30f89534
             38/
                 500227a68fbbabed45117b7268c95ea6d1be2c
                 fc1cdaa273ae70a45915c761e48b443691d464
@@ -219,15 +242,23 @@ tubetalk.ai/
             3a/
                 e9def3f0dd6fda8376c98dbbce37e9a7c705be
             3b/
+                0769ed064518f0b24edd822f3ab90695148f9f
+                37fac6c332ea5cd4bdfdbf00c83c59df29d60a
                 66617f45e7de4a531f3ea50706de4e285e6ba2
                 efe0f7a83fd4784c9602c9d5837d6570e7f616
+            3d/
+                e1669e0f3c63a957ef004322b8ae1097884425
             3e/
                 2edf74e8b9e86c45a12b4da9a6d0aa2c48ed88
                 577e85f25acfa55f8750c51b0d01973ad91983
                 a87a888c873746ceb559ef9ff77bc9b1e685a8
                 f813bc5d28dce01006d48845521d946f18d8e1
+            40/
+                51f109dd2ecd7156fdc86a7e831da378bfea13
             41/
                 b5225982ab5aa0b60318104de780e6ce871861
+            42/
+                769b4462858ee70695fb59d2fefabd271e6a15
             43/
                 23754ce47b3bae5e9ac901da66d93cd41c7392
                 cc1f07a4d04d8f743bc06a8b98ff884000ebfc
@@ -241,6 +272,8 @@ tubetalk.ai/
                 10ec9ecc684324c9e53ba786b13e7abffcb834
             4a/
                 2782c19a16f817a27daac578587a1192c400f1
+            4b/
+                5bb342547fbb011ac92e8fea76c17937fddf33
             4c/
                 234a726cb7af517986a85f39033803e31183d4
                 49bd78f1d08f2bc09fa0bd8191ed38b7dce5e3
@@ -249,11 +282,18 @@ tubetalk.ai/
                 16b63b8e6459d3b7bd16a0f6144c622b693aea
                 fd007268c4a2f081a878dc4ee14903377d9ae3
             50/
+                3641b2b6893a03cbc446a55241ad4f95c3ac8f
                 999ca8052dfb3b43697b049cd79701290e7eb8
             51/
                 973055237895f2d23e65e015793fd302f4b9da
             52/
+                04774a9be52728f6e2bf83a4eee00095418478
                 8f30c71c687de473bbb506c071e902beba6cd9
+            53/
+                7736b931ca0ce75debd631b1da8207c7a2e432
+                b7af84aa0c2aaf72ff8364ac16c8bd46584e42
+                d1b3fe9a83cbd06db475a1d52b476568d690a6
+                fd2b2a6f02837f3ceace747b98b58173ce413e
             54/
                 37767fe3516c9d9b09612665ed2de6407ea768
                 3de142cd65632e5aa8cc8cbd16e98c5ffca71d
@@ -268,8 +308,12 @@ tubetalk.ai/
                 6f8fa93eeb93268fe0217b88e9d01b0cac1d26
                 947ca8879f8a9072fe485c566204e3c2929e80
                 c356b405adfc5db85bf58de129771413af02a7
+            5e/
+                169a2ce0ad1f774303d197b64ab706c978a371
             5f/
+                9b77084e07993d8bf3534744a60a6e87c5346c
                 cdcadf366cf8b0c26459eee630fafab350ea76
+                ede82a9a92ca92db6dac8d58f78c8c4003e24c
             60/
                 c03825bede0b2d729c428be714c7f6ada5566d
             62/
@@ -281,14 +325,21 @@ tubetalk.ai/
                 93ed6a2b93fdb37b0fa02958a156b56777974b
                 be8520fd8f549ef53a356c5e7f62c25a76e11a
                 e70ced35d30126fa09bce1cf341d93c77f4a23
+            65/
+                b9cf8babd0c49656e5bded4677f93a374354ad
+                f93fce1a1f01e46100accdfd2055aa91a354a1
             66/
                 c035c643f198ee54136e67c150f38d525a67ad
                 fd6a484bfe7e40a182d72d20f80b7003b39c74
+            68/
+                1d94e6442b8fa9200bd7fb087b8ad705dfecea
+                5d27485c6a3cdafa2bb24eb62c8936a6f0618e
             69/
                 e0c249a97cb8122e41e0a14f3a5d1e9f358f62
             6a/
                 572c734e28d18a50eeec3811283dd729659cf3
                 874cd8041f2457352d5620dc77bc4c1267cd25
+                8904fc5651f49839bf5ec63f85b18c2e0bab29
             6c/
                 62cc6d4180e42fd68d265780318ddce2a1128d
             6d/
@@ -297,6 +348,8 @@ tubetalk.ai/
                 1854ec4d9fef6e301499e7b251965fe6079527
             70/
                 890d4688f6536971a3d7de6141fc3c36e02b40
+            72/
+                ceab4f1ed2d801165085060b242e28a65b1035
             73/
                 57ff4de3dccf44b68a27bc9009eb792829ee55
                 bf7f6a6dc004a963c5bee3b66b20e6b8159d39
@@ -304,6 +357,8 @@ tubetalk.ai/
                 5e2fb819f242935cdc0a81dec70749adccdb74
             75/
                 81c5227cfb8405970f877b2714d58b3c17d0d4
+            76/
+                5edf65137d0ed18960bd31f20b3328b4c4e5a9
             77/
                 c643367888bc061e01a1288ed7c3c09a3d60af
             79/
@@ -315,6 +370,7 @@ tubetalk.ai/
             7c/
                 2a9ff34ad0cb58185403cc3f9d0b6e830308e7
                 64f374d9d136465115181618ac04726a07c199
+                c7c710459269a8a79ba0df9d0c731ed768e0f2
             7e/
                 8c57d48b3efd2874f7f7c725009908d3ece98f
                 d9ed65bdbaadc904200ecfa52246a912738966
@@ -325,6 +381,8 @@ tubetalk.ai/
                 d25b9bc43ac19e6065726f8caae5fdd78890d5
             83/
                 5efaf6214490bd2a8e361c14479c286a01e598
+            84/
+                15c473d9bc28ea1a39683a50c4867bffd89f57
             87/
                 4f3979f98195d0422dec8bcfc1d725014d6754
                 6898caa07d1f6f827d383a804fe6d002e9b979
@@ -340,6 +398,8 @@ tubetalk.ai/
                 d17f59f179e45fea0ca9bc82fe2e43fc14b862
             8f/
                 658c0480a22bb78b69214c5064e5421745f099
+            92/
+                b7f0fb22f56b2fa96a1eb4826aff101f593857
             93/
                 7e88b4343e113b0740a27a9d6ced0e4d8053fc
                 a4528110dd58ddb8e971025edf7f2b0f4e4b2f
@@ -350,10 +410,14 @@ tubetalk.ai/
                 796e76f13932bafad3d9b68c5f461b7adc672d
             96/
                 4ebd0ff89fbc651ec50f89866f357359b91ec2
+                afb506a68b7b62e79301acc50ad6d48103318e
             97/
                 246182e481686032b52f4d912349b0a8fd7741
+            99/
+                0bf4fcea99c21ab57cd58fa2c88f6706ad6aa6
             9a/
                 3a2a28ecc6a70d9268c36c93b0689fb846d151
+                44c1688c47cc58de1e5eb0b1fb4e402c9dcf20
                 e7c791afeff0461f411aae9c8845cbe41ba0c2
                 e8cb58d9440402fccf4ef0c8601674e12a5552
                 f73a4d1ad1bcd5e9861e654dff8ff060e9140c
@@ -364,11 +428,21 @@ tubetalk.ai/
                 ec4dcfee5d94d98d5e421d795dc1ce18633251
             9e/
                 ea78341d77f54ad353855bb3f1b5f2b2168bf9
+            9f/
+                30ac87c82a8229680984c94c6db2e6f2b84bce
+            a1/
+                9431e62510e30449a35621f965bf92ba86f5e2
             a2/
                 a526dfc774a6fe6a9df8d9653aec58bee89fd0
+            a4/
+                63cc638bdda5904b7bdb56bf2ae65b4aaf4a81
+            a5/
+                746dacf43968aff364a943cf53d3568cebe629
             a8/
+                e2e5e4b64b77fe59995eee1cefedc0cf8111de
                 f4cb7a2079295c8a40cc24b089a7d2bfbcd5cc
             a9/
+                003955589d7e59236a7696479f6bcd67129fd0
                 0638f823baccd7a1472b57b350051d730de2b1
                 70660c861fbddac33b0376dc053560fc4a2f84
                 a3a4743cfb5d30040240d46435b34a402e5d3e
@@ -391,6 +465,7 @@ tubetalk.ai/
                 98cfa7370c497b08fb52b722836bd7cdd8e902
             b0/
                 266d9106355d1f78b4aab05095945e2424854d
+                aa9b3c68bfae53a65aaa96f315da4691fc61a6
                 d9119155cc1e6d0e3bffd64800044690174f26
             b1/
                 139d2a7e42eefe19c015276a3c2dce02c9389c
@@ -400,9 +475,17 @@ tubetalk.ai/
             b4/
                 2087e243320f71c8b53bf7bfbea92d311ea7b5
             b6/
+                30fbe7645e4e25d5c315bdb5f06e0bbacf0d42
                 7e8a8332bed021c2bffb72fff354fc63339430
+            b8/
+                fed142723ffdbd6888e4d074133f4f2a053def
+            b9/
+                78ea7966590d6598eb4f6d5b90d0e42cf037dc
+            ba/
+                6b50854f1b76942ff864a17727ab5463a42dbd
             bb/
                 13408879aead6fb7c4e0543d68dd3b94518d81
+                4cc205d85a4f8324ac1e7d0a40937076dfb9f8
             bc/
                 6c8f8cddb94ee6b6dc4b9766daeff78a36846e
             bf/
@@ -410,6 +493,7 @@ tubetalk.ai/
             c0/
                 c5bbc7b5d1b90239fc2579c6b27206cfa3bc0c
             c1/
+                31e0cefee8a23b71d379d92503b2b9231ad363
                 8962f1a943eb0169a3d80b5524de5026754e97
             c2/
                 24f61d319f0818c28c0671ae6c31c0315a6a55
@@ -418,12 +502,18 @@ tubetalk.ai/
                 a3f8e6b03ff897b8697004c3c4c818806fe8f2
             c6/
                 11700feb5d8b0fb0e77ebcb8130af8ab1b2fab
+                2c5cb2e8c325099b0a24d3341b6019fb2454be
+            c7/
+                d1a895c44709f8584d789003acf5a8689c3641
             c8/
+                93190eaa561606326eaf973d1c7c46c429c954
                 b8da040f8f34d99b1f554987cfe6fe6801e08a
             ca/
                 9bdf7fb0191fcf2da0899e4685be7f5ffdcb08
             cb/
                 0073fe6018da01487bd6311efab77b3507f2ea
+            cc/
+                784c7038009f489e6df4030722501e9daea291
             ce/
                 a0a4dfb6c6c1e00b05652fd27aef6742650e34
             cf/
@@ -437,18 +527,27 @@ tubetalk.ai/
                 0c7083d4cdd37eb8fd92fc4545d894524a1008
             d5/
                 a7431463003745690a3e8c00909e86cce656ab
+            d7/
+                a9b10f2b3bc5fb2cff1e0d399db6d76a8d9988
             da/
                 2ca17969ec1d785b48c82533216f303d14b443
                 306592bf219fff5c0fd23169d87a965abc2c58
+                51194e026a145993a9fe80f31cc16f65fe07e7
                 8ee613140747c3dbefe9743f692c56b8faaaca
                 e63103577b8fc3b99d7d7933e642271741c3be
+            db/
+                662bd7bf89a935974eede4aa0539a8fe6c58be
+            dc/
+                9382535bdd4bdf18af5fcda7ea519ed30893f7
             dd/
                 1de279bdeafee3b219d447bf5f5e92dfd5fb1e
+                b0759dfd279330e2cdb63971f1ff5228e80742
             de/
                 e53ff0db0a115bc8623c22ad71b64d80663613
             df/
                 090ac6bfac924258b519f7bdb5ebdee00c0b21
             e0/
+                1ebf888b8c9aa33197fdab336f1b181fbe9c0d
                 5e96ef104896c009fb23864a8e4f5909de63d3
                 858ecce9074952f3ac4425e51ae4e22014fe89
             e1/
@@ -465,12 +564,16 @@ tubetalk.ai/
                 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
             e7/
                 93e11405136f067b035e125aa00c459e55c457
+                d61b21028bab10d40483bf29a4339fef1c2663
             e8/
                 4c12c654bd44c03c100d4c83b03cd5a7e3bc3b
                 5dc1f5385843b96cc048fb58802969781ff98d
                 b8de905e87bfff9cf20fc3ab6a7d104dbd7bf3
+            e9/
+                feccd5d2cb3c0e0e8b85bfaf4b62be14af290a
             ea/
                 5397f2dffaab7ca70f94032a25a224ad5efecb
+                bae69afff38bbcdb874e06a51be1dc6d9f4524
             eb/
                 dc25a39790343238eb411d85122ded0f7aed9a
             ec/
@@ -478,6 +581,8 @@ tubetalk.ai/
                 3ae20cd73629c2ccc3a71c6a2d65b66245fa95
                 b3135fdfd3c958168db698ca5fa9cc33db494d
                 e21b8e3b0e64a39126b25cd331e76ff28919d3
+            ed/
+                2ba2d5ebc7d32f2cbf30e67a6ae9fcd19c16ed
             ee/
                 6b56856046bbfbd6c1b636499d77c0fee571a7
             f0/
@@ -494,8 +599,10 @@ tubetalk.ai/
                 82e60248fe3971cef77a1b1427c0391a5795ef
                 a265a7463d05fe61db1e79364417f6973579fe
                 bb561a4dfe9cf8e6a6f749dbdb1bba5e7568a6
+                c136985b05b0feaeb518b6ea66406d6e62f197
             fb/
                 a58d1a80bf7585e8d2e3a176d16a566c33295d
+                faba00e6eaf35dbd0039e50008b2b060f8b791
             fc/
                 4c3411e73c4d2efaea96cd6c06a1084e8b4192
             fd/
@@ -503,6 +610,8 @@ tubetalk.ai/
             fe/
                 500ddade8f34b845a16f18117275cb442e3d79
                 9cbc7b6019f5d9634f49f938a537f5860f58a5
+            ff/
+                d17cc964cedcaa5ca91ed70b50c1671a6e85ca
             info/
             pack/
         refs/
@@ -596,6 +705,112 @@ tubetalk.ai/
         streamlitMain_20250823221950.py
         streamlitMain_20250823222009.py
         streamlitMain_20250823222010.py
+        fast-api/
+            main_20250909171716.py
+            main_20250909171754.py
+            main_20250909171800.py
+            main_20250909171803.py
+            main_20250909171807.py
+            main_20250909171820.py
+            main_20250909171822.py
+            main_20250909171826.py
+            main_20250909171829.py
+            main_20250909171832.py
+            main_20250909171833.py
+            main_20250909171838.py
+            main_20250909171852.py
+            main_20250909171856.py
+            main_20250909171933.py
+            main_20250909171939.py
+            main_20250909171940.py
+            main_20250909171942.py
+            main_20250909171946.py
+            main_20250909171951.py
+            main_20250909172035.py
+            main_20250909172042.py
+            main_20250909172046.py
+            main_20250909172052.py
+            main_20250909172054.py
+            main_20250909172058.py
+            main_20250909172100.py
+            main_20250909172101.py
+            main_20250909172105.py
+            main_20250909172118.py
+            main_20250909172119.py
+            main_20250909172129.py
+            main_20250909172221.py
+            main_20250909172340.py
+            main_20250909173241.py
+            main_20250909173247.py
+            main_20250909173250.py
+            main_20250909173257.py
+            main_20250909173307.py
+            main_20250909173312.py
+            main_20250909173402.py
+            main_20250909173403.py
+            main_20250909173404.py
+            main_20250909173406.py
+            main_20250909173407.py
+            main_20250909173408.py
+            main_20250909173409.py
+            model_calling_20250909172329.py
+            model_calling_20250909172337.py
+            model_calling_20250909172341.py
+            model_calling_20250909172352.py
+            model_calling_20250909172357.py
+            model_calling_20250909172404.py
+            model_calling_20250909172416.py
+            model_calling_20250909172419.py
+            model_calling_20250909172422.py
+            model_calling_20250909172432.py
+            model_calling_20250909172530.py
+            model_calling_20250909172535.py
+            model_calling_20250909172618.py
+            model_calling_20250909172620.py
+            model_calling_20250909172622.py
+            model_calling_20250909172625.py
+            model_calling_20250909172626.py
+            model_calling_20250909172628.py
+            model_calling_20250909172630.py
+            model_calling_20250909172632.py
+            model_calling_20250909172639.py
+            model_calling_20250909172640.py
+            model_calling_20250909172659.py
+            model_calling_20250909172702.py
+            model_calling_20250909172705.py
+            model_calling_20250909172707.py
+            model_calling_20250909172710.py
+            model_calling_20250909172718.py
+            model_calling_20250909172721.py
+            model_calling_20250909172731.py
+            model_calling_20250909172735.py
+            model_calling_20250909172744.py
+            model_calling_20250909172807.py
+            model_calling_20250909172810.py
+            model_calling_20250909172925.py
+            model_calling_20250909172929.py
+            model_calling_20250909172932.py
+            model_calling_20250909172938.py
+            model_calling_20250909173138.py
+            model_calling_20250909173141.py
+            model_calling_20250909173142.py
+            model_calling_20250909173150.py
+            model_calling_20250909173158.py
+            model_calling_20250909173200.py
+            model_calling_20250909173202.py
+            model_calling_20250909173207.py
+            model_calling_20250909173208.py
+            model_calling_20250909173212.py
+            model_calling_20250909173213.py
+            model_calling_20250909173216.py
+            model_calling_20250909173218.py
+            model_calling_20250909173219.py
+            model_calling_20250909173350.py
+            model_calling_20250909173352.py
+            model_calling_20250909173355.py
+            model_calling_20250909173527.py
+            model_calling_20250909173803.py
+            model_calling_20250909173828.py
         models/
             calling_20250818102249.py
             calling_20250818102717.py
@@ -4219,6 +4434,478 @@ tubetalk.ai/
             yt_shortVideo_model_20250901233010.py
             yt_shortVideo_model_20250901233012.py
             yt_shortVideo_model_20250901233017.py
+        testing-summerizer/
+            app_20250908113400.py
+            app_20250908113420.py
+            app_20250908115020.py
+            app_20250908115040.py
+            app_20250908115048.py
+            app_20250908115050.py
+            app_20250908115053.py
+            app_20250908115101.py
+            app_20250908115103.py
+            app_20250908115104.py
+            app_20250908115111.py
+            app_20250908115112.py
+            app_20250908115120.py
+            app_20250908115127.py
+            app_20250908115321.py
+            app_20250908115322.py
+            app_20250908115358.py
+            app_20250908115607.py
+            app_20250908115608.py
+            app_20250908115610.py
+            app_20250908115647.py
+            app_20250908115658.py
+            app_20250908115708.py
+            app_20250908115751.py
+            app_20250908115752.py
+            app_20250908115754.py
+            app_20250908115851.py
+            app_20250908115853.py
+            app_20250908115919.py
+            app_20250908115921.py
+            app_20250908115924.py
+            app_20250908115926.py
+            app_20250908115930.py
+            app_20250908115933.py
+            app_20250908115935.py
+            app_20250908115937.py
+            app_20250908115941.py
+            app_20250908115950.py
+            app_20250908115953.py
+            app_20250908115955.py
+            app_20250908120042.py
+            app_20250908120044.py
+            app_20250908120219.py
+            app_20250908120221.py
+            app_20250908120227.py
+            app_20250908120235.py
+            app_20250908120338.py
+            app_20250908120340.py
+            app_20250908120341.py
+            app_20250908120342.py
+            app_20250908120343.py
+            app_20250908120344.py
+            app_20250908120436.py
+            app_20250908120440.py
+            app_20250908120442.py
+            app_20250908120512.py
+            app_20250908120514.py
+            app_20250908120601.py
+            app_20250908120646.py
+            app_20250908120647.py
+            app_20250908120650.py
+            app_20250908120653.py
+            app_20250908120655.py
+            app_20250908120657.py
+            app_20250908120658.py
+            app_20250908120700.py
+            app_20250908120703.py
+            app_20250908120704.py
+            app_20250908120808.py
+            app_20250908120809.py
+            app_20250908120848.py
+            app_20250908120850.py
+            app_20250908120852.py
+            app_20250908120853.py
+            app_20250908120854.py
+            app_20250908120856.py
+            app_20250908121037.py
+            app_20250908121044.py
+            app_20250908121045.py
+            app_20250908121135.py
+            app_20250908121143.py
+            app_20250908121147.py
+            app_20250908121149.py
+            app_20250908121201.py
+            app_20250908121311.py
+            app_20250908121313.py
+            app_20250908121315.py
+            app_20250908121325.py
+            app_20250908121330.py
+            app_20250908121437.py
+            app_20250908121439.py
+            app_20250908121444.py
+            app_20250908121446.py
+            app_20250908121450.py
+            app_20250908121455.py
+            app_20250908121506.py
+            app_20250908121512.py
+            app_20250908121514.py
+            app_20250908121544.py
+            app_20250908121612.py
+            app_20250908121651.py
+            app_20250908121701.py
+            app_20250908121703.py
+            app_20250908121839.py
+            app_20250908123044.py
+            app_20250908123059.py
+            app_20250908123106.py
+            app_20250908123133.py
+            app_20250908123135.py
+            app_20250908123137.py
+            app_20250908123139.py
+            app_20250908123255.py
+            app_20250908123301.py
+            app_20250908123307.py
+            app_20250908123309.py
+            app_20250908123312.py
+            app_20250908123316.py
+            app_20250908123318.py
+            app_20250908123320.py
+            app_20250908123325.py
+            app_20250908123326.py
+            app_20250908123329.py
+            app_20250908123340.py
+            app_20250908123341.py
+            model_langChain_20250908090715.py
+            model_langChain_20250908090727.py
+            model_langChain_20250908090733.py
+            model_langChain_20250908090749.py
+            model_langChain_20250908090750.py
+            model_langChain_20250908091710.py
+            model_langChain_20250908091735.py
+            model_langChain_20250908091742.py
+            model_langChain_20250908091745.py
+            model_langChain_20250908091754.py
+            model_langChain_20250908092006.py
+            model_langChain_20250908110026.py
+            model_langChain_20250908110028.py
+            model_langChain_20250908110031.py
+            model_langChain_20250908110039.py
+            model_langChain_20250908110042.py
+            model_langChain_20250908111124.py
+            test_app_20250908091015.py
+            test_app_20250908091030.py
+            test_app_20250908091037.py
+            test_app_20250908091039.py
+            test_app_20250908091115.py
+            test_app_20250908091120.py
+            test_app_20250908091125.py
+            test_app_20250908091129.py
+            test_app_20250908091132.py
+            test_app_20250908091141.py
+            test_app_20250908091148.py
+            test_app_20250908091154.py
+            test_app_20250908091202.py
+            test_app_20250908091203.py
+            test_app_20250908091225.py
+            test_app_20250908091229.py
+            test_app_20250908091230.py
+            test_app_20250908091236.py
+            test_app_20250908091251.py
+            test_app_20250908091259.py
+            test_app_20250908091307.py
+            test_app_20250908091314.py
+            test_app_20250908091319.py
+            test_app_20250908091322.py
+            test_app_20250908091325.py
+            test_app_20250908091327.py
+            test_app_20250908091334.py
+            test_app_20250908091336.py
+            test_app_20250908091401.py
+            test_app_20250908091407.py
+            test_app_20250908091415.py
+            test_app_20250908091417.py
+            test_app_20250908091418.py
+            test_app_20250908091442.py
+            test_app_20250908091448.py
+            test_app_20250908091456.py
+            test_app_20250908091510.py
+            test_app_20250908091512.py
+            test_app_20250908091515.py
+            test_app_20250908091516.py
+            test_app_20250908091518.py
+            test_app_20250908091522.py
+            test_app_20250908091525.py
+            test_app_20250908091527.py
+            test_app_20250908091531.py
+            test_app_20250908091533.py
+            test_app_20250908091535.py
+            test_app_20250908091537.py
+            test_app_20250908091538.py
+            test_app_20250908091542.py
+            test_app_20250908091543.py
+            test_app_20250908091545.py
+            test_app_20250908091547.py
+            test_app_20250908091555.py
+            test_app_20250908091559.py
+            test_app_20250908091602.py
+            test_app_20250908091606.py
+            test_app_20250908091608.py
+            test_app_20250908091624.py
+            test_app_20250908091805.py
+            test_app_20250908091915.py
+            test_app_20250908091953.py
+            test_app_20250908092014.py
+            test_app_20250908092137.py
+            test_app_20250908092141.py
+            test_app_20250908092143.py
+            test_app_20250908092150.py
+            test_app_20250908092152.py
+            test_app_20250908092156.py
+            test_app_20250908092201.py
+            test_app_20250908092204.py
+            test_app_20250908092207.py
+            test_app_20250908092255.py
+            test_app_20250908092315.py
+            test_app_20250908103444.py
+            test_app_20250908103447.py
+            test_app_20250908110057.py
+            test_app_20250908110059.py
+            test_app_20250908110112.py
+            test_app_20250908110114.py
+            test_app_20250908110116.py
+            test_app_20250908110117.py
+            test_app_20250908110118.py
+            test_app_20250908110119.py
+            test_app_20250908110123.py
+            test_app_20250908110214.py
+            test_app_20250908110215.py
+            test_app_20250908110219.py
+            test_app_20250908110812.py
+            test_app_20250908111036.py
+            test_app_20250908111044.py
+            test_app_20250908111052.py
+            test_app_20250908111843.py
+            test_app_20250908111845.py
+            test_app_20250908111846.py
+            test_app_20250908111854.py
+            test_app_20250908111856.py
+            test_app_20250908111926.py
+            test_app_20250908111941.py
+            test_app_20250908111943.py
+            test_app_20250908111948.py
+            test_app_20250908111950.py
+            test_app_20250908112019.py
+            test_app_20250908112021.py
+            test_app_20250908112024.py
+            test_app_20250908112025.py
+            test_app_20250908112027.py
+            test_app_20250908112029.py
+            test_app_20250908112034.py
+            test_app_20250908112049.py
+            test_app_20250908112108.py
+            test_app_20250908112111.py
+            test_app_20250908112115.py
+            test_app_20250908112123.py
+            test_app_20250908112124.py
+            test_app_20250908112140.py
+            test_app_20250908112145.py
+            test_app_20250908112155.py
+            test_app_20250908112201.py
+            test_app_20250908112245.py
+            test_app_20250908112252.py
+            test_app_20250908112254.py
+            test_app_20250908112450.py
+            test_app_20250908112452.py
+            test_app_20250908112454.py
+            test_app_20250908112456.py
+            test_app_20250908112457.py
+            test_app_20250908112557.py
+            test_app_20250908112601.py
+            test_app_20250908112604.py
+            test_app_20250908112607.py
+            test_app_20250908112609.py
+            test_app_20250908112610.py
+            test_app_20250908112613.py
+            test_app_20250908112617.py
+            test_app_20250908112623.py
+            test_app_20250908112628.py
+            test_app_20250908112632.py
+            test_app_20250908112635.py
+            test_app_20250908112642.py
+            test_app_20250908112645.py
+            test_app_20250908112647.py
+            test_app_20250908112656.py
+            test_app_20250908112703.py
+            test_app_20250908112707.py
+            test_app_20250908112708.py
+            test_app_20250908112709.py
+            test_app_20250908112728.py
+            test_app_20250908112801.py
+            test_app_20250908112819.py
+            test_app_20250908112821.py
+            test_app_20250908113037.py
+            test_app_20250908113038.py
+            test_app_20250908113106.py
+            test_app_20250908113124.py
+            test_app_20250908113126.py
+            test_app_20250908113137.py
+            test_app_20250908113141.py
+            test_app_20250908113142.py
+            test_app_20250908113149.py
+            test_app_20250908113152.py
+            test_app_20250908113155.py
+            test_app_20250908113158.py
+            test_app_20250908113207.py
+            test_app_20250908113220.py
+            test_app_20250908113221.py
+            test_app_20250908113223.py
+            test_app_20250908113226.py
+            test_app_20250908113233.py
+            test_app_20250908113237.py
+            test_app_20250908113240.py
+            test_app_20250908113242.py
+            test_app_20250908113250.py
+            test_app_20250908113253.py
+            test_app_20250908113256.py
+            test_app_20250908113258.py
+            test_app_20250908113303.py
+            test_app_20250908113306.py
+            test_app_20250908113311.py
+            test_app_20250908113426.py
+            test_app_20250908113428.py
+            test_app_20250908113447.py
+            test_app_20250908113449.py
+            test_app_20250908113457.py
+            test_app_20250908113501.py
+            test_app_20250908113515.py
+            test_app_20250908113519.py
+            test_app_20250908113536.py
+            test_app_20250908113559.py
+            test_app_20250908113603.py
+            test_app_20250908113606.py
+            test_app_20250908113615.py
+            test_app_20250908113618.py
+            test_app_20250908113622.py
+            test_app_20250908113625.py
+            test_app_20250908113632.py
+            test_app_20250908113633.py
+            test_app_20250908113634.py
+            test_app_20250908113635.py
+            test_app_20250908113640.py
+            test_app_20250908113647.py
+            test_app_20250908113652.py
+            test_app_20250908113703.py
+            test_app_20250908113705.py
+            test_app_20250908113706.py
+            test_app_20250908113708.py
+            test_app_20250908113709.py
+            test_app_20250908113719.py
+            test_app_20250908113723.py
+            test_app_20250908113727.py
+            test_app_20250908113731.py
+            test_app_20250908113803.py
+            test_app_20250908113847.py
+            test_app_20250908113915.py
+            test_app_20250908113941.py
+            test_app_20250908113945.py
+            test_app_20250908113959.py
+            test_app_20250908114010.py
+            test_app_20250908114018.py
+            test_app_20250908114029.py
+            test_app_20250908114034.py
+            test_app_20250908114053.py
+            test_app_20250908114106.py
+            test_app_20250908114111.py
+            test_app_20250908114112.py
+            test_app_20250908114119.py
+            test_app_20250908114125.py
+            test_app_20250908114150.py
+            test_app_20250908114157.py
+            test_app_20250908114322.py
+            test_app_20250908114342.py
+            test_app_20250908114403.py
+            test_app_20250908114406.py
+            test_app_20250908114415.py
+            test_app_20250908114550.py
+            test_app_20250908114608.py
+            test_app_20250908114720.py
+            test_app_20250908114725.py
+            test_app_20250908114745.py
+            test_app_20250908114817.py
+            test_app_20250908114835.py
+            test_app_20250908114837.py
+            test_app_20250908114843.py
+            test_app_20250908114845.py
+            test_app_20250908114931.py
+            test_app_20250908114948.py
+            test_app_20250908114949.py
+            test_app_20250908120007.py
+            test_app_20250908120009.py
+            test_app_20250908120024.py
+            test_app_20250908120026.py
+            test_app_20250908120033.py
+            test_app_20250908120107.py
+            test_app_20250908120110.py
+            test_app_20250908120111.py
+            test_app_20250908121011.py
+            test_app_20250908121853.py
+            test_app_20250908121857.py
+            test_app_20250908121858.py
+            test_app_20250908121902.py
+            test_app_20250908122135.py
+            test_app_20250908122137.py
+            test_app_20250908122240.py
+            test_app_20250908122319.py
+            test_app_20250908122321.py
+            test_app_20250908122327.py
+            test_app_20250908122332.py
+            test_app_20250908122337.py
+            test_app_20250908122339.py
+            test_app_20250908122340.py
+            test_app_20250908122342.py
+            test_app_20250908122343.py
+            test_app_20250908122346.py
+            test_app_20250908122349.py
+            test_app_20250908122350.py
+            test_app_20250908122400.py
+            test_app_20250908122403.py
+            test_app_20250908122413.py
+            test_app_20250908122414.py
+            test_app_20250908122415.py
+            test_app_20250908122440.py
+            test_app_20250908122451.py
+            test_app_20250908122503.py
+            test_app_20250908122518.py
+            test_app_20250908122520.py
+            test_app_20250908122542.py
+            test_app_20250908122544.py
+            test_app_20250908122553.py
+            test_app_20250908122557.py
+            test_app_20250908122605.py
+            test_app_20250908122608.py
+            test_app_20250908122609.py
+            test_app_20250908122626.py
+            test_app_20250908122627.py
+            test_app_20250908122634.py
+            test_app_20250908122637.py
+            test_app_20250908122639.py
+            test_app_20250908122643.py
+            test_app_20250908122649.py
+            test_app_20250908122705.py
+            test_app_20250908122803.py
+            test_app_20250908122814.py
+            test_app_20250908122818.py
+            test_app_20250908122822.py
+            test_app_20250908122930.py
+            test_app_20250908122947.py
+            test_app_20250908122948.py
+        testing_chatbot/
+            non_rag/
+                lecture_chat_20250905100902.py
+                lecture_chat_20250908090632.py
+                testing_YT_shortVideos_20250905100902.py
+                testing_YT_shortVideos_20250908090632.py
+                utility_functions_20250905100236.py
+                utility_functions_20250908090632.py
+            rag/
+                test_20250905100902.py
+                test_20250908090632.py
+                test_app2_20250905121852.py
+                test_app2_20250908090632.py
+                test_app_20250905150631.py
+                test_app_20250908090632.py
+                utils_st_sessions_20250905141138.py
+                utils_st_sessions_20250908090632.py
+                utils_youtube_20250905102147.py
+                utils_youtube_20250908102356.py
+                utils_youtube_20250908102358.py
+                utils_youtube_20250908102405.py
+                utils_youtube_20250908102407.py
+                utils_youtube_20250908102409.py
         testing_folder/
             app_20250902203503.py
             app_20250902213657.py
@@ -5039,6 +5726,10 @@ tubetalk.ai/
             utils_st_sessions_20250905103305.py
             utils_st_sessions_20250905105127.py
             utils_st_sessions_20250905105128.py
+            utils_st_sessions_20250905105613.py
+            utils_st_sessions_20250905105616.py
+            utils_st_sessions_20250905105638.py
+            utils_st_sessions_20250905105641.py
             yt_rag_model_20250903153228.py
             yt_rag_model_20250903153256.py
             yt_rag_model_20250903153301.py
@@ -5165,12 +5856,19 @@ tubetalk.ai/
             yt_shortVideo_model_20250904085310.py
             yt_shortVideo_model_20250904085312.py
             yt_shortVideo_model_20250904085314.py
+            __init___20250905105501.py
+            __init___20250905105504.py
+            __init___20250905105505.py
+            __init___20250905105516.py
+            __init___20250905105549.py
             non_rag/
                 lecture_chat_20250904114054.py
                 lecture_chat_20250905100830.py
                 lecture_chat_20250905100903.py
                 testing_YT_shortVideos_20250823222742.py
                 testing_YT_shortVideos_20250905100903.py
+                __init___20250905105548.py
+                __init___20250905105607.py
             rag/
                 database_utils_20250905101153.py
                 database_utils_20250905101157.py
@@ -5201,6 +5899,14 @@ tubetalk.ai/
                 rag_utility_functions_20250905100617.py
                 test_20250905100236.py
                 test_20250905100903.py
+                test_app2_20250905121746.py
+                test_app2_20250905121757.py
+                test_app2_20250905121809.py
+                test_app2_20250905121812.py
+                test_app2_20250905121829.py
+                test_app2_20250905121830.py
+                test_app2_20250905121852.py
+                test_app2_20250905121853.py
                 test_app_20250904114136.py
                 test_app_20250905100237.py
                 test_app_20250905100903.py
@@ -5272,8 +5978,353 @@ tubetalk.ai/
                 test_app_20250905104431.py
                 test_app_20250905104906.py
                 test_app_20250905105013.py
+                test_app_20250905105741.py
+                test_app_20250905105750.py
+                test_app_20250905105756.py
+                test_app_20250905105804.py
+                test_app_20250905105904.py
+                test_app_20250905105906.py
+                test_app_20250905110913.py
+                test_app_20250905110914.py
+                test_app_20250905110930.py
+                test_app_20250905110933.py
+                test_app_20250905110934.py
+                test_app_20250905110936.py
+                test_app_20250905110937.py
+                test_app_20250905111232.py
+                test_app_20250905111409.py
+                test_app_20250905111426.py
+                test_app_20250905111427.py
+                test_app_20250905111522.py
+                test_app_20250905111524.py
+                test_app_20250905111539.py
+                test_app_20250905111542.py
+                test_app_20250905111554.py
+                test_app_20250905111606.py
+                test_app_20250905111612.py
+                test_app_20250905111615.py
+                test_app_20250905111640.py
+                test_app_20250905111641.py
+                test_app_20250905111710.py
+                test_app_20250905111716.py
+                test_app_20250905111719.py
+                test_app_20250905111722.py
+                test_app_20250905111734.py
+                test_app_20250905111737.py
+                test_app_20250905111804.py
+                test_app_20250905112018.py
+                test_app_20250905112020.py
+                test_app_20250905112021.py
+                test_app_20250905112441.py
+                test_app_20250905112444.py
+                test_app_20250905112521.py
+                test_app_20250905112539.py
+                test_app_20250905112607.py
+                test_app_20250905112642.py
+                test_app_20250905112644.py
+                test_app_20250905112646.py
+                test_app_20250905112648.py
+                test_app_20250905112734.py
+                test_app_20250905112836.py
+                test_app_20250905112841.py
+                test_app_20250905112843.py
+                test_app_20250905112849.py
+                test_app_20250905112850.py
+                test_app_20250905112853.py
+                test_app_20250905113413.py
+                test_app_20250905113441.py
+                test_app_20250905113443.py
+                test_app_20250905113452.py
+                test_app_20250905113455.py
+                test_app_20250905113500.py
+                test_app_20250905113501.py
+                test_app_20250905113650.py
+                test_app_20250905113652.py
+                test_app_20250905113728.py
+                test_app_20250905113731.py
+                test_app_20250905113732.py
+                test_app_20250905113742.py
+                test_app_20250905113752.py
+                test_app_20250905113755.py
+                test_app_20250905113941.py
+                test_app_20250905114016.py
+                test_app_20250905114023.py
+                test_app_20250905114133.py
+                test_app_20250905114320.py
+                test_app_20250905114323.py
+                test_app_20250905114325.py
+                test_app_20250905114327.py
+                test_app_20250905114338.py
+                test_app_20250905114459.py
+                test_app_20250905114546.py
+                test_app_20250905114616.py
+                test_app_20250905114629.py
+                test_app_20250905114641.py
+                test_app_20250905115501.py
+                test_app_20250905115504.py
+                test_app_20250905115521.py
+                test_app_20250905115527.py
+                test_app_20250905115533.py
+                test_app_20250905115535.py
+                test_app_20250905115607.py
+                test_app_20250905115620.py
+                test_app_20250905115622.py
+                test_app_20250905115634.py
+                test_app_20250905115639.py
+                test_app_20250905115641.py
+                test_app_20250905115645.py
+                test_app_20250905115650.py
+                test_app_20250905115655.py
+                test_app_20250905115656.py
+                test_app_20250905115659.py
+                test_app_20250905115700.py
+                test_app_20250905115701.py
+                test_app_20250905115702.py
+                test_app_20250905115722.py
+                test_app_20250905115752.py
+                test_app_20250905115903.py
+                test_app_20250905120022.py
+                test_app_20250905120025.py
+                test_app_20250905120031.py
+                test_app_20250905120032.py
+                test_app_20250905120037.py
+                test_app_20250905120204.py
+                test_app_20250905120209.py
+                test_app_20250905120217.py
+                test_app_20250905120222.py
+                test_app_20250905120226.py
+                test_app_20250905120239.py
+                test_app_20250905120241.py
+                test_app_20250905120300.py
+                test_app_20250905120303.py
+                test_app_20250905120316.py
+                test_app_20250905120320.py
+                test_app_20250905120326.py
+                test_app_20250905120327.py
+                test_app_20250905120328.py
+                test_app_20250905120452.py
+                test_app_20250905120531.py
+                test_app_20250905120532.py
+                test_app_20250905120807.py
+                test_app_20250905120813.py
+                test_app_20250905120827.py
+                test_app_20250905120831.py
+                test_app_20250905120835.py
+                test_app_20250905120837.py
+                test_app_20250905121150.py
+                test_app_20250905121859.py
+                test_app_20250905121900.py
+                test_app_20250905121906.py
+                test_app_20250905121910.py
+                test_app_20250905121911.py
+                test_app_20250905121937.py
+                test_app_20250905121945.py
+                test_app_20250905122019.py
+                test_app_20250905122020.py
+                test_app_20250905122101.py
+                test_app_20250905122103.py
+                test_app_20250905122106.py
+                test_app_20250905122116.py
+                test_app_20250905122122.py
+                test_app_20250905122126.py
+                test_app_20250905122157.py
+                test_app_20250905122202.py
+                test_app_20250905122205.py
+                test_app_20250905122356.py
+                test_app_20250905122401.py
+                test_app_20250905122422.py
+                test_app_20250905122909.py
+                test_app_20250905122912.py
+                test_app_20250905122915.py
+                test_app_20250905122916.py
+                test_app_20250905122918.py
+                test_app_20250905122919.py
+                test_app_20250905122923.py
+                test_app_20250905122925.py
+                test_app_20250905122930.py
+                test_app_20250905122934.py
+                test_app_20250905122943.py
+                test_app_20250905122951.py
+                test_app_20250905122952.py
+                test_app_20250905123021.py
+                test_app_20250905123655.py
+                test_app_20250905123657.py
+                test_app_20250905123659.py
+                test_app_20250905123702.py
+                test_app_20250905123705.py
+                test_app_20250905123707.py
+                test_app_20250905124110.py
+                test_app_20250905124112.py
+                test_app_20250905124119.py
+                test_app_20250905124120.py
+                test_app_20250905124121.py
+                test_app_20250905124122.py
+                test_app_20250905124123.py
+                test_app_20250905134241.py
+                test_app_20250905134608.py
+                test_app_20250905134609.py
+                test_app_20250905134940.py
+                test_app_20250905135131.py
+                test_app_20250905135136.py
+                test_app_20250905135507.py
+                test_app_20250905140142.py
+                test_app_20250905140144.py
+                test_app_20250905140600.py
+                test_app_20250905140829.py
+                test_app_20250905140833.py
+                test_app_20250905140841.py
+                test_app_20250905141218.py
+                test_app_20250905141219.py
+                test_app_20250905141227.py
+                test_app_20250905141242.py
+                test_app_20250905141244.py
+                test_app_20250905141246.py
+                test_app_20250905141248.py
+                test_app_20250905141249.py
+                test_app_20250905141329.py
+                test_app_20250905141331.py
+                test_app_20250905141856.py
+                test_app_20250905141902.py
+                test_app_20250905141904.py
+                test_app_20250905141919.py
+                test_app_20250905141940.py
+                test_app_20250905142026.py
+                test_app_20250905142037.py
+                test_app_20250905142107.py
+                test_app_20250905142141.py
+                test_app_20250905142143.py
+                test_app_20250905142147.py
+                test_app_20250905142158.py
+                test_app_20250905142201.py
+                test_app_20250905142241.py
+                test_app_20250905142300.py
+                test_app_20250905142405.py
+                test_app_20250905142454.py
+                test_app_20250905142456.py
+                test_app_20250905142519.py
+                test_app_20250905142520.py
+                test_app_20250905142529.py
+                test_app_20250905142533.py
+                test_app_20250905142535.py
+                test_app_20250905142543.py
+                test_app_20250905142710.py
+                test_app_20250905142820.py
+                test_app_20250905142830.py
+                test_app_20250905142923.py
+                test_app_20250905142924.py
+                test_app_20250905143014.py
+                test_app_20250905143104.py
+                test_app_20250905143142.py
+                test_app_20250905143236.py
+                test_app_20250905143251.py
+                test_app_20250905143349.py
+                test_app_20250905143351.py
+                test_app_20250905143352.py
+                test_app_20250905143354.py
+                test_app_20250905143509.py
+                test_app_20250905143529.py
+                test_app_20250905143538.py
+                test_app_20250905143543.py
+                test_app_20250905143623.py
+                test_app_20250905143635.py
+                test_app_20250905143636.py
+                test_app_20250905143746.py
+                test_app_20250905143811.py
+                test_app_20250905143847.py
+                test_app_20250905143907.py
+                test_app_20250905143916.py
+                test_app_20250905143922.py
+                test_app_20250905143929.py
+                test_app_20250905143933.py
+                test_app_20250905144007.py
+                test_app_20250905144018.py
+                test_app_20250905144020.py
+                test_app_20250905144024.py
+                test_app_20250905144026.py
+                test_app_20250905144028.py
+                test_app_20250905144029.py
+                test_app_20250905144030.py
+                test_app_20250905144201.py
+                test_app_20250905144221.py
+                test_app_20250905144311.py
+                test_app_20250905144320.py
+                test_app_20250905144323.py
+                test_app_20250905144328.py
+                test_app_20250905144608.py
+                test_app_20250905144610.py
+                test_app_20250905144611.py
+                test_app_20250905144714.py
+                test_app_20250905144716.py
+                test_app_20250905144718.py
+                test_app_20250905144747.py
+                test_app_20250905144748.py
+                test_app_20250905144755.py
+                test_app_20250905144758.py
+                test_app_20250905144800.py
+                test_app_20250905144856.py
+                test_app_20250905144857.py
+                test_app_20250905144959.py
+                test_app_20250905145218.py
+                test_app_20250905145256.py
+                test_app_20250905145257.py
+                test_app_20250905145345.py
+                test_app_20250905145351.py
+                test_app_20250905145408.py
+                test_app_20250905145415.py
+                test_app_20250905145427.py
+                test_app_20250905145432.py
+                test_app_20250905145438.py
+                test_app_20250905145440.py
+                test_app_20250905145441.py
+                test_app_20250905145443.py
+                test_app_20250905145533.py
+                test_app_20250905145536.py
+                test_app_20250905145544.py
+                test_app_20250905145602.py
+                test_app_20250905145615.py
+                test_app_20250905145752.py
+                test_app_20250905145757.py
+                test_app_20250905145758.py
+                test_app_20250905145759.py
+                test_app_20250905145828.py
+                test_app_20250905145829.py
+                test_app_20250905145848.py
+                test_app_20250905145856.py
+                test_app_20250905145927.py
+                test_app_20250905145929.py
+                test_app_20250905145945.py
+                test_app_20250905145948.py
+                test_app_20250905150021.py
+                test_app_20250905150022.py
+                test_app_20250905150106.py
+                test_app_20250905150123.py
+                test_app_20250905150144.py
+                test_app_20250905150145.py
+                test_app_20250905150250.py
+                test_app_20250905150252.py
+                test_app_20250905150324.py
+                test_app_20250905150327.py
+                test_app_20250905150331.py
+                test_app_20250905150335.py
+                test_app_20250905150336.py
+                test_app_20250905150430.py
+                test_app_20250905150449.py
+                test_app_20250905150454.py
+                test_app_20250905150505.py
+                test_app_20250905150519.py
+                test_app_20250905150538.py
+                test_app_20250905150610.py
+                test_app_20250905150614.py
+                test_app_20250905150616.py
+                test_app_20250905150617.py
+                test_app_20250905150628.py
+                test_app_20250905150632.py
                 utils_database_20250905101435.py
                 utils_database_20250905102457.py
+                utils_rag_20250905100616.py
+                utils_rag_20250905110824.py
+                utils_rag_20250905110829.py
+                utils_rag_20250905110830.py
                 utils_st_sessions_20250905101457.py
                 utils_st_sessions_20250905101636.py
                 utils_st_sessions_20250905101644.py
@@ -5311,6 +6362,70 @@ tubetalk.ai/
                 utils_st_sessions_20250905103304.py
                 utils_st_sessions_20250905103305.py
                 utils_st_sessions_20250905103306.py
+                utils_st_sessions_20250905105750.py
+                utils_st_sessions_20250905105756.py
+                utils_st_sessions_20250905105821.py
+                utils_st_sessions_20250905105827.py
+                utils_st_sessions_20250905105835.py
+                utils_st_sessions_20250905105838.py
+                utils_st_sessions_20250905105842.py
+                utils_st_sessions_20250905105844.py
+                utils_st_sessions_20250905105845.py
+                utils_st_sessions_20250905105849.py
+                utils_st_sessions_20250905105851.py
+                utils_st_sessions_20250905105852.py
+                utils_st_sessions_20250905105853.py
+                utils_st_sessions_20250905110846.py
+                utils_st_sessions_20250905110942.py
+                utils_st_sessions_20250905110943.py
+                utils_st_sessions_20250905113014.py
+                utils_st_sessions_20250905113025.py
+                utils_st_sessions_20250905113040.py
+                utils_st_sessions_20250905113044.py
+                utils_st_sessions_20250905113048.py
+                utils_st_sessions_20250905113049.py
+                utils_st_sessions_20250905113051.py
+                utils_st_sessions_20250905113056.py
+                utils_st_sessions_20250905113057.py
+                utils_st_sessions_20250905113101.py
+                utils_st_sessions_20250905113119.py
+                utils_st_sessions_20250905113121.py
+                utils_st_sessions_20250905113122.py
+                utils_st_sessions_20250905113143.py
+                utils_st_sessions_20250905113147.py
+                utils_st_sessions_20250905113216.py
+                utils_st_sessions_20250905114719.py
+                utils_st_sessions_20250905114743.py
+                utils_st_sessions_20250905114744.py
+                utils_st_sessions_20250905114751.py
+                utils_st_sessions_20250905114752.py
+                utils_st_sessions_20250905114753.py
+                utils_st_sessions_20250905114814.py
+                utils_st_sessions_20250905114821.py
+                utils_st_sessions_20250905114835.py
+                utils_st_sessions_20250905135738.py
+                utils_st_sessions_20250905135740.py
+                utils_st_sessions_20250905135744.py
+                utils_st_sessions_20250905135746.py
+                utils_st_sessions_20250905135751.py
+                utils_st_sessions_20250905135754.py
+                utils_st_sessions_20250905135756.py
+                utils_st_sessions_20250905135808.py
+                utils_st_sessions_20250905140553.py
+                utils_st_sessions_20250905140555.py
+                utils_st_sessions_20250905140556.py
+                utils_st_sessions_20250905140712.py
+                utils_st_sessions_20250905140715.py
+                utils_st_sessions_20250905140753.py
+                utils_st_sessions_20250905140925.py
+                utils_st_sessions_20250905140943.py
+                utils_st_sessions_20250905141000.py
+                utils_st_sessions_20250905141001.py
+                utils_st_sessions_20250905141002.py
+                utils_st_sessions_20250905141131.py
+                utils_st_sessions_20250905141134.py
+                utils_st_sessions_20250905141138.py
+                utils_st_sessions_20250905141139.py
                 youtube_utils_20250905100703.py
                 youtube_utils_20250905100706.py
                 youtube_utils_20250905100723.py
@@ -5334,50 +6449,53 @@ tubetalk.ai/
                 yt_rag_model_20250905103459.py
                 yt_rag_model_20250905103501.py
                 yt_rag_model_20250905105118.py
+        testing_summerizer/
+            __init___20250909173522.py
+            __init___20250909173524.py
     faiss_indexes/
-        AI learning/
+        AI roadmap/
             index.faiss
             index.pkl
-        blackblack/
+        AI roadMap2/
             index.faiss
             index.pkl
-        chat1/
+        andreq NG/
             index.faiss
             index.pkl
-        final_testing/
+        huberman/
             index.faiss
             index.pkl
-        MCPs/
-            index.faiss
-            index.pkl
-        MultiModel RAG/
-            index.faiss
-            index.pkl
-        part 1 krisnaik/
-            index.faiss
-            index.pkl
-        part 4/
-            index.faiss
-            index.pkl
-        part1 happiness/
-            index.faiss
-            index.pkl
+    fast-api/
+        main.py
+        model_calling.py
+        __pycache__/
+            main.cpython-311.pyc
+            model_calling.cpython-311.pyc
     notebooks/
         newDataBase1.db
         ragDatabase.db
         ragDatabase.db-shm
         ragDatabase.db-wal
+        sample.ipynb
+        summaryDB.db
+        summaryDB.db-shm
+        summaryDB.db-wal
         testing.db
         testing.db-shm
         testing.db-wal
         testing.ipynb
+        testing_langChainShortVid.ipynb
         testing_rag_structured_output.ipynb
         testing_short_videos.ipynb
         testing_structured_output_pydantic.ipynb
+        testing_summaryLChain.ipynb
+        testing_summaryLGraph.ipynb
         testing_youtube.ipynb
         testing_youtube_rag.ipynb
         ytShortVideo.db
         yt_ShortVideo.db
+        yt_ShortVideo.db-shm
+        yt_ShortVideo.db-wal
         faiss_indexes/
             thread5519/
                 index.faiss
@@ -5387,27 +6505,32 @@ tubetalk.ai/
         pages/
             chatbot.py
             yt_ShortVideo_model_app.py
-    testing_folder/
-        utils_database.py
-        utils_rag.py
-        utils_st_sessions.py
-        utils_youtube.py
+    testing_chatbot/
+        __init__.py
         non_rag/
             lecture_chat.py
             testing_YT_shortVideos.py
             utility_functions.py
             yt_shortVideo_model.py
+            __init__.py
         rag/
             test.py
             testing_rag.py
             test_app.py
+            test_app2.py
+            utils_database.py
+            utils_rag.py
+            utils_st_sessions.py
+            utils_youtube.py
             yt_rag_model.py
+            __init__.py
             __pycache__/
                 utils_database.cpython-311.pyc
                 utils_rag.cpython-311.pyc
                 utils_st_sessions.cpython-311.pyc
                 utils_youtube.cpython-311.pyc
                 yt_rag_model.cpython-311.pyc
+                __init__.cpython-311.pyc
         __pycache__/
             app.cpython-311.pyc
             conversation_utils.cpython-311.pyc
@@ -5425,6 +6548,14 @@ tubetalk.ai/
             yt_rag_model.cpython-311.pyc
             yt_shortVideo_model.cpython-311.pyc
             yt_shortVideo_model.cpython-313.pyc
+            __init__.cpython-311.pyc
+    testing_summary/
+        app.py
+        model_langChain.py
+        test_app.py
+        __init__.py
+        __pycache__/
+            model_langChain.cpython-311.pyc
     venv/
         pyvenv.cfg
         etc/
@@ -8132,6 +9263,326 @@ tubetalk.ai/
                     REQUESTED
                     top_level.txt
                     WHEEL
+                dns/
+                    asyncbackend.py
+                    asyncquery.py
+                    asyncresolver.py
+                    btree.py
+                    btreezone.py
+                    dnssec.py
+                    dnssectypes.py
+                    e164.py
+                    edns.py
+                    entropy.py
+                    enum.py
+                    exception.py
+                    flags.py
+                    grange.py
+                    immutable.py
+                    inet.py
+                    ipv4.py
+                    ipv6.py
+                    message.py
+                    name.py
+                    namedict.py
+                    nameserver.py
+                    node.py
+                    opcode.py
+                    py.typed
+                    query.py
+                    rcode.py
+                    rdata.py
+                    rdataclass.py
+                    rdataset.py
+                    rdatatype.py
+                    renderer.py
+                    resolver.py
+                    reversename.py
+                    rrset.py
+                    serial.py
+                    set.py
+                    tokenizer.py
+                    transaction.py
+                    tsig.py
+                    tsigkeyring.py
+                    ttl.py
+                    update.py
+                    version.py
+                    versioned.py
+                    win32util.py
+                    wire.py
+                    xfr.py
+                    zone.py
+                    zonefile.py
+                    zonetypes.py
+                    _asyncbackend.py
+                    _asyncio_backend.py
+                    _ddr.py
+                    _features.py
+                    _immutable_ctx.py
+                    _no_ssl.py
+                    _tls_util.py
+                    _trio_backend.py
+                    __init__.py
+                    dnssecalgs/
+                        base.py
+                        cryptography.py
+                        dsa.py
+                        ecdsa.py
+                        eddsa.py
+                        rsa.py
+                        __init__.py
+                        __pycache__/
+                            base.cpython-311.pyc
+                            cryptography.cpython-311.pyc
+                            dsa.cpython-311.pyc
+                            ecdsa.cpython-311.pyc
+                            eddsa.cpython-311.pyc
+                            rsa.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    quic/
+                        _asyncio.py
+                        _common.py
+                        _sync.py
+                        _trio.py
+                        __init__.py
+                        __pycache__/
+                            _asyncio.cpython-311.pyc
+                            _common.cpython-311.pyc
+                            _sync.cpython-311.pyc
+                            _trio.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    rdtypes/
+                        dnskeybase.py
+                        dsbase.py
+                        euibase.py
+                        mxbase.py
+                        nsbase.py
+                        svcbbase.py
+                        tlsabase.py
+                        txtbase.py
+                        util.py
+                        __init__.py
+                        ANY/
+                            AFSDB.py
+                            AMTRELAY.py
+                            AVC.py
+                            CAA.py
+                            CDNSKEY.py
+                            CDS.py
+                            CERT.py
+                            CNAME.py
+                            CSYNC.py
+                            DLV.py
+                            DNAME.py
+                            DNSKEY.py
+                            DS.py
+                            DSYNC.py
+                            EUI48.py
+                            EUI64.py
+                            GPOS.py
+                            HINFO.py
+                            HIP.py
+                            ISDN.py
+                            L32.py
+                            L64.py
+                            LOC.py
+                            LP.py
+                            MX.py
+                            NID.py
+                            NINFO.py
+                            NS.py
+                            NSEC.py
+                            NSEC3.py
+                            NSEC3PARAM.py
+                            OPENPGPKEY.py
+                            OPT.py
+                            PTR.py
+                            RESINFO.py
+                            RP.py
+                            RRSIG.py
+                            RT.py
+                            SMIMEA.py
+                            SOA.py
+                            SPF.py
+                            SSHFP.py
+                            TKEY.py
+                            TLSA.py
+                            TSIG.py
+                            TXT.py
+                            URI.py
+                            WALLET.py
+                            X25.py
+                            ZONEMD.py
+                            __init__.py
+                            __pycache__/
+                                AFSDB.cpython-311.pyc
+                                AMTRELAY.cpython-311.pyc
+                                AVC.cpython-311.pyc
+                                CAA.cpython-311.pyc
+                                CDNSKEY.cpython-311.pyc
+                                CDS.cpython-311.pyc
+                                CERT.cpython-311.pyc
+                                CNAME.cpython-311.pyc
+                                CSYNC.cpython-311.pyc
+                                DLV.cpython-311.pyc
+                                DNAME.cpython-311.pyc
+                                DNSKEY.cpython-311.pyc
+                                DS.cpython-311.pyc
+                                DSYNC.cpython-311.pyc
+                                EUI48.cpython-311.pyc
+                                EUI64.cpython-311.pyc
+                                GPOS.cpython-311.pyc
+                                HINFO.cpython-311.pyc
+                                HIP.cpython-311.pyc
+                                ISDN.cpython-311.pyc
+                                L32.cpython-311.pyc
+                                L64.cpython-311.pyc
+                                LOC.cpython-311.pyc
+                                LP.cpython-311.pyc
+                                MX.cpython-311.pyc
+                                NID.cpython-311.pyc
+                                NINFO.cpython-311.pyc
+                                NS.cpython-311.pyc
+                                NSEC.cpython-311.pyc
+                                NSEC3.cpython-311.pyc
+                                NSEC3PARAM.cpython-311.pyc
+                                OPENPGPKEY.cpython-311.pyc
+                                OPT.cpython-311.pyc
+                                PTR.cpython-311.pyc
+                                RESINFO.cpython-311.pyc
+                                RP.cpython-311.pyc
+                                RRSIG.cpython-311.pyc
+                                RT.cpython-311.pyc
+                                SMIMEA.cpython-311.pyc
+                                SOA.cpython-311.pyc
+                                SPF.cpython-311.pyc
+                                SSHFP.cpython-311.pyc
+                                TKEY.cpython-311.pyc
+                                TLSA.cpython-311.pyc
+                                TSIG.cpython-311.pyc
+                                TXT.cpython-311.pyc
+                                URI.cpython-311.pyc
+                                WALLET.cpython-311.pyc
+                                X25.cpython-311.pyc
+                                ZONEMD.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        CH/
+                            A.py
+                            __init__.py
+                            __pycache__/
+                                A.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        IN/
+                            A.py
+                            AAAA.py
+                            APL.py
+                            DHCID.py
+                            HTTPS.py
+                            IPSECKEY.py
+                            KX.py
+                            NAPTR.py
+                            NSAP.py
+                            NSAP_PTR.py
+                            PX.py
+                            SRV.py
+                            SVCB.py
+                            WKS.py
+                            __init__.py
+                            __pycache__/
+                                A.cpython-311.pyc
+                                AAAA.cpython-311.pyc
+                                APL.cpython-311.pyc
+                                DHCID.cpython-311.pyc
+                                HTTPS.cpython-311.pyc
+                                IPSECKEY.cpython-311.pyc
+                                KX.cpython-311.pyc
+                                NAPTR.cpython-311.pyc
+                                NSAP.cpython-311.pyc
+                                NSAP_PTR.cpython-311.pyc
+                                PX.cpython-311.pyc
+                                SRV.cpython-311.pyc
+                                SVCB.cpython-311.pyc
+                                WKS.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        __pycache__/
+                            dnskeybase.cpython-311.pyc
+                            dsbase.cpython-311.pyc
+                            euibase.cpython-311.pyc
+                            mxbase.cpython-311.pyc
+                            nsbase.cpython-311.pyc
+                            svcbbase.cpython-311.pyc
+                            tlsabase.cpython-311.pyc
+                            txtbase.cpython-311.pyc
+                            util.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        asyncbackend.cpython-311.pyc
+                        asyncquery.cpython-311.pyc
+                        asyncresolver.cpython-311.pyc
+                        btree.cpython-311.pyc
+                        btreezone.cpython-311.pyc
+                        dnssec.cpython-311.pyc
+                        dnssectypes.cpython-311.pyc
+                        e164.cpython-311.pyc
+                        edns.cpython-311.pyc
+                        entropy.cpython-311.pyc
+                        enum.cpython-311.pyc
+                        exception.cpython-311.pyc
+                        flags.cpython-311.pyc
+                        grange.cpython-311.pyc
+                        immutable.cpython-311.pyc
+                        inet.cpython-311.pyc
+                        ipv4.cpython-311.pyc
+                        ipv6.cpython-311.pyc
+                        message.cpython-311.pyc
+                        name.cpython-311.pyc
+                        namedict.cpython-311.pyc
+                        nameserver.cpython-311.pyc
+                        node.cpython-311.pyc
+                        opcode.cpython-311.pyc
+                        query.cpython-311.pyc
+                        rcode.cpython-311.pyc
+                        rdata.cpython-311.pyc
+                        rdataclass.cpython-311.pyc
+                        rdataset.cpython-311.pyc
+                        rdatatype.cpython-311.pyc
+                        renderer.cpython-311.pyc
+                        resolver.cpython-311.pyc
+                        reversename.cpython-311.pyc
+                        rrset.cpython-311.pyc
+                        serial.cpython-311.pyc
+                        set.cpython-311.pyc
+                        tokenizer.cpython-311.pyc
+                        transaction.cpython-311.pyc
+                        tsig.cpython-311.pyc
+                        tsigkeyring.cpython-311.pyc
+                        ttl.cpython-311.pyc
+                        update.cpython-311.pyc
+                        version.cpython-311.pyc
+                        versioned.cpython-311.pyc
+                        win32util.cpython-311.pyc
+                        wire.cpython-311.pyc
+                        xfr.cpython-311.pyc
+                        zone.cpython-311.pyc
+                        zonefile.cpython-311.pyc
+                        zonetypes.cpython-311.pyc
+                        _asyncbackend.cpython-311.pyc
+                        _asyncio_backend.cpython-311.pyc
+                        _ddr.cpython-311.pyc
+                        _features.cpython-311.pyc
+                        _immutable_ctx.cpython-311.pyc
+                        _no_ssl.cpython-311.pyc
+                        _tls_util.cpython-311.pyc
+                        _trio_backend.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                dnspython-2.8.0.dist-info/
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    WHEEL
+                    licenses/
+                        LICENSE
                 dotenv/
                     cli.py
                     ipython.py
@@ -9292,6 +10743,36 @@ tubetalk.ai/
                     REQUESTED
                     top_level.txt
                     WHEEL
+                email_validator/
+                    deliverability.py
+                    exceptions.py
+                    py.typed
+                    rfc_constants.py
+                    syntax.py
+                    types.py
+                    validate_email.py
+                    version.py
+                    __init__.py
+                    __main__.py
+                    __pycache__/
+                        deliverability.cpython-311.pyc
+                        exceptions.cpython-311.pyc
+                        rfc_constants.cpython-311.pyc
+                        syntax.cpython-311.pyc
+                        types.cpython-311.pyc
+                        validate_email.cpython-311.pyc
+                        version.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                        __main__.cpython-311.pyc
+                email_validator-2.3.0.dist-info/
+                    entry_points.txt
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    top_level.txt
+                    WHEEL
+                    licenses/
+                        LICENSE
                 entrypoints-0.4.dist-info/
                     INSTALLER
                     LICENSE
@@ -9398,6 +10879,196 @@ tubetalk.ai/
                     libopenblas-e824cf9fc22e5949807ce995a32e413a.dll
                     msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll
                     vcomp140-55aba23cdcd6484fbb06f4155b8ca75a.dll
+                fastapi/
+                    applications.py
+                    background.py
+                    cli.py
+                    concurrency.py
+                    datastructures.py
+                    encoders.py
+                    exceptions.py
+                    exception_handlers.py
+                    logger.py
+                    params.py
+                    param_functions.py
+                    py.typed
+                    requests.py
+                    responses.py
+                    routing.py
+                    staticfiles.py
+                    templating.py
+                    testclient.py
+                    types.py
+                    utils.py
+                    websockets.py
+                    _compat.py
+                    __init__.py
+                    __main__.py
+                    dependencies/
+                        models.py
+                        utils.py
+                        __init__.py
+                        __pycache__/
+                            models.cpython-311.pyc
+                            utils.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    middleware/
+                        cors.py
+                        gzip.py
+                        httpsredirect.py
+                        trustedhost.py
+                        wsgi.py
+                        __init__.py
+                        __pycache__/
+                            cors.cpython-311.pyc
+                            gzip.cpython-311.pyc
+                            httpsredirect.cpython-311.pyc
+                            trustedhost.cpython-311.pyc
+                            wsgi.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    openapi/
+                        constants.py
+                        docs.py
+                        models.py
+                        utils.py
+                        __init__.py
+                        __pycache__/
+                            constants.cpython-311.pyc
+                            docs.cpython-311.pyc
+                            models.cpython-311.pyc
+                            utils.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    security/
+                        api_key.py
+                        base.py
+                        http.py
+                        oauth2.py
+                        open_id_connect_url.py
+                        utils.py
+                        __init__.py
+                        __pycache__/
+                            api_key.cpython-311.pyc
+                            base.cpython-311.pyc
+                            http.cpython-311.pyc
+                            oauth2.cpython-311.pyc
+                            open_id_connect_url.cpython-311.pyc
+                            utils.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        applications.cpython-311.pyc
+                        background.cpython-311.pyc
+                        cli.cpython-311.pyc
+                        concurrency.cpython-311.pyc
+                        datastructures.cpython-311.pyc
+                        encoders.cpython-311.pyc
+                        exceptions.cpython-311.pyc
+                        exception_handlers.cpython-311.pyc
+                        logger.cpython-311.pyc
+                        params.cpython-311.pyc
+                        param_functions.cpython-311.pyc
+                        requests.cpython-311.pyc
+                        responses.cpython-311.pyc
+                        routing.cpython-311.pyc
+                        staticfiles.cpython-311.pyc
+                        templating.cpython-311.pyc
+                        testclient.cpython-311.pyc
+                        types.cpython-311.pyc
+                        utils.cpython-311.pyc
+                        websockets.cpython-311.pyc
+                        _compat.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                        __main__.cpython-311.pyc
+                fastapi-0.116.1.dist-info/
+                    entry_points.txt
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    REQUESTED
+                    WHEEL
+                    licenses/
+                        LICENSE
+                fastapi_cli/
+                    cli.py
+                    discover.py
+                    exceptions.py
+                    logging.py
+                    py.typed
+                    __init__.py
+                    __main__.py
+                    utils/
+                        cli.py
+                        __init__.py
+                        __pycache__/
+                            cli.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        cli.cpython-311.pyc
+                        discover.cpython-311.pyc
+                        exceptions.cpython-311.pyc
+                        logging.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                        __main__.cpython-311.pyc
+                fastapi_cli-0.0.10.dist-info/
+                    entry_points.txt
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    WHEEL
+                    licenses/
+                        LICENSE
+                fastapi_cloud_cli/
+                    cli.py
+                    config.py
+                    logging.py
+                    py.typed
+                    __init__.py
+                    __main__.py
+                    commands/
+                        deploy.py
+                        env.py
+                        login.py
+                        logout.py
+                        whoami.py
+                        __init__.py
+                        __pycache__/
+                            deploy.cpython-311.pyc
+                            env.cpython-311.pyc
+                            login.cpython-311.pyc
+                            logout.cpython-311.pyc
+                            whoami.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    utils/
+                        api.py
+                        apps.py
+                        auth.py
+                        cli.py
+                        config.py
+                        env.py
+                        sentry.py
+                        __init__.py
+                        __pycache__/
+                            api.cpython-311.pyc
+                            apps.cpython-311.pyc
+                            auth.cpython-311.pyc
+                            cli.cpython-311.pyc
+                            config.cpython-311.pyc
+                            env.cpython-311.pyc
+                            sentry.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        cli.cpython-311.pyc
+                        config.cpython-311.pyc
+                        logging.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                        __main__.cpython-311.pyc
+                fastapi_cloud_cli-0.1.5.dist-info/
+                    entry_points.txt
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    WHEEL
+                    licenses/
+                        LICENSE
                 filelock/
                     asyncio.py
                     py.typed
@@ -12759,6 +14430,32 @@ tubetalk.ai/
                         socks.cpython-311.pyc
                         __init__.cpython-311.pyc
                 httplib2-0.22.0.dist-info/
+                    INSTALLER
+                    LICENSE
+                    METADATA
+                    RECORD
+                    top_level.txt
+                    WHEEL
+                httptools/
+                    _version.py
+                    __init__.py
+                    parser/
+                        cparser.pxd
+                        errors.py
+                        parser.cp311-win_amd64.pyd
+                        parser.pyx
+                        python.pxd
+                        url_cparser.pxd
+                        url_parser.cp311-win_amd64.pyd
+                        url_parser.pyx
+                        __init__.py
+                        __pycache__/
+                            errors.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        _version.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                httptools-0.6.4.dist-info/
                     INSTALLER
                     LICENSE
                     METADATA
@@ -24371,6 +26068,16 @@ tubetalk.ai/
                     WHEEL
                     licenses/
                         LICENSE
+                multipart/
+                    decoders.py
+                    exceptions.py
+                    multipart.py
+                    __init__.py
+                    __pycache__/
+                        decoders.cpython-311.pyc
+                        exceptions.cpython-311.pyc
+                        multipart.cpython-311.pyc
+                        __init__.cpython-311.pyc
                 mypy_extensions-1.1.0.dist-info/
                     INSTALLER
                     METADATA
@@ -38021,6 +39728,24 @@ tubetalk.ai/
                     WHEEL
                     licenses/
                         LICENSE
+                python_multipart/
+                    decoders.py
+                    exceptions.py
+                    multipart.py
+                    py.typed
+                    __init__.py
+                    __pycache__/
+                        decoders.cpython-311.pyc
+                        exceptions.cpython-311.pyc
+                        multipart.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                python_multipart-0.0.20.dist-info/
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    WHEEL
+                    licenses/
+                        LICENSE.txt
                 pytube/
                     captions.py
                     cipher.py
@@ -39116,6 +40841,79 @@ tubetalk.ai/
                     RECORD
                     REQUESTED
                     WHEEL
+                rich_toolkit/
+                    button.py
+                    container.py
+                    element.py
+                    form.py
+                    input.py
+                    menu.py
+                    progress.py
+                    py.typed
+                    spacer.py
+                    toolkit.py
+                    _getchar.py
+                    _input_handler.py
+                    _rich_components.py
+                    __init__.py
+                    styles/
+                        base.py
+                        border.py
+                        fancy.py
+                        minimal.py
+                        tagged.py
+                        __init__.py
+                        __pycache__/
+                            base.cpython-311.pyc
+                            border.cpython-311.pyc
+                            fancy.cpython-311.pyc
+                            minimal.cpython-311.pyc
+                            tagged.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    utils/
+                        colors.py
+                        map_range.py
+                        __init__.py
+                        __pycache__/
+                            colors.cpython-311.pyc
+                            map_range.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        button.cpython-311.pyc
+                        container.cpython-311.pyc
+                        element.cpython-311.pyc
+                        form.cpython-311.pyc
+                        input.cpython-311.pyc
+                        menu.cpython-311.pyc
+                        progress.cpython-311.pyc
+                        spacer.cpython-311.pyc
+                        toolkit.cpython-311.pyc
+                        _getchar.cpython-311.pyc
+                        _input_handler.cpython-311.pyc
+                        _rich_components.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                rich_toolkit-0.15.1.dist-info/
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    WHEEL
+                    licenses/
+                        LICENSE
+                        LICENSE-THIRD-PARTY
+                rignore/
+                    py.typed
+                    rignore.cp311-win_amd64.pyd
+                    __init__.py
+                    __init__.pyi
+                    __pycache__/
+                        __init__.cpython-311.pyc
+                rignore-0.6.4.dist-info/
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    WHEEL
+                    licenses/
+                        LICENSE
                 rpds/
                     py.typed
                     rpds.cp311-win_amd64.pyd
@@ -42482,6 +44280,370 @@ tubetalk.ai/
                     licenses/
                         LICENSE
                         NOTICE.txt
+                sentry_sdk/
+                    api.py
+                    attachments.py
+                    client.py
+                    consts.py
+                    debug.py
+                    envelope.py
+                    feature_flags.py
+                    hub.py
+                    logger.py
+                    metrics.py
+                    monitor.py
+                    py.typed
+                    scope.py
+                    scrubber.py
+                    serializer.py
+                    session.py
+                    sessions.py
+                    spotlight.py
+                    tracing.py
+                    tracing_utils.py
+                    transport.py
+                    types.py
+                    utils.py
+                    worker.py
+                    _compat.py
+                    _init_implementation.py
+                    _log_batcher.py
+                    _lru_cache.py
+                    _queue.py
+                    _types.py
+                    _werkzeug.py
+                    __init__.py
+                    ai/
+                        monitoring.py
+                        utils.py
+                        __init__.py
+                        __pycache__/
+                            monitoring.cpython-311.pyc
+                            utils.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    crons/
+                        api.py
+                        consts.py
+                        decorator.py
+                        __init__.py
+                        __pycache__/
+                            api.cpython-311.pyc
+                            consts.cpython-311.pyc
+                            decorator.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    integrations/
+                        aiohttp.py
+                        anthropic.py
+                        argv.py
+                        ariadne.py
+                        arq.py
+                        asgi.py
+                        asyncio.py
+                        asyncpg.py
+                        atexit.py
+                        aws_lambda.py
+                        beam.py
+                        boto3.py
+                        bottle.py
+                        chalice.py
+                        clickhouse_driver.py
+                        cloud_resource_context.py
+                        cohere.py
+                        dedupe.py
+                        dramatiq.py
+                        excepthook.py
+                        executing.py
+                        falcon.py
+                        fastapi.py
+                        flask.py
+                        gcp.py
+                        gnu_backtrace.py
+                        gql.py
+                        graphene.py
+                        httpx.py
+                        huey.py
+                        huggingface_hub.py
+                        langchain.py
+                        langgraph.py
+                        launchdarkly.py
+                        litestar.py
+                        logging.py
+                        loguru.py
+                        modules.py
+                        openai.py
+                        openfeature.py
+                        pure_eval.py
+                        pymongo.py
+                        pyramid.py
+                        quart.py
+                        ray.py
+                        rq.py
+                        rust_tracing.py
+                        sanic.py
+                        serverless.py
+                        socket.py
+                        sqlalchemy.py
+                        starlette.py
+                        starlite.py
+                        statsig.py
+                        stdlib.py
+                        strawberry.py
+                        sys_exit.py
+                        threading.py
+                        tornado.py
+                        trytond.py
+                        typer.py
+                        unleash.py
+                        unraisablehook.py
+                        wsgi.py
+                        _asgi_common.py
+                        _wsgi_common.py
+                        __init__.py
+                        celery/
+                            beat.py
+                            utils.py
+                            __init__.py
+                            __pycache__/
+                                beat.cpython-311.pyc
+                                utils.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        django/
+                            asgi.py
+                            caching.py
+                            middleware.py
+                            signals_handlers.py
+                            templates.py
+                            transactions.py
+                            views.py
+                            __init__.py
+                            __pycache__/
+                                asgi.cpython-311.pyc
+                                caching.cpython-311.pyc
+                                middleware.cpython-311.pyc
+                                signals_handlers.cpython-311.pyc
+                                templates.cpython-311.pyc
+                                transactions.cpython-311.pyc
+                                views.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        grpc/
+                            client.py
+                            consts.py
+                            server.py
+                            __init__.py
+                            aio/
+                                client.py
+                                server.py
+                                __init__.py
+                                __pycache__/
+                                    client.cpython-311.pyc
+                                    server.cpython-311.pyc
+                                    __init__.cpython-311.pyc
+                            __pycache__/
+                                client.cpython-311.pyc
+                                consts.cpython-311.pyc
+                                server.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        openai_agents/
+                            consts.py
+                            utils.py
+                            __init__.py
+                            patches/
+                                agent_run.py
+                                models.py
+                                runner.py
+                                tools.py
+                                __init__.py
+                                __pycache__/
+                                    agent_run.cpython-311.pyc
+                                    models.cpython-311.pyc
+                                    runner.cpython-311.pyc
+                                    tools.cpython-311.pyc
+                                    __init__.cpython-311.pyc
+                            spans/
+                                agent_workflow.py
+                                ai_client.py
+                                execute_tool.py
+                                handoff.py
+                                invoke_agent.py
+                                __init__.py
+                                __pycache__/
+                                    agent_workflow.cpython-311.pyc
+                                    ai_client.cpython-311.pyc
+                                    execute_tool.cpython-311.pyc
+                                    handoff.cpython-311.pyc
+                                    invoke_agent.cpython-311.pyc
+                                    __init__.cpython-311.pyc
+                            __pycache__/
+                                consts.cpython-311.pyc
+                                utils.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        opentelemetry/
+                            consts.py
+                            integration.py
+                            propagator.py
+                            span_processor.py
+                            __init__.py
+                            __pycache__/
+                                consts.cpython-311.pyc
+                                integration.cpython-311.pyc
+                                propagator.cpython-311.pyc
+                                span_processor.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        redis/
+                            consts.py
+                            rb.py
+                            redis.py
+                            redis_cluster.py
+                            redis_py_cluster_legacy.py
+                            utils.py
+                            _async_common.py
+                            _sync_common.py
+                            __init__.py
+                            modules/
+                                caches.py
+                                queries.py
+                                __init__.py
+                                __pycache__/
+                                    caches.cpython-311.pyc
+                                    queries.cpython-311.pyc
+                                    __init__.cpython-311.pyc
+                            __pycache__/
+                                consts.cpython-311.pyc
+                                rb.cpython-311.pyc
+                                redis.cpython-311.pyc
+                                redis_cluster.cpython-311.pyc
+                                redis_py_cluster_legacy.cpython-311.pyc
+                                utils.cpython-311.pyc
+                                _async_common.cpython-311.pyc
+                                _sync_common.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        spark/
+                            spark_driver.py
+                            spark_worker.py
+                            __init__.py
+                            __pycache__/
+                                spark_driver.cpython-311.pyc
+                                spark_worker.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        __pycache__/
+                            aiohttp.cpython-311.pyc
+                            anthropic.cpython-311.pyc
+                            argv.cpython-311.pyc
+                            ariadne.cpython-311.pyc
+                            arq.cpython-311.pyc
+                            asgi.cpython-311.pyc
+                            asyncio.cpython-311.pyc
+                            asyncpg.cpython-311.pyc
+                            atexit.cpython-311.pyc
+                            aws_lambda.cpython-311.pyc
+                            beam.cpython-311.pyc
+                            boto3.cpython-311.pyc
+                            bottle.cpython-311.pyc
+                            chalice.cpython-311.pyc
+                            clickhouse_driver.cpython-311.pyc
+                            cloud_resource_context.cpython-311.pyc
+                            cohere.cpython-311.pyc
+                            dedupe.cpython-311.pyc
+                            dramatiq.cpython-311.pyc
+                            excepthook.cpython-311.pyc
+                            executing.cpython-311.pyc
+                            falcon.cpython-311.pyc
+                            fastapi.cpython-311.pyc
+                            flask.cpython-311.pyc
+                            gcp.cpython-311.pyc
+                            gnu_backtrace.cpython-311.pyc
+                            gql.cpython-311.pyc
+                            graphene.cpython-311.pyc
+                            httpx.cpython-311.pyc
+                            huey.cpython-311.pyc
+                            huggingface_hub.cpython-311.pyc
+                            langchain.cpython-311.pyc
+                            langgraph.cpython-311.pyc
+                            launchdarkly.cpython-311.pyc
+                            litestar.cpython-311.pyc
+                            logging.cpython-311.pyc
+                            loguru.cpython-311.pyc
+                            modules.cpython-311.pyc
+                            openai.cpython-311.pyc
+                            openfeature.cpython-311.pyc
+                            pure_eval.cpython-311.pyc
+                            pymongo.cpython-311.pyc
+                            pyramid.cpython-311.pyc
+                            quart.cpython-311.pyc
+                            ray.cpython-311.pyc
+                            rq.cpython-311.pyc
+                            rust_tracing.cpython-311.pyc
+                            sanic.cpython-311.pyc
+                            serverless.cpython-311.pyc
+                            socket.cpython-311.pyc
+                            sqlalchemy.cpython-311.pyc
+                            starlette.cpython-311.pyc
+                            starlite.cpython-311.pyc
+                            statsig.cpython-311.pyc
+                            stdlib.cpython-311.pyc
+                            strawberry.cpython-311.pyc
+                            sys_exit.cpython-311.pyc
+                            threading.cpython-311.pyc
+                            tornado.cpython-311.pyc
+                            trytond.cpython-311.pyc
+                            typer.cpython-311.pyc
+                            unleash.cpython-311.pyc
+                            unraisablehook.cpython-311.pyc
+                            wsgi.cpython-311.pyc
+                            _asgi_common.cpython-311.pyc
+                            _wsgi_common.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    profiler/
+                        continuous_profiler.py
+                        transaction_profiler.py
+                        utils.py
+                        __init__.py
+                        __pycache__/
+                            continuous_profiler.cpython-311.pyc
+                            transaction_profiler.cpython-311.pyc
+                            utils.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        api.cpython-311.pyc
+                        attachments.cpython-311.pyc
+                        client.cpython-311.pyc
+                        consts.cpython-311.pyc
+                        debug.cpython-311.pyc
+                        envelope.cpython-311.pyc
+                        feature_flags.cpython-311.pyc
+                        hub.cpython-311.pyc
+                        logger.cpython-311.pyc
+                        metrics.cpython-311.pyc
+                        monitor.cpython-311.pyc
+                        scope.cpython-311.pyc
+                        scrubber.cpython-311.pyc
+                        serializer.cpython-311.pyc
+                        session.cpython-311.pyc
+                        sessions.cpython-311.pyc
+                        spotlight.cpython-311.pyc
+                        tracing.cpython-311.pyc
+                        tracing_utils.cpython-311.pyc
+                        transport.cpython-311.pyc
+                        types.cpython-311.pyc
+                        utils.cpython-311.pyc
+                        worker.cpython-311.pyc
+                        _compat.cpython-311.pyc
+                        _init_implementation.cpython-311.pyc
+                        _log_batcher.cpython-311.pyc
+                        _lru_cache.cpython-311.pyc
+                        _queue.cpython-311.pyc
+                        _types.cpython-311.pyc
+                        _werkzeug.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                sentry_sdk-2.37.0.dist-info/
+                    entry_points.txt
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    top_level.txt
+                    WHEEL
+                    licenses/
+                        LICENSE
                 setuptools/
                     archive_util.py
                     build_meta.py
@@ -45547,6 +47709,86 @@ tubetalk.ai/
                     RECORD
                     top_level.txt
                     WHEEL
+                starlette/
+                    applications.py
+                    authentication.py
+                    background.py
+                    concurrency.py
+                    config.py
+                    convertors.py
+                    datastructures.py
+                    endpoints.py
+                    exceptions.py
+                    formparsers.py
+                    py.typed
+                    requests.py
+                    responses.py
+                    routing.py
+                    schemas.py
+                    staticfiles.py
+                    status.py
+                    templating.py
+                    testclient.py
+                    types.py
+                    websockets.py
+                    _exception_handler.py
+                    _utils.py
+                    __init__.py
+                    middleware/
+                        authentication.py
+                        base.py
+                        cors.py
+                        errors.py
+                        exceptions.py
+                        gzip.py
+                        httpsredirect.py
+                        sessions.py
+                        trustedhost.py
+                        wsgi.py
+                        __init__.py
+                        __pycache__/
+                            authentication.cpython-311.pyc
+                            base.cpython-311.pyc
+                            cors.cpython-311.pyc
+                            errors.cpython-311.pyc
+                            exceptions.cpython-311.pyc
+                            gzip.cpython-311.pyc
+                            httpsredirect.cpython-311.pyc
+                            sessions.cpython-311.pyc
+                            trustedhost.cpython-311.pyc
+                            wsgi.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        applications.cpython-311.pyc
+                        authentication.cpython-311.pyc
+                        background.cpython-311.pyc
+                        concurrency.cpython-311.pyc
+                        config.cpython-311.pyc
+                        convertors.cpython-311.pyc
+                        datastructures.cpython-311.pyc
+                        endpoints.cpython-311.pyc
+                        exceptions.cpython-311.pyc
+                        formparsers.cpython-311.pyc
+                        requests.cpython-311.pyc
+                        responses.cpython-311.pyc
+                        routing.cpython-311.pyc
+                        schemas.cpython-311.pyc
+                        staticfiles.cpython-311.pyc
+                        status.cpython-311.pyc
+                        templating.cpython-311.pyc
+                        testclient.cpython-311.pyc
+                        types.cpython-311.pyc
+                        websockets.cpython-311.pyc
+                        _exception_handler.cpython-311.pyc
+                        _utils.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                starlette-0.47.3.dist-info/
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    WHEEL
+                    licenses/
+                        LICENSE.md
                 streamlit/
                     auth_util.py
                     cli_util.py
@@ -70672,6 +72914,110 @@ tubetalk.ai/
                     WHEEL
                     licenses/
                         LICENSE.txt
+                uvicorn/
+                    config.py
+                    importer.py
+                    logging.py
+                    main.py
+                    py.typed
+                    server.py
+                    workers.py
+                    _subprocess.py
+                    _types.py
+                    __init__.py
+                    __main__.py
+                    lifespan/
+                        off.py
+                        on.py
+                        __init__.py
+                        __pycache__/
+                            off.cpython-311.pyc
+                            on.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    loops/
+                        asyncio.py
+                        auto.py
+                        uvloop.py
+                        __init__.py
+                        __pycache__/
+                            asyncio.cpython-311.pyc
+                            auto.cpython-311.pyc
+                            uvloop.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    middleware/
+                        asgi2.py
+                        message_logger.py
+                        proxy_headers.py
+                        wsgi.py
+                        __init__.py
+                        __pycache__/
+                            asgi2.cpython-311.pyc
+                            message_logger.cpython-311.pyc
+                            proxy_headers.cpython-311.pyc
+                            wsgi.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    protocols/
+                        utils.py
+                        __init__.py
+                        http/
+                            auto.py
+                            flow_control.py
+                            h11_impl.py
+                            httptools_impl.py
+                            __init__.py
+                            __pycache__/
+                                auto.cpython-311.pyc
+                                flow_control.cpython-311.pyc
+                                h11_impl.cpython-311.pyc
+                                httptools_impl.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        websockets/
+                            auto.py
+                            websockets_impl.py
+                            websockets_sansio_impl.py
+                            wsproto_impl.py
+                            __init__.py
+                            __pycache__/
+                                auto.cpython-311.pyc
+                                websockets_impl.cpython-311.pyc
+                                websockets_sansio_impl.cpython-311.pyc
+                                wsproto_impl.cpython-311.pyc
+                                __init__.cpython-311.pyc
+                        __pycache__/
+                            utils.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    supervisors/
+                        basereload.py
+                        multiprocess.py
+                        statreload.py
+                        watchfilesreload.py
+                        __init__.py
+                        __pycache__/
+                            basereload.cpython-311.pyc
+                            multiprocess.cpython-311.pyc
+                            statreload.cpython-311.pyc
+                            watchfilesreload.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        config.cpython-311.pyc
+                        importer.cpython-311.pyc
+                        logging.cpython-311.pyc
+                        main.cpython-311.pyc
+                        server.cpython-311.pyc
+                        workers.cpython-311.pyc
+                        _subprocess.cpython-311.pyc
+                        _types.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                        __main__.cpython-311.pyc
+                uvicorn-0.35.0.dist-info/
+                    entry_points.txt
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    REQUESTED
+                    WHEEL
+                    licenses/
+                        LICENSE.md
                 validate/
                     __init__.py
                     __pycache__/
@@ -70791,6 +73137,33 @@ tubetalk.ai/
                     REQUESTED
                     top_level.txt
                     WHEEL
+                watchfiles/
+                    cli.py
+                    filters.py
+                    main.py
+                    py.typed
+                    run.py
+                    version.py
+                    _rust_notify.cp311-win_amd64.pyd
+                    _rust_notify.pyi
+                    __init__.py
+                    __main__.py
+                    __pycache__/
+                        cli.cpython-311.pyc
+                        filters.cpython-311.pyc
+                        main.cpython-311.pyc
+                        run.cpython-311.pyc
+                        version.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                        __main__.cpython-311.pyc
+                watchfiles-1.1.0.dist-info/
+                    entry_points.txt
+                    INSTALLER
+                    METADATA
+                    RECORD
+                    WHEEL
+                    licenses/
+                        LICENSE
                 wcwidth/
                     table_vs16.py
                     table_wide.py
@@ -70813,6 +73186,122 @@ tubetalk.ai/
                     top_level.txt
                     WHEEL
                     zip-safe
+                websockets/
+                    auth.py
+                    cli.py
+                    client.py
+                    connection.py
+                    datastructures.py
+                    exceptions.py
+                    frames.py
+                    headers.py
+                    http.py
+                    http11.py
+                    imports.py
+                    protocol.py
+                    py.typed
+                    server.py
+                    speedups.c
+                    speedups.cp311-win_amd64.pyd
+                    speedups.pyi
+                    streams.py
+                    typing.py
+                    uri.py
+                    utils.py
+                    version.py
+                    __init__.py
+                    __main__.py
+                    asyncio/
+                        async_timeout.py
+                        client.py
+                        compatibility.py
+                        connection.py
+                        messages.py
+                        router.py
+                        server.py
+                        __init__.py
+                        __pycache__/
+                            async_timeout.cpython-311.pyc
+                            client.cpython-311.pyc
+                            compatibility.cpython-311.pyc
+                            connection.cpython-311.pyc
+                            messages.cpython-311.pyc
+                            router.cpython-311.pyc
+                            server.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    extensions/
+                        base.py
+                        permessage_deflate.py
+                        __init__.py
+                        __pycache__/
+                            base.cpython-311.pyc
+                            permessage_deflate.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    legacy/
+                        auth.py
+                        client.py
+                        exceptions.py
+                        framing.py
+                        handshake.py
+                        http.py
+                        protocol.py
+                        server.py
+                        __init__.py
+                        __pycache__/
+                            auth.cpython-311.pyc
+                            client.cpython-311.pyc
+                            exceptions.cpython-311.pyc
+                            framing.cpython-311.pyc
+                            handshake.cpython-311.pyc
+                            http.cpython-311.pyc
+                            protocol.cpython-311.pyc
+                            server.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    sync/
+                        client.py
+                        connection.py
+                        messages.py
+                        router.py
+                        server.py
+                        utils.py
+                        __init__.py
+                        __pycache__/
+                            client.cpython-311.pyc
+                            connection.cpython-311.pyc
+                            messages.cpython-311.pyc
+                            router.cpython-311.pyc
+                            server.cpython-311.pyc
+                            utils.cpython-311.pyc
+                            __init__.cpython-311.pyc
+                    __pycache__/
+                        auth.cpython-311.pyc
+                        cli.cpython-311.pyc
+                        client.cpython-311.pyc
+                        connection.cpython-311.pyc
+                        datastructures.cpython-311.pyc
+                        exceptions.cpython-311.pyc
+                        frames.cpython-311.pyc
+                        headers.cpython-311.pyc
+                        http.cpython-311.pyc
+                        http11.cpython-311.pyc
+                        imports.cpython-311.pyc
+                        protocol.cpython-311.pyc
+                        server.cpython-311.pyc
+                        streams.cpython-311.pyc
+                        typing.cpython-311.pyc
+                        uri.cpython-311.pyc
+                        utils.cpython-311.pyc
+                        version.cpython-311.pyc
+                        __init__.cpython-311.pyc
+                        __main__.cpython-311.pyc
+                websockets-15.0.1.dist-info/
+                    entry_points.txt
+                    INSTALLER
+                    LICENSE
+                    METADATA
+                    RECORD
+                    top_level.txt
+                    WHEEL
                 win32/
                     license.txt
                     mmapfile.pyd
@@ -72085,7 +74574,9 @@ tubetalk.ai/
             dulwich.exe
             dvc-data.exe
             dvc.exe
+            email_validator.exe
             f2py.exe
+            fastapi.exe
             filetype.exe
             gto.exe
             hf.exe
@@ -72139,7 +74630,10 @@ tubetalk.ai/
             transformers-cli.exe
             transformers.exe
             typer.exe
+            uvicorn.exe
+            watchfiles.exe
             watchmedo.exe
+            websockets.exe
             youtube_transcript_api.exe
             __pycache__/
                 pywin32_postinstall.cpython-311.pyc
