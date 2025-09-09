@@ -18,3 +18,9 @@ def summarizer(data: InputSchema):
         "parsed_output": parsed_output,
         "model_response": response
         }
+
+@app.post("/quiz")
+def quiz(data: InputSchema):
+    response = modelcalling.generate_quiz(url=data.input_url)
+    return {'response' : response}
+    

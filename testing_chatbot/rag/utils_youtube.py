@@ -35,7 +35,7 @@ def load_transcript(url: str) -> str | None:
     if match:
         video_id = match.group(1)
         try:
-            captions = YouTubeTranscriptApi().fetch(video_id).snippets
+            captions = YouTubeTranscriptApi().fetch(video_id,languages=['en','hi']).snippets
             data = [f"{item.text} ({item.start})" for item in captions]
             return " ".join(data)
         except Exception as e:
