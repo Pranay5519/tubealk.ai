@@ -35,7 +35,8 @@ def load_transcript(url: str) -> str | None:
             print(f"❌ Error fetching transcript: {e}")
             return None
 
-
+if 'generated' not in st.session_state:
+    st.session_state['generated'] = False
 # ------------------- Input -------------------
 input_url = st.text_input("Enter YouTube link here...")
 
@@ -65,7 +66,7 @@ if st.session_state.generated:
         st.info("🤖 Generating summary with AI...")
         response, parsed_output, summary = summarizer.summarize_video(youtube_captions)
 
-        embed_url = "https://www.youtube.com/embed/3_TN1i3MTEU"
+        embed_url = get_embed_url(input_url)
 
         # ------------------- Video Summary -------------------
         st.header("📹 VIDEO SUMMARY")
@@ -78,12 +79,34 @@ if st.session_state.generated:
 
     st.subheader("Total Segments")
     st.write(summary.get('total_segments', 0))
+    
+    st.subheader("📚 MAIN TOPICS:")
+    for i, topic in enumerate(summary['main_topics'], 1):
+        st.markdown(f"**{i}. {topic['topic']}**")
+        col1, col2 = st.columns([3,1])
+        col1.write(f"⏱️ Timestamp: {topic['timestamp']}s")
 
+        if col2.button("⏰ Play", key=f"play_topic_{i}"):
+            st.session_state.play_topic_index = i - 1  # store index
+
+        # Placeholder for video under the topic
+        if st.session_state.get("play_topic_index") == i - 1:
+            timestamp = int(float(topic['timestamp']))
+            timestamp_url = f"{embed_url}?start={timestamp}&autoplay=1"
+            st.markdown(f"""
+                <iframe width="800" height="450"
+                src="{timestamp_url}"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            """, unsafe_allow_html=True)
+
+                    
     st.subheader("📋 OVERVIEW")
     st.write(summary['overview'])
 
     st.subheader("🎯 KEY POINTS:")
-    for i, point in enumerate(summary['key_points'], 1):
+    for i, point in enumerate(summary['key_pt_brief_summary'][0]['key_points'],1):
         st.markdown(f"**{i}. {point['content']}**")
         col1, col2 = st.columns([3,1])
         col1.write(f"Importance: {point['importance']}")
@@ -102,10 +125,6 @@ if st.session_state.generated:
                 encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
             """, unsafe_allow_html=True)
-
-    st.subheader("📚 MAIN TOPICS:")
-    for topic in summary['main_topics']:
-        st.write(f"• {topic}")
 
     st.subheader("⏱️ PACING ANALYSIS:")
     st.write(summary['duration_summary'])

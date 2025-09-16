@@ -25,14 +25,20 @@ class SummaryPoint(BaseModel):
     timestamp: float = Field(description="Timestamp in seconds when this topic was discussed")
     importance: str = Field(description="Importance level: high, medium, low")
 
+class BriefSummary(BaseModel):
+    key_points: List[SummaryPoint] = Field(description="List of key points with timestamps and also inlcudes brief summary on Each key Point , does not include unimportant topics")
+
+class MainTopic(BaseModel):
+    topic: str = Field(description="The topic name")
+    timestamp: float = Field(description="Approx timestamp when topic starts")
+
 class VideoSummary(BaseModel):
     """Complete video summary structure"""
     title: str = Field(description="Suggested title for the video based on content")
-    overview: str = Field(description="Brief overview of the entire video")
-    key_points: List[SummaryPoint] = Field(description="List of key points with timestamps")
-    main_topics: List[str] = Field(description="List of main topics covered")
+    overview: str = Field(description="Brief overview of the entire video upto 200 words")
+    key_pt_brief_summary : List[BriefSummary] = Field(description="Brief Summary for each Key Point")
+    main_topics: List[MainTopic] = Field(description="List of main topics covered")
     duration_summary: str = Field(description="Summary of video duration and pacing")
-
 
 class YouTubeVideoSummarizer:
     def __init__(self):
@@ -172,7 +178,7 @@ class YouTubeVideoSummarizer:
         except Exception as e:
             return {"error": f"Failed to generate summary: {str(e)}"}
     
-    def format_summary_output(self, summary: Dict[str, Any]) -> str:
+    def format_summary_output(summary: Dict[str, Any]) -> str:
         if "error" in summary:
             return f"Error: {summary['error']}"
         
@@ -184,20 +190,21 @@ class YouTubeVideoSummarizer:
         output.append(f"Total Segments: {summary.get('total_segments', 0)}")
         output.append("")
         
+        output.append("📚 MAIN TOPICS:")
+        for topic in summary['main_topics']:
+            output.append(f"• {topic['topic']}\t")
+            output.append(f"{topic['timestamp']}")
+        output.append("")
+        
         output.append("📋 OVERVIEW:")
         output.append(summary['overview'])
         output.append("")
         
         output.append("🎯 KEY POINTS:")
-        for i, point in enumerate(summary['key_points'], 1):
+        for i, point in enumerate(summary['key_pt_brief_summary'][0]['key_points'],1):
             output.append(f"{i}. {point['content']}")
             output.append(f"   ⏰ Timestamp: {point['timestamp']}s | Importance: {point['importance']}")
             output.append("")
-        
-        output.append("📚 MAIN TOPICS:")
-        for topic in summary['main_topics']:
-            output.append(f"• {topic}")
-        output.append("")
         
         output.append("⏱️ PACING ANALYSIS:")
         output.append(summary['duration_summary'])

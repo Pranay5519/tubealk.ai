@@ -4,6 +4,8 @@ from testing_quiz.model_quiz import QuizGenerator
 from testing_chatbot.rag.utils_youtube import load_transcript
 from typing import Tuple
 from langchain_core.messages.ai import AIMessage
+from testing_chatbot.rag.utils_rag import *
+
 class ModelCalling:
     def __init__(self):
         pass
@@ -20,3 +22,7 @@ class ModelCalling:
         response = quiz_gen.generate_quiz(transcripts)
         return response
     
+        
+    
+    
+        
