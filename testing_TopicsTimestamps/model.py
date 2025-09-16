@@ -150,7 +150,7 @@ def extract_topics_from_transcript(transcript: str) -> TopicsOutput:
    
     return raw_output,response_message
 
-if __name__ == "__main__":
+"""if __name__ == "__main__":
    
     captions = load_transcript("https://www.youtube.com/watch?v=fZM3oX4xEyg&t=1s")
     segments =parse_transcript(captions)
@@ -168,4 +168,4 @@ if __name__ == "__main__":
         for j, sub in enumerate(topics.subtopics, 1):
             print(f"   🔹 Subtopic {i}.{j}: {sub.subtopic}  ⏰ {sub.timestamp} {sub.importance}")
 
-        print("====================================================")
+        print("====================================================")"""
