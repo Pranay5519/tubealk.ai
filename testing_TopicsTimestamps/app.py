@@ -28,14 +28,14 @@ def get_transcript(url: str):
 def get_summary(formatted_text: str):
     return extract_topics_from_transcript(" ".join(formatted_text))
 
-st.title("📹 YouTube Transcript → Topics Extractor")
+st.title("📹 TubeTalk.ai → Topics Extractor")
 
 youtube_url = st.text_input("Enter YouTube URL:")
 
 if youtube_url:
     st.info("⏳ Fetching transcript...")
     formatted = get_transcript(youtube_url)  # cached now
-    raw_output, response_message = get_summary(formatted)  # cached now
+    output = get_summary(formatted)  # cached now
     
     embed_url = get_embed_url(youtube_url)
     st.subheader("📚 Extracted Topics")
@@ -43,10 +43,11 @@ if youtube_url:
     if "play_index" not in st.session_state:
         st.session_state.play_index = None
 
-    for i, topic in enumerate(parser.parse(raw_output).main_topics, 1):
+    for i, topic in enumerate(output.main_topics, 1):
         col1, col2 = st.columns([4,1])
         with col1:
             st.markdown(f"🎯 **Main Topic {i}: {topic.topic}**")
+            st.write(topic.content)
         with col2:
             if st.button("▶️ Play", key=f"play_main_{i}"):
                 st.session_state.play_index = (f"main-{i}", topic.timestamp)
@@ -56,6 +57,7 @@ if youtube_url:
                 sub_col1, sub_col2 = st.columns([4,1])
                 with sub_col1:
                     st.markdown(f"   🔹 **Subtopic {i}.{j}:** {sub.subtopic}")
+                    st.write(sub.content)
                 with sub_col2:
                     if st.button("▶️ Play", key=f"play_sub_{i}_{j}"):
                         st.session_state.play_index = (f"sub-{i}-{j}", sub.timestamp)

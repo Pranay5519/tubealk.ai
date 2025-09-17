@@ -66,11 +66,13 @@ def parse_transcript(transcript: str) -> List[TimestampedSegment]:
 # -------------------------
 class Subtopic(BaseModel):
     subtopic: str = Field(description="Short name or description of the subtopic")
+    content: str = Field(description="Brief summary of the subtopic")
     timestamp: float = Field(description="Approx timestamp in seconds where this subtopic is discussed")
     importance: Optional[str] = Field(default=None, description="Optional importance: high/medium/low")
 
 class MainTopic(BaseModel):
     topic: str = Field(description="Main topic name or short description")
+    content : str = Field(description="Brief summary of the main topic")
     timestamp: float = Field(description="Approx timestamp in seconds where the main topic starts")
     subtopics: List[Subtopic] = Field(description="List of subtopics under this main topic")
 
@@ -131,41 +133,46 @@ model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 # 5) Runner function
 # -------------------------
 def extract_topics_from_transcript(transcript: str) -> TopicsOutput:
-    """
-    transcript: the transcript text (should contain timestamps or speaker timestamps)
-    returns: TopicsOutput (pydantic object) containing main_topics -> subtopics
-    """
-    # Build the prompt (the format_instructions are injected into system message already)
     prompt = chat_prompt.format_prompt(transcript=transcript, format_instructions=format_instructions)
-    messages = prompt.to_messages()  # list of BaseMessage objects (system + human)
+    messages = prompt.to_messages()
 
-    # Call the VertexAI chat model
-    # predict_messages returns a BaseMessage in many LangChain chat wrappers
     response_message = model.invoke(messages)
-
-    # response_message.content contains the model's text output (expected JSON)
     raw_output = response_message.content
 
-    # Parse into Pydantic model (this will raise if model output isn't valid JSON per schema)
-   
-    return raw_output,response_message
+    # If content is a list → join into a single string
+    if isinstance(raw_output, list):
+        raw_output = " ".join(raw_output)
 
-"""if __name__ == "__main__":
+    # Remove markdown fences like ```json ... ```
+    clean_output = raw_output.strip()
+    if clean_output.startswith("```"):
+        clean_output = clean_output.strip("`")
+        # Sometimes model outputs like ```json\n{...}\n``` so split off first line
+        clean_output = clean_output.split("\n", 1)[-1]
+
+    # Parse into Pydantic object
+    return parser.parse(clean_output)
+
+
+if __name__ == "__main__":
    
-    captions = load_transcript("https://www.youtube.com/watch?v=fZM3oX4xEyg&t=1s")
+    captions = load_transcript("https://youtu.be/ikzN6byFNWw")
     segments =parse_transcript(captions)
     formatted = []
     for segment in segments:
         formatted.append(f"[{segment.start_time}s] {segment.text}")
     
-    raw_output , response_message = extract_topics_from_transcript(" ".join(formatted))
-    #parser.parse(raw_output)
+    response = extract_topics_from_transcript(" ".join(formatted))
+  
     # Nicely formatted display of main topics and subtopics
-    for i, topics in enumerate(parser.parse(raw_output).main_topics, 1):
+    for i, topics in enumerate(response.main_topics, 1):
         print(f"\n🎯 Main Topic {i}: {topics.topic}  ⏰ {topics.timestamp}")
+        print(f"                  {topics.content}")
         print("----------------------------------------------------")
 
         for j, sub in enumerate(topics.subtopics, 1):
             print(f"   🔹 Subtopic {i}.{j}: {sub.subtopic}  ⏰ {sub.timestamp} {sub.importance}")
+            print(f"                  {sub.content}")
+            
 
-        print("====================================================")"""
+        print("====================================================")
