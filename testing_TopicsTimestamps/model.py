@@ -153,7 +153,7 @@ def extract_topics_from_transcript(transcript: str) -> TopicsOutput:
     # Parse into Pydantic object
     return parser.parse(clean_output)
 
-
+"""
 if __name__ == "__main__":
    
     captions = load_transcript("https://youtu.be/ikzN6byFNWw")
@@ -175,4 +175,4 @@ if __name__ == "__main__":
             #print(f"                  {sub.content}")
             
 
-        print("====================================================")
+        print("====================================================")"""

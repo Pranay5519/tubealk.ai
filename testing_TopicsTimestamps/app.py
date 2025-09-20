@@ -1,7 +1,7 @@
 import streamlit as st
 import re
 from model import parser, extract_topics_from_transcript , parse_transcript , load_transcript
-
+from utils_db import save_topics_to_db
 def get_embed_url(url: str) -> str:
     """Convert any YouTube URL into an embeddable format."""
     match = re.search(r"v=([^&]+)", url)
@@ -31,12 +31,13 @@ def get_summary(formatted_text: str):
 st.title("📹 TubeTalk.ai → Topics Extractor")
 
 youtube_url = st.text_input("Enter YouTube URL:")
-
-if youtube_url:
+thread_id = st.text_input("Enter a unique Thread ID (for saving & retrieving):")
+if youtube_url and thread_id:
     st.info("⏳ Fetching transcript...")
     formatted = get_transcript(youtube_url)  # cached now
     output = get_summary(formatted)  # cached now
-    
+    save_topics_to_db(thread_id,output.model_dump_json())  # Save to DB
+    st.success("✅ Topics extracted & saved to DB!")
     embed_url = get_embed_url(youtube_url)
     st.subheader("📚 Extracted Topics")
 
