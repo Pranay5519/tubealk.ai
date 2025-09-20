@@ -66,13 +66,13 @@ def parse_transcript(transcript: str) -> List[TimestampedSegment]:
 # -------------------------
 class Subtopic(BaseModel):
     subtopic: str = Field(description="Short name or description of the subtopic")
-    content: str = Field(description="Brief summary of the subtopic")
+    #content: str = Field(description="Brief summary of the subtopic")
     timestamp: float = Field(description="Approx timestamp in seconds where this subtopic is discussed")
     importance: Optional[str] = Field(default=None, description="Optional importance: high/medium/low")
 
 class MainTopic(BaseModel):
     topic: str = Field(description="Main topic name or short description")
-    content : str = Field(description="Brief summary of the main topic")
+    #content : str = Field(description="Brief summary of the main topic")
     timestamp: float = Field(description="Approx timestamp in seconds where the main topic starts")
     subtopics: List[Subtopic] = Field(description="List of subtopics under this main topic")
 
@@ -167,12 +167,12 @@ if __name__ == "__main__":
     # Nicely formatted display of main topics and subtopics
     for i, topics in enumerate(response.main_topics, 1):
         print(f"\n🎯 Main Topic {i}: {topics.topic}  ⏰ {topics.timestamp}")
-        print(f"                  {topics.content}")
+        #print(f"                  {topics.content}")
         print("----------------------------------------------------")
 
         for j, sub in enumerate(topics.subtopics, 1):
             print(f"   🔹 Subtopic {i}.{j}: {sub.subtopic}  ⏰ {sub.timestamp} {sub.importance}")
-            print(f"                  {sub.content}")
+            #print(f"                  {sub.content}")
             
 
         print("====================================================")

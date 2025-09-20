@@ -47,7 +47,7 @@ if youtube_url:
         col1, col2 = st.columns([4,1])
         with col1:
             st.markdown(f"🎯 **Main Topic {i}: {topic.topic}**")
-            st.write(topic.content)
+            #st.write(topic.content)
         with col2:
             if st.button("▶️ Play", key=f"play_main_{i}"):
                 st.session_state.play_index = (f"main-{i}", topic.timestamp)
@@ -57,7 +57,7 @@ if youtube_url:
                 sub_col1, sub_col2 = st.columns([4,1])
                 with sub_col1:
                     st.markdown(f"   🔹 **Subtopic {i}.{j}:** {sub.subtopic}")
-                    st.write(sub.content)
+                    #st.write(sub.content)
                 with sub_col2:
                     if st.button("▶️ Play", key=f"play_sub_{i}_{j}"):
                         st.session_state.play_index = (f"sub-{i}-{j}", sub.timestamp)
