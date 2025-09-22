@@ -46,7 +46,7 @@ class QuizGenerator:
         return response
     
     
-"""if __name__ == "__main__":
+if __name__ == "__main__":
     # Load transcript
     captions = load_transcript("https://www.youtube.com/watch?v=s3KnSb9b4Pk")
 
@@ -62,4 +62,4 @@ class QuizGenerator:
         print("Options:", quiz.options)
         print("Correct Answer:", quiz.correct_answer)
         print("Timestamp:", quiz.timestamp)
-        print("--" * 20)"""
+        print("--" * 20)
