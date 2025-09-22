@@ -13,6 +13,44 @@ st.set_page_config(
 )
 
 # =============================================================================
+# ADD CACHING WRAPPERS
+# =============================================================================
+
+@st.cache_data(show_spinner=False)
+def cached_load_transcript(url: str):
+    """Cache YouTube transcript so it doesn’t reload each rerun."""
+    return load_transcript(url)
+
+
+@st.cache_data(show_spinner=False)
+def cached_text_splitter(captions: list):
+    """Cache text splitting to avoid recomputation."""
+    return text_splitter(captions)
+
+
+@st.cache_resource(show_spinner=False)
+def cached_generate_embeddings(_chunks: list):
+    """Cache embeddings since it is expensive."""
+    return generate_embeddings(_chunks)
+
+
+@st.cache_resource(show_spinner=False)
+def cached_retriever(_vector_store):
+    """Cache retriever object."""
+    return retriever_docs(_vector_store)
+
+
+# keep build_chatbot cached too (resource-level since it holds model connections)
+@st.cache_resource(show_spinner=False)
+def cached_build_chatbot(retriever=None):
+    return build_chatbot(retriever=retriever)
+
+def clear_model_cache():
+    """Clear cached chatbot, retriever, and embeddings."""
+    cached_build_chatbot.clear()
+    cached_retriever.clear()
+    cached_generate_embeddings.clear()
+# =============================================================================
 # SESSION STATE INITIALIZATION
 # =============================================================================
 
@@ -142,11 +180,12 @@ print("Thread_Id :" , st.session_state['thread_id'])
 # =============================================================================
 retriever = None
 if st.sidebar.button("➕ Start New Chat", key="new_chat_btn"):
+    clear_model_cache()
     if input_url and thread_id:  # only load transcript if URL is provided
         reset_chat()  # clear old chat first
         database_url = None
         
-        youtube_captions = load_transcript(input_url)
+        youtube_captions = cached_load_transcript(input_url)
         st.session_state.youtube_captions = youtube_captions
         st.session_state['youtube_url'] = input_url
         st.session_state['embed_url'] = []
@@ -186,13 +225,13 @@ if youtube_captions:
 
     with st.spinner("⏳ Processing..."):
         status_box.info("🔄 Splitting text into chunks...")
-        chunks = text_splitter(youtube_captions)
-
+        chunks = cached_text_splitter(youtube_captions)
+        #print(chunks[0])
         status_box.info("✅ Text split into chunks\n\n🔄 Generating embeddings...")
-        vector_store = generate_embeddings(chunks)
+        vector_store = cached_generate_embeddings(chunks)
 
         status_box.info("✅ Embeddings generated\n\n🔄 Creating retriever...")
-        retriever = retriever_docs(vector_store)
+        retriever = cached_retriever(vector_store)
 
     status_box.success("🎉 Chatbot ready!")
 
@@ -206,8 +245,6 @@ if "retriever" in st.session_state and st.session_state['retriever']:
     chatbot = st.session_state['chatbot']
 else:
     chatbot = build_chatbot(retriever=retriever)
-
-
 # Show saved YouTube video (if exists)
 
 if st.session_state['thread_id']:
