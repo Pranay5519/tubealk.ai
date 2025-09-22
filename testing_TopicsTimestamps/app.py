@@ -1,7 +1,7 @@
 import streamlit as st
 import re
 from model import parser, extract_topics_from_transcript , parse_transcript , load_transcript
-from utils_db import save_topics_to_db
+from utils_db import save_topics_to_db , load_topics_from_db
 def get_embed_url(url: str) -> str:
     """Convert any YouTube URL into an embeddable format."""
     match = re.search(r"v=([^&]+)", url)
@@ -34,11 +34,17 @@ youtube_url = st.text_input("Enter YouTube URL:")
 thread_id = st.text_input("Enter a unique Thread ID (for saving & retrieving):")
 if st.button("Generate Topics"):
     if youtube_url and thread_id:
-        st.info("⏳ Fetching transcript...")
-        formatted = get_transcript(youtube_url)  # cached now
-        output = get_summary(formatted)  # cached now
-        save_topics_to_db(thread_id,output.model_dump_json())  # Save to DB
-        st.success("✅ Topics extracted & saved to DB!")
+        output = load_topics_from_db(thread_id)
+        if output:
+            st.success("✅ Topics loaded from DB!")
+            print(type(output))
+        else:
+            st.info("⏳ Fetching transcript...")
+            formatted = get_transcript(youtube_url)  # cached now
+            output = get_summary(formatted)  # cached now
+            print(type(output))
+            save_topics_to_db(thread_id,output.model_dump_json())  # Save to DB
+            st.success("✅ Topics extracted & saved to DB!")
         embed_url = get_embed_url(youtube_url)
         st.subheader("📚 Extracted Topics")
 
