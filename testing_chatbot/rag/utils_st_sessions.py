@@ -55,6 +55,7 @@ def sidebar_thread_selection(chatbot):
                 st.session_state['youtube_captions'] = load_captions_from_db(thread_id)
                 st.session_state['youtube_url'] = load_url_from_db(thread_id)
                 print(f"Sidebar Selection -{thread_id} -> YouTube URL: {st.session_state['youtube_url']}")
+                print(f"Sidebar Selection - {thread_id} -> Captions Loaded" if st.session_state['youtube_captions'] else f"Sidebar Selection - {thread_id} -> No Captions")
 
                 # Rebuild message history
                 temp_history = []

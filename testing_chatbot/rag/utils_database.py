@@ -45,7 +45,7 @@ def load_captions_from_db(thread_id: str) -> str | None:
     """
     Load transcript captions for a thread.
     """
-    conn = sqlite3.connect(database="newDataBase1.db", check_same_thread=False)
+    conn = sqlite3.connect(database="ragDatabase.db", check_same_thread=False)
     cursor = conn.cursor()
     cursor.execute("SELECT captions FROM transcripts WHERE thread_id = ?", (thread_id,))
     row = cursor.fetchone()

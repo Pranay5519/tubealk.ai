@@ -2,7 +2,7 @@ import streamlit as st
 from langchain_core.messages import HumanMessage , AIMessage
 from yt_rag_model import build_chatbot , retrieve_all_threads  
 from testing_chatbot.rag.utils_youtube import get_embed_url , load_transcript
-from testing_chatbot.rag.utils_database import  save_youtube_url_to_db , delete_all_threads_from_db
+from testing_chatbot.rag.utils_database import  save_youtube_url_to_db , delete_all_threads_from_db , save_captions_to_db
 from testing_chatbot.rag.utils_st_sessions import reset_chat , sidebar_thread_selection , add_threadId_to_chatThreads
 from testing_chatbot.rag.utils_rag import text_splitter , generate_embeddings , retriever_docs , save_embeddings_faiss ,clear_faiss_indexes
 st.set_page_config(
@@ -281,6 +281,7 @@ if user_input:
         with st.spinner("saving into FAISS"):
             save_embeddings_faiss(thread_id=thread_id ,vector_store=vector_store)   
             save_youtube_url_to_db(thread_id=thread_id , youtube_url=input_url )
+            save_captions_to_db(thread_id=thread_id , captions=youtube_captions )
         st.sidebar.status("Done") 
     st.session_state['message_history'].append({"role": "user", "content": user_input})
     with st.chat_message("user"):
@@ -304,7 +305,9 @@ if user_input:
                 stream_mode='messages'
             )
         )
-        print("AI : " , response)
+        
+        if response:
+            print("AI Response Generated")
         response_text, timestamp = map(str.strip, response.split("Timestamp:"))
         st.write(response_text)
         timestamp_url = f"{extract_url}&t={int(float(timestamp))}s"
