@@ -3,7 +3,25 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from pydantic import BaseModel, Field
 from typing import List
-from testing_chatbot.rag.utils_youtube import load_transcript
+#rom testing_chatbot.rag.utils_youtube import load_transcript
+import re
+from dotenv import load_dotenv
+load_dotenv()
+def load_transcript(url: str) -> str | None:
+    """
+    Fetch transcript for a YouTube video.
+    """
+    pattern = r'(?:v=|\/)([0-9A-Za-z_-]{11})'
+    match = re.search(pattern, url)
+    if match:
+        video_id = match.group(1)
+        try:
+            captions = YouTubeTranscriptApi().fetch(video_id,languages=['en','hi']).snippets
+            data = [f"{item.text} ({item.start})" for item in captions]
+            return " ".join(data)
+        except Exception as e:
+            print(f"❌ Error fetching transcript: {e}")
+            return None
 
 class Quiz(BaseModel):
     question: str = Field(description="A well-formed multiple-choice quiz question")
