@@ -1,7 +1,7 @@
 import sqlite3
 import json
 from datetime import datetime
-from model import TopicsOutput, parser  
+from testing_TopicsTimestamps.model import TopicsOutput, parser  
 # ================== DATABASE (SQLite) ==================
 def save_topics_to_db(thread_id: str, topics: str):
     """

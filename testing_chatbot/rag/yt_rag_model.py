@@ -16,6 +16,10 @@ import re
 import sqlite3
 from dotenv import load_dotenv
 load_dotenv()
+# ------------------ Structured Schema ------------------
+class AnsandTime(BaseModel):
+    answer: list[str] = Field(description="Answers to user's question (no timestamps here)")
+    timestamps: float = Field(description="The time (in seconds) from where the answer was taken")
 
 
 # ------------------ Build LLM (Gemini) ------------------
@@ -73,10 +77,6 @@ Make the viewer feel their question was thoroughly addressed
 """)
 
 
-# ------------------ Structured Schema ------------------
-class AnsandTime(BaseModel):
-    answer: list[str] = Field(description="Answers to user's question (no timestamps here)")
-    timestamps: float = Field(description="The time (in seconds) from where the answer was taken")
 
 
 structured_model = model.with_structured_output(AnsandTime)

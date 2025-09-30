@@ -3,7 +3,7 @@ import sqlite3
 import json
 from datetime import datetime
 from typing import Optional, Any
-from model_quiz import QuizList
+from testing_quiz.model_quiz import QuizList
 # ================== UTILITIES ==================
 def get_embed_url(url: str) -> str:
     """Convert any YouTube URL into an embeddable format."""

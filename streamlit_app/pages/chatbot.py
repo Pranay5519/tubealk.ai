@@ -1,86 +1,59 @@
-import sys
-import os
 import streamlit as st
-import uuid
-from langchain_core.messages import HumanMessage
-
-# Add the testing_folder to Python path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../testing_folder")))
-from utility_functions import *
-from yt_shortVideo_model import retrieve_all_threads, build_chatbot, checkpointer
-
-# =============================================================================
-# PAGE CONFIG
-# =============================================================================
-st.set_page_config(page_title="TubeTalk.ai - LectureChat", page_icon="💬", layout="wide")
-
-#Hide Sidebar Home and other pages/files from displaying
-hide_pages_style = """
-<style>
-[data-testid="stSidebarNav"] {display: none;}
-</style>
-"""
-# =============================================================================
-# STYLING
-# =============================================================================
-st.markdown("""
-<style>
-    .main-header {
-        text-align: center;
-        padding: 2rem 0;
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border-radius: 10px;
-        margin-bottom: 2rem;
-    }
-    .video-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 1.5rem;
-    }
-    iframe {
-        border-radius: 12px;
-        box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
-    }
-    .chat-bubble-user {
-        background: #667eea;
-        color: white;
-        padding: 0.8rem;
-        border-radius: 15px;
-        margin: 0.5rem 0;
-        max-width: 70%;
-        align-self: flex-end;
-    }
-    .chat-bubble-assistant {
-        background: #f1f1f1;
-        padding: 0.8rem;
-        border-radius: 15px;
-        margin: 0.5rem 0;
-        max-width: 70%;
-        align-self: flex-start;
-    }
-    .chat-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-</style>
-""", unsafe_allow_html=True)
+from langchain_core.messages import HumanMessage , AIMessage
+from testing_chatbot.rag.yt_rag_model import build_chatbot , retrieve_all_threads  
+from testing_chatbot.rag.utils_youtube import get_embed_url , load_transcript
+from testing_chatbot.rag.utils_database import  save_youtube_url_to_db , delete_all_threads_from_db , save_captions_to_db
+from testing_chatbot.rag.utils_st_sessions import reset_chat , sidebar_thread_selection , add_threadId_to_chatThreads
+from testing_chatbot.rag.utils_rag import text_splitter , generate_embeddings , retriever_docs , save_embeddings_faiss ,clear_faiss_indexes
+st.set_page_config(
+    page_title="LectureChat",
+    page_icon="💬",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
 # =============================================================================
-# HEADER
+# ADD CACHING WRAPPERS
 # =============================================================================
-st.markdown("""
-<div class="main-header">
-    <h1>💬 LectureChat</h1>
-    <h3>Ask Questions, Get AI Answers with Timestamps</h3>
-</div>
-""", unsafe_allow_html=True)
 
+@st.cache_data(show_spinner=False)
+def cached_load_transcript(url: str):
+    """Cache YouTube transcript so it doesn’t reload each rerun."""
+    return load_transcript(url)
+
+
+@st.cache_data(show_spinner=False)
+def cached_text_splitter(captions: list):
+    """Cache text splitting to avoid recomputation."""
+    return text_splitter(captions)
+
+
+@st.cache_resource(show_spinner=False)
+def cached_generate_embeddings(_chunks: list):
+    """Cache embeddings since it is expensive."""
+    return generate_embeddings(_chunks)
+
+
+@st.cache_resource(show_spinner=False)
+def cached_retriever(_vector_store):
+    """Cache retriever object."""
+    return retriever_docs(_vector_store)
+
+
+# keep build_chatbot cached too (resource-level since it holds model connections)
+@st.cache_resource(show_spinner=False)
+def cached_build_chatbot(retriever=None):
+    return build_chatbot(retriever=retriever)
+
+def clear_model_cache():
+    """Clear cached chatbot, retriever, and embeddings."""
+    cached_build_chatbot.clear()
+    cached_retriever.clear()
+    cached_generate_embeddings.clear()
 # =============================================================================
-# SESSION STATE
+# SESSION STATE INITIALIZATION
 # =============================================================================
+
 if 'message_history' not in st.session_state:
     st.session_state['message_history'] = []
 
@@ -92,125 +65,307 @@ if "chat_threads" not in st.session_state:
 
 if "youtube_captions" not in st.session_state:
     st.session_state.youtube_captions = []
-
+   
 if "youtube_url" not in st.session_state:
-    st.session_state.youtube_url = []
-
+    st.session_state.youtube_url = [] 
+   
 if "embed_url" not in st.session_state:
-    st.session_state.embed_url = []
+    st.session_state.embed_url = [] 
+if "retriever" not in st.session_state:
+    st.session_state.retriever = None 
+# =============================================================================
+# STYLING AND CSS
+# =============================================================================
+st.markdown("""
+<div class="main-header">
+    <div class="header-content">
+        <h1>💬 LectureChat</h1>
+        <p>Ask Questions, Get AI Answers with Timestamps</p>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+    /* Header Styling */
+    .main-header {
+        background-color: #f0f2f6;
+        border: 1px solid #e1e5e9;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .header-content h1 {
+        color: #1f2937;
+        margin-bottom: 5px;
+    }
+    
+    .header-content p {
+        color: #6b7280;
+        margin: 0;
+    }
+
+    /* Fixed Video Position - Same as Original */
+    .fixed-video {
+        position: fixed;
+        top: 140px;
+        left: 2vw;
+        z-index: 100;
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Chat Area - Same Layout as Original */
+    .block-container {
+        padding-top: 120px !important;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: 2vw;
+    }
+    
+    .stChatInput {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: 5vw;
+    }
+    h3 {
+    position: fixed;      /* lock it in place */
+    top: 80px;           /* below header */
+    left: 16vw;            /* move a bit right */
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    background: none;     /* remove box */
+    padding: 0;           /* no padding */
+    box-shadow: none;     /* no shadow */
+    color: #222;          /* dark text for visibility */
+    z-index: 950;
+
+    /* Spacer */
+    .spacer {
+        margin-top: 180px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 
 # =============================================================================
-# SIDEBAR
+# SIDEBAR CONFIGURATION
 # =============================================================================
+
+st.sidebar.title("🤖LangGraph Chatbot with Gemini")
 st.sidebar.success("🚀 Start your interactive lecture chat")
 
-st.sidebar.header("➕ Start New Chat")
-input_url = st.sidebar.text_input("📺 YouTube Video URL")
-thread_id = st.sidebar.text_input("📝 Conversation Name")
+input_url = st.sidebar.text_input("Enter YouTube Video URL: ")
+thread_id = st.sidebar.text_input("Give a Conversation Name : ")
 
-if st.sidebar.button("Start Chat"):
-    if input_url and thread_id:
-        reset_chat()
-        youtube_captions = load_transcript(input_url)
+# define Variables 
+database_url = None
+video_url = None
+# =============================================================================
+# MAIN CONTENT AREA - THREAD AND VIDEO DISPLAY
+# =============================================================================
+
+# Show thread id on Top (if exists)
+print(">>> Checking Thread and Video display section")
+print("Thread_Id :" , st.session_state['thread_id'])
+
+# =============================================================================
+# SIDEBAR FUNCTIONALITY - NEW CHAT BUTTON
+# =============================================================================
+retriever = None
+if st.sidebar.button("➕ Start New Chat", key="new_chat_btn"):
+    clear_model_cache()
+    if input_url and thread_id:  # only load transcript if URL is provided
+        reset_chat()  # clear old chat first
+        database_url = None
+        
+        youtube_captions = cached_load_transcript(input_url)
         st.session_state.youtube_captions = youtube_captions
-        st.session_state.youtube_url = input_url
-        st.success("✅ Transcript loaded successfully!")
-    else:
-        st.warning("⚠️ Please enter both a YouTube URL and Conversation Name.")
+        st.session_state['youtube_url'] = input_url
+        st.session_state['embed_url'] = []
+        st.session_state['thread_id'] = []
+        st.session_state.retriever = None 
+        st.subheader(thread_id)
+        print("Displaying YouTube video from Input")
+        embed_url = get_embed_url(input_url)
+        st.markdown(f"""
+            <div class="fixed-video">
+                <iframe width="800" height="400"
+                src="{embed_url}"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    elif not input_url:
+        st.warning("Please enter a YouTube URL before starting a new chat.")
+    elif not thread_id:
+         st.warning("Please enter a Conversation Name before starting a new chat.")
+
+# =============================================================================
+# SIDEBAR - CONVERSATION HISTORY
+# =============================================================================
+print("-" * 30)
+if st.sidebar.button("🚮 Delete Conversations"):
+    delete_all_threads_from_db()
+    clear_faiss_indexes()
+
+youtube_captions = st.session_state['youtube_captions']
+
+if youtube_captions:
+    status_box = st.empty()  # placeholder for single updating message
+
+    with st.spinner("⏳ Processing..."):
+        status_box.info("🔄 Splitting text into chunks...")
+        chunks = cached_text_splitter(youtube_captions)
+        #print(chunks[0])
+        status_box.info("✅ Text split into chunks\n\n🔄 Generating embeddings...")
+        vector_store = cached_generate_embeddings(chunks)
+
+        status_box.info("✅ Embeddings generated\n\n🔄 Creating retriever...")
+        retriever = cached_retriever(vector_store)
+
+    status_box.success("🎉 Chatbot ready!")
 
 st.sidebar.markdown("---")
 st.sidebar.header("📂 My Conversations")
-youtube_captions = st.session_state['youtube_captions']
-chatbot = build_chatbot(youtube_captions)
+        
+chatbot = build_chatbot(retriever=retriever)
 sidebar_thread_selection(chatbot)
-
-# =============================================================================
-# MAIN CONTENT
-# =============================================================================
-
-# Show video if available
-if st.session_state['youtube_url']:
-    embed_url = get_embed_url(st.session_state['youtube_url'])
-    st.markdown(f"""
-    <div class="video-container">
-        <iframe width="900" height="380"
-        src="{embed_url}"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-        encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-        </iframe>
-    </div>
-    """, unsafe_allow_html=True)
+# Use retriever from session state if available
+if "retriever" in st.session_state and st.session_state['retriever']:
+    chatbot = st.session_state['chatbot']
 else:
-    st.info("📺 Paste a YouTube URL in the sidebar to begin.")
+    chatbot = build_chatbot(retriever=retriever)
+# Show saved YouTube video (if exists)
+
+if st.session_state['thread_id']:
+    database_url = st.session_state['youtube_url']
+    print("Loading video from session DataBase URL-->" , database_url)
+elif thread_id and input_url:
+    print("Loading  video URL INPUT ")
+    video_url = input_url
+else:
+    print("No video URL found")
+    video_url = None
+
+
+if database_url:
+    
+    embed_url = get_embed_url(database_url)
+    st.markdown(f"""
+        <div class="fixed-video">
+            <iframe width="800" height="400"
+            src="{embed_url}"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+            encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+        """,
+        unsafe_allow_html=True
+    ) 
+    print("Displaying YouTube video from DataBase")
+
 
 # =============================================================================
-# CHAT DISPLAY
+# CHAT DISPLAY AND INTERACTION
 # =============================================================================
-st.subheader("💬 Chat with AI")
 
-chat_container = st.container()
-with chat_container:
-    st.markdown('<div class="chat-container">', unsafe_allow_html=True)
-    for msg in st.session_state["message_history"]:
-        if msg["role"] == "user":
-            st.markdown(f"<div class='chat-bubble-user'>{msg['content']}</div>", unsafe_allow_html=True)
+# Display Chat History
+for idx, message in enumerate(st.session_state["message_history"]):
+    with st.chat_message(message["role"]):
+        if message["role"] == 'assistant':
+            response_text, timestamp = map(str.strip, message['content'].split("Timestamp:"))
+            st.text(response_text)
+            #print("youtube_url_history_load-->" , st.session_state['youtube_url'])
+            url = get_embed_url(st.session_state['youtube_url'])
+            
+            timestamp_url_play = f"{url}?start={int(float(timestamp))}&autoplay=1"
+
+            # unique key using idx
+            if st.button("▶️ Watch", key=f"watch_{idx}"):
+                print(f"Watch button clicked From Message History {idx} - ▶️")
+                st.markdown(
+                    f"""
+                    <div class="fixed-video">
+                        <iframe width="800" height="400"
+                        src="{timestamp_url_play}"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                        encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
         else:
-            clean_text = msg['content'].split("Timestamp:")[0].strip()
-            st.markdown(f"<div class='chat-bubble-assistant'>{clean_text}</div>", unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
+            st.text(message["content"])
 
-# =============================================================================
-# CHAT INPUT
-# =============================================================================
-user_input = st.chat_input("💡 Ask a question about this lecture...")
-if user_input:
+
+# Chat Input Processing
+user_input = st.chat_input("Enter your question:")
+if user_input:   
     if st.session_state['message_history'] == []:
-        store_thread_id(thread_id=thread_id)
-        save_transcript(thread_id=thread_id, captions=youtube_captions, youtube_url=input_url)
-
-    # Add user message
+        add_threadId_to_chatThreads(thread_id=thread_id)
+        with st.spinner("saving into FAISS"):
+            save_embeddings_faiss(thread_id=thread_id ,vector_store=vector_store)   
+            save_youtube_url_to_db(thread_id=thread_id , youtube_url=input_url )
+            save_captions_to_db(thread_id=thread_id , captions=youtube_captions )
+        st.sidebar.status("Done") 
     st.session_state['message_history'].append({"role": "user", "content": user_input})
-    st.markdown(f"<div class='chat-bubble-user'>{user_input}</div>", unsafe_allow_html=True)
+    with st.chat_message("user"):
+        st.text(user_input)
+
     CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}}
-    chatbot = build_chatbot(st.session_state['youtube_captions'])
+    youtube_captions = st.session_state['youtube_captions']
+    
+    if st.session_state['youtube_url'] == []: # extract url is from user input url
+        extract_url = input_url
+    else:
+        extract_url = st.session_state['youtube_url']
+        
+    
 
     with st.chat_message("assistant"):
         response = "".join(
-            chunk.content for chunk, _ in chatbot.stream(
+            chunk.content for chunk,_ in chatbot.stream(
                 {'messages': [HumanMessage(content=user_input)]},
                 config=CONFIG,
                 stream_mode='messages'
             )
         )
-
+        
+        if response:
+            print("AI Response Generated")
         response_text, timestamp = map(str.strip, response.split("Timestamp:"))
-        timestamp_url = f"{st.session_state['youtube_url']}&t={int(float(timestamp))}s"
-
-        # Update embed with timestamp
-        embed_url = get_embed_url(st.session_state['youtube_url'])
+        st.write(response_text)
+        timestamp_url = f"{extract_url}&t={int(float(timestamp))}s"
+        print("Extract url", extract_url)
+        print("video URL:", video_url)
+        
+        embed_url = get_embed_url(extract_url)
         timestamp_url_play = f"{embed_url}?start={int(float(timestamp))}&autoplay=1"
-        st.session_state['embed_url'] = timestamp_url_play
-
-        # Show assistant bubble
-        st.markdown(f"<div class='chat-bubble-assistant'>{response_text}</div>", unsafe_allow_html=True)
-
-        # Save assistant message
-        st.session_state['message_history'].append({
+        
+        #print("EMbede URL:", embed_url)
+        #print("TIMESTAMP URL:", timestamp_url)
+        #print("TIMESTAMP URL:", timestamp_url_play)
+        #print("--" * 50)
+        
+        #st.session_state['embed_url'] = timestamp_url_play
+        
+    
+    st.session_state['message_history'].append({
             "role": "assistant",
-            "content": response_text
+            "content": response
         })
 
-# =============================================================================
-# WATCH BUTTON
-# =============================================================================
-if st.session_state['embed_url']:
-    if st.button("▶️ Watch Answered Part"):
-        st.markdown(f"""
-        <div class="video-container">
-            <iframe width="900" height="380"
-            src="{st.session_state['embed_url']}"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-            encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-        </div>
-        """, unsafe_allow_html=True)
+    st.rerun()
+print("=" * 80)

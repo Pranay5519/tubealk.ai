@@ -1,14 +1,11 @@
-from yt_rag_model import * 
-import uuid
-import re
+from testing_chatbot.rag.yt_rag_model import * 
+
 import os
-import sqlite3
 import shutil
 from langchain_core.messages import HumanMessage
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.prompts import PromptTemplate
 
 # ================== TEXT SPLITTING ==================
 def text_splitter(transcript: str):
@@ -17,7 +14,6 @@ def text_splitter(transcript: str):
     """
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     return splitter.create_documents([transcript])
-
 
 # ================== EMBEDDINGS & RETRIEVER ==================
 def generate_embeddings(chunks):

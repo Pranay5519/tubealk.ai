@@ -1,8 +1,14 @@
 import os
 
 def save_folder_structure(root_folder, output_file):
+    # Folders to skip
+    skip_folders = {"__pycache__", ".git", ".venv", "venv", ".history", ".mypy_cache"}
+
     with open(output_file, "w", encoding="utf-8") as f:
         for foldername, subfolders, filenames in os.walk(root_folder):
+            # Remove unwanted folders from being walked into
+            subfolders[:] = [d for d in subfolders if d not in skip_folders]
+
             # Get relative path depth for indentation
             level = foldername.replace(root_folder, "").count(os.sep)
             indent = "    " * level

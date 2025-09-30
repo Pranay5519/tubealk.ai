@@ -57,16 +57,16 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("### 📚 Quick Navigation")
 
 if st.sidebar.button("📝 SmartSummary"):
-    st.switch_page("pages/smartsummary.py")
+    st.switch_page("pages/summary_app.py")
 
 if st.sidebar.button("⏰ TimelineTopics"):
-    st.switch_page("pages/timelinetopics.py")
+    st.switch_page("pages/topic_app.py")
 
 if st.sidebar.button("💬 LectureChat"):
     st.switch_page("pages/chatbot.py")  # <-- your chatbot page
 
 if st.sidebar.button("🧠 KnowledgeQuiz"):
-    st.switch_page("pages/knowledgequiz.py")
+    st.switch_page("pages/quiz_app.py")
 
 if st.sidebar.button("🎯 ConceptJump"):
     st.switch_page("pages/conceptjump.py")
